@@ -7,7 +7,7 @@ public class TurkishStemmerTest {
   private final TurkishStemmer stemmer = new TurkishStemmer();
 
   /**
-   * a sample of greek words that should be stemmed by the Skroutz Greek stemmer.
+   * a sample of Turkish words that should be stemmed by the Turkish stemmer.
    */
   private static final String[] words = { };
 
