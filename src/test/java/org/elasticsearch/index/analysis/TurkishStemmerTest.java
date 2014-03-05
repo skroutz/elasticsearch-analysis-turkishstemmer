@@ -32,4 +32,39 @@ public class TurkishStemmerTest {
     }
   }
 
+  @Test
+  public void testCountSyllables() {
+    Assert.assertEquals(stemmer.countSyllables("okul"), 2);
+    Assert.assertEquals(stemmer.countSyllables(""), 0);
+  }
+
+  @Test
+  public void testVowels() {
+    Assert.assertEquals(TurkishStemmer.vowels("ükulş"), "üu");
+    Assert.assertEquals(TurkishStemmer.vowels(""), "");
+  }
+
+  @Test
+  public void testhasFrontness() {
+    Assert.assertEquals(TurkishStemmer.hasFrontness('e', 'i'), true);
+    Assert.assertEquals(TurkishStemmer.hasFrontness('a', 'i'), false);
+  }
+
+  @Test
+  public void testhasRoundness() {
+    Assert.assertEquals(TurkishStemmer.hasRoundness('o', 'i'), false);
+    Assert.assertEquals(TurkishStemmer.hasRoundness('o', 'u'), true);
+  }
+
+  @Test
+  public void testVowelHarmony() {
+    Assert.assertEquals(TurkishStemmer.vowelHarmony('a', 'i'), false);
+    Assert.assertEquals(TurkishStemmer.vowelHarmony('e', 'i'), true);
+  }
+
+  @Test
+  public void testHasVowelHarmony() {
+    Assert.assertEquals(TurkishStemmer.hasVowelHarmony("okul"), true);
+    Assert.assertEquals(TurkishStemmer.hasVowelHarmony("okuler"), false);
+  }
 }
