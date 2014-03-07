@@ -66,5 +66,11 @@ public class TurkishStemmerTest {
   public void testHasVowelHarmony() {
     Assert.assertEquals(TurkishStemmer.hasVowelHarmony("okul"), true);
     Assert.assertEquals(TurkishStemmer.hasVowelHarmony("okuler"), false);
+    Assert.assertEquals(TurkishStemmer.hasVowelHarmony("k"), true);
+  }
+
+  @Test
+  public void testLastConsonant() {
+    Assert.assertEquals(TurkishStemmer.lastConsonant("kebab"), "kebap");
   }
 }

@@ -6,6 +6,8 @@ import java.util.regex.Matcher;
 import com.google.common.base.CharMatcher;   // Guava
 import org.apache.commons.lang3.StringUtils; // Apache StringUtils
 
+import java.lang.StringIndexOutOfBoundsException;
+
 public class TurkishStemmer {
 
   public static final String VOWELS = "üiıueöao";
@@ -57,6 +59,27 @@ public class TurkishStemmer {
   }
 
   public static boolean hasVowelHarmony(String word) {
-    return false;
+    String vowelsOfWord = vowels(word);
+    Integer wordLength  = vowelsOfWord.length();
+
+    char vowel, candidate;
+
+    try {
+      vowel = vowelsOfWord.charAt(wordLength - 2);
+    } catch(StringIndexOutOfBoundsException e) {
+      return true;
+    }
+
+    try {
+      candidate = vowelsOfWord.charAt(wordLength - 1);
+    } catch(StringIndexOutOfBoundsException e) {
+      return true;
+    }
+
+    return vowelHarmony(vowel, candidate);
+  }
+
+  public static String lastConsonant(String word) {
+    return "test";
   }
 }
