@@ -1,8 +1,5 @@
 package org.elasticsearch.index.analysis;
 
-import java.util.regex.Pattern;
-import java.util.regex.Matcher;
-
 import com.google.common.base.CharMatcher;   // Guava
 import org.apache.commons.lang3.StringUtils; // Apache StringUtils
 
