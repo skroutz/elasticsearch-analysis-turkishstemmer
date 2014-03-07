@@ -34,8 +34,8 @@ public class TurkishStemmerTest {
 
   @Test
   public void testCountSyllables() {
-    Assert.assertEquals(stemmer.countSyllables("okul"), 2);
-    Assert.assertEquals(stemmer.countSyllables(""), 0);
+    Assert.assertEquals(TurkishStemmer.countSyllables("okul"), 2);
+    Assert.assertEquals(TurkishStemmer.countSyllables(""), 0);
   }
 
   @Test
