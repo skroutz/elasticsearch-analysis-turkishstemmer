@@ -5,15 +5,21 @@ import org.apache.lucene.analysis.TokenStream;
 import org.apache.lucene.analysis.TokenFilter;
 import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
 import org.apache.lucene.analysis.tokenattributes.KeywordAttribute;
+import org.apache.lucene.analysis.util.CharArraySet;
 
 public class TurkishStemmerTokenFilter extends TokenFilter {
-  private final TurkishStemmer stemmer = new TurkishStemmer();
+  private final TurkishStemmer stemmer;
   private final CharTermAttribute termAtt = addAttribute(CharTermAttribute.class);
   private final KeywordAttribute keywordAttr = addAttribute(KeywordAttribute.class);
 
 
-  public TurkishStemmerTokenFilter(TokenStream input) {
+  public TurkishStemmerTokenFilter(TokenStream input,
+                                   CharArraySet protectedWords,
+                                   CharArraySet vowelHarmonyExceptions,
+                                   CharArraySet lastConsonantExceptions) {
     super(input);
+    this.stemmer = new TurkishStemmer(protectedWords,
+        vowelHarmonyExceptions, lastConsonantExceptions);
   }
 
   @Override
