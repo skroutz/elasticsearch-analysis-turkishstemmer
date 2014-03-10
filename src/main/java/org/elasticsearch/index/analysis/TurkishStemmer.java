@@ -60,7 +60,8 @@ public class TurkishStemmer {
   }
 
 
-  /* Gets the vowels of a word.
+  /**
+   * Gets the vowels of a word.
    *
    * @param   word  the word to get its vowels
    * @return        the vowels
@@ -71,7 +72,8 @@ public class TurkishStemmer {
     return char_matcher.removeFrom(word);
   }
 
-  /* Gets the number of syllables of a word.
+  /**
+   * Gets the number of syllables of a word.
    *
    * @param   word  the word to count its syllables
    * @return        the number of syllables
@@ -80,7 +82,8 @@ public class TurkishStemmer {
     return vowels(word).length();
   }
 
-  /* Checks the frontness harmony of two characters.
+  /**
+   * Checks the frontness harmony of two characters.
    *
    * @param   vowel     the first character
    * @param   candidate the second character
@@ -96,7 +99,8 @@ public class TurkishStemmer {
     return false;
   }
 
-  /* Checks the roundness harmony of two characters.
+  /**
+   * Checks the roundness harmony of two characters.
    *
    * @param   vowel     the first character
    * @param   candidate the second character
@@ -112,7 +116,8 @@ public class TurkishStemmer {
     return false;
   }
 
-  /* Checks the vowel harmony of two characters.
+  /**
+   * Checks the vowel harmony of two characters.
    *
    * @param   vowel     the first character
    * @param   candidate the second character
@@ -122,7 +127,8 @@ public class TurkishStemmer {
     return hasRoundness(vowel, candidate) && hasFrontness(vowel, candidate);
   }
 
-  /* Checks the vowel harmony of a word.
+  /**
+   * Checks the vowel harmony of a word.
    *
    * @param   word  the word to check its vowel harmony
    * @return        whether the word has vowel harmony or not.
@@ -148,7 +154,8 @@ public class TurkishStemmer {
     return vowelHarmony(vowel, candidate);
   }
 
-  /* Checks the last consonant rule of a word.
+  /**
+   * Checks the last consonant rule of a word.
    *
    * @param   word  the word to check its last consonant
    * @return        the new word affected by the last consonant rule
