@@ -77,6 +77,24 @@ public class TurkishStemmer {
   }
 
   public static String lastConsonant(String word) {
-    return "test";
+    Integer wordLength = word.length();
+    char lastChar = word.charAt(wordLength - 1);
+
+    switch (lastChar) {
+      case 'b':
+        lastChar = 'p';
+        break;
+      case 'c':
+        lastChar = 'ç';
+        break;
+      case 'd':
+        lastChar = 't';
+        break;
+      case 'ğ':
+        lastChar = 'k';
+        break;
+    }
+
+    return StringUtils.chop(word) + lastChar;
   }
 }
