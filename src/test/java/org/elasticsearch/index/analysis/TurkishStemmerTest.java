@@ -87,4 +87,13 @@ public class TurkishStemmerTest {
     Assert.assertEquals(TurkishStemmer.turkish("kebaçi"), true);
     Assert.assertEquals(TurkishStemmer.turkish("τεστ"), false);
   }
+
+  @Test
+  public void testProceedToStem() {
+    Assert.assertEquals(stemmer.proceedToStem("αθήνα"), false);
+    Assert.assertEquals(stemmer.proceedToStem("kedi"), false);
+    Assert.assertEquals(stemmer.proceedToStem(""), false);
+    Assert.assertEquals(stemmer.proceedToStem("a"), false);
+    Assert.assertEquals(stemmer.proceedToStem("saatler"), true);
+  }
 }

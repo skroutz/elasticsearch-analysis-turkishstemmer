@@ -218,6 +218,23 @@ public class TurkishStemmer {
   }
 
   /**
+   * Checks whether a stem process should proceed or not.
+   *
+   * @param word the word to check for stem
+   * @return     whether to proceed or not
+   */
+  public boolean proceedToStem(String word) {
+    if (!turkish(word) || this.protectedWords.contains(word) || word.isEmpty() ||
+        TurkishStemmer.countSyllables(word) <= 1 ||
+        (!TurkishStemmer.hasVowelHarmony(word) &&
+         !this.vowelHarmonyExceptions.contains(word))) {
+      return false;
+    }
+
+    return true;
+  }
+
+  /**
    * Creates a CharArraySet from a file.
    *
    * @param stopwords
