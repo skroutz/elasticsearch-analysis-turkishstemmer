@@ -82,4 +82,9 @@ public class TurkishStemmerTest {
     Assert.assertEquals(TurkishStemmer.validOptionalLetter("kea", 'a'), false);
   }
 
+  @Test
+  public void testTurkish() {
+    Assert.assertEquals(TurkishStemmer.turkish("kebaçi"), true);
+    Assert.assertEquals(TurkishStemmer.turkish("τεστ"), false);
+  }
 }

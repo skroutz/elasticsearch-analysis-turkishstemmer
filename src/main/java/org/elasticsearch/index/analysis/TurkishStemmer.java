@@ -13,6 +13,7 @@ import java.lang.StringIndexOutOfBoundsException;
 
 public class TurkishStemmer {
 
+  public static final String ALPHABET = "abcçdefgğhıijklmnoöprsştuüvyz";
   public static final String VOWELS = "üiıueöao";
   public static final String CONSONANTS = "bcçdfgğhjklmnprsştvyz";
   public static final String ROUNDED_VOWELS            = "oöuü";
@@ -204,6 +205,16 @@ public class TurkishStemmer {
     } else {
       return StringUtils.containsAny(VOWELS, previousChar);
     }
+  }
+
+  /**
+   * Checks whether a word is written in Turkish alphabet or not.
+   *
+   * @param  word  the word to check its letters
+   * @return       whether contains only Turkish letters or not.
+   */
+  public static boolean turkish(String word) {
+    return StringUtils.containsOnly(word, ALPHABET);
   }
 
   /**
