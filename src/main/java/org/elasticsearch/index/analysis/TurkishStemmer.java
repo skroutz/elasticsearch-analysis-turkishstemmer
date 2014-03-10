@@ -60,26 +60,48 @@ public class TurkishStemmer {
   }
 
 
+  /* Gets the vowels of a word.
+   *
+   * @param   word  the word to get its vowels
+   * @return        the vowels
+   */
   public static String vowels(String word) {
     CharMatcher char_matcher = CharMatcher.anyOf(CONSONANTS);
 
     return char_matcher.removeFrom(word);
   }
 
+  /* Gets the number of syllables of a word.
+   *
+   * @param   word  the word to count its syllables
+   * @return        the number of syllables
+   */
   public static int countSyllables(String word) {
     return vowels(word).length();
   }
 
+  /* Checks the frontness harmony of two characters.
+   *
+   * @param   vowel     the first character
+   * @param   candidate the second character
+   * @return            whether the two characters have frontness harmony or not.
+   */
   public static boolean hasFrontness(char vowel, char candidate) {
     if ((StringUtils.containsAny(FRONT_VOWELS, vowel) &&
-        StringUtils.containsAny(FRONT_VOWELS, candidate)) ||
-       (StringUtils.containsAny(BACK_VOWELS, vowel) &&
+         StringUtils.containsAny(FRONT_VOWELS, candidate)) ||
+        (StringUtils.containsAny(BACK_VOWELS, vowel) &&
          StringUtils.containsAny(BACK_VOWELS, candidate)))
       return true;
 
     return false;
   }
 
+  /* Checks the roundness harmony of two characters.
+   *
+   * @param   vowel     the first character
+   * @param   candidate the second character
+   * @return            whether the two characters have roundness harmony or not.
+   */
   public static boolean hasRoundness(char vowel, char candidate) {
     if ((StringUtils.containsAny(UNROUNDED_VOWELS, vowel) &&
         StringUtils.containsAny(UNROUNDED_VOWELS, candidate)) ||
@@ -90,10 +112,21 @@ public class TurkishStemmer {
     return false;
   }
 
+  /* Checks the vowel harmony of two characters.
+   *
+   * @param   vowel     the first character
+   * @param   candidate the second character
+   * @return            whether the two characters have vowel harmony or not.
+   */
   public static boolean vowelHarmony(char vowel, char candidate) {
     return hasRoundness(vowel, candidate) && hasFrontness(vowel, candidate);
   }
 
+  /* Checks the vowel harmony of a word.
+   *
+   * @param   word  the word to check its vowel harmony
+   * @return        whether the word has vowel harmony or not.
+   */
   public static boolean hasVowelHarmony(String word) {
     String vowelsOfWord = vowels(word);
     Integer wordLength  = vowelsOfWord.length();
@@ -115,6 +148,11 @@ public class TurkishStemmer {
     return vowelHarmony(vowel, candidate);
   }
 
+  /* Checks the last consonant rule of a word.
+   *
+   * @param   word  the word to check its last consonant
+   * @return        the new word affected by the last consonant rule
+   */
   public static String lastConsonant(String word) {
     Integer wordLength = word.length();
     char lastChar = word.charAt(wordLength - 1);
