@@ -189,6 +189,7 @@ public class TurkishStemmer {
    * @param   word      the word to check its last letter
    * @param   candidate the last character candidate
    * @return            whether is valid or not
+   * @note    One should check if candidate character exists or not.
    */
   public static boolean validOptionalLetter(String word, char candidate) {
     Integer wordLength  = word.length();
