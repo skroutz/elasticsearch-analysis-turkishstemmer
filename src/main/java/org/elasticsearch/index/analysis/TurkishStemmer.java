@@ -183,6 +183,30 @@ public class TurkishStemmer {
   }
 
   /**
+   * Checks whether an optional letter is valid or not.
+   *
+   * @param   word      the word to check its last letter
+   * @param   candidate the last character candidate
+   * @return            whether is valid or not
+   */
+  public static boolean validOptionalLetter(String word, char candidate) {
+    Integer wordLength  = word.length();
+    char previousChar;
+
+    try {
+      previousChar = word.charAt(wordLength - 2);
+    } catch(StringIndexOutOfBoundsException e) {
+      return false;
+    }
+
+    if (StringUtils.containsAny(VOWELS, candidate)) {
+      return StringUtils.containsAny(CONSONANTS, previousChar);
+    } else {
+      return StringUtils.containsAny(VOWELS, previousChar);
+    }
+  }
+
+  /**
    * Creates a CharArraySet from a file.
    *
    * @param stopwords

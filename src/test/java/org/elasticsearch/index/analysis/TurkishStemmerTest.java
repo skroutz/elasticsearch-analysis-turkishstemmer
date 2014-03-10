@@ -73,4 +73,13 @@ public class TurkishStemmerTest {
   public void testLastConsonant() {
     Assert.assertEquals(TurkishStemmer.lastConsonant("kebab"), "kebap");
   }
+
+  @Test
+  public void testValidOptionalLetter() {
+    Assert.assertEquals(TurkishStemmer.validOptionalLetter("kebap", 'p'), true);
+    Assert.assertEquals(TurkishStemmer.validOptionalLetter("kebp", 'p'), false);
+    Assert.assertEquals(TurkishStemmer.validOptionalLetter("keba", 'a'), true);
+    Assert.assertEquals(TurkishStemmer.validOptionalLetter("kea", 'a'), false);
+  }
+
 }
