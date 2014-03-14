@@ -13,4 +13,10 @@ public class NominalVerbStateTest {
     Assert.assertEquals(NominalVerbState.F.nextState(NominalVerbSuffix.S1),
         null);
   }
+
+  @Test
+  public void testSuffixes() {
+    Assert.assertTrue(NominalVerbState.A.suffixes().contains(NominalVerbSuffix.S1));
+    Assert.assertFalse(NominalVerbState.B.suffixes().contains(NominalVerbSuffix.S11));
+  }
 }

@@ -13,4 +13,11 @@ public class DerivationalStateTest {
     Assert.assertEquals(DerivationalState.B.nextState(DerivationalSuffix.S1),
         null);
   }
+
+  @Test
+  public void testSuffixes() {
+    Assert.assertTrue(DerivationalState.A.suffixes().contains(DerivationalSuffix.S1));
+    Assert.assertFalse(DerivationalState.B.suffixes().contains(DerivationalSuffix.S1));
+  }
+
 }

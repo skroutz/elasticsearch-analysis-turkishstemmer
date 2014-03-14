@@ -13,4 +13,10 @@ public class NounStateTest {
     Assert.assertEquals(NounState.K.nextState(NounSuffix.S1),
         null);
   }
+
+  @Test
+  public void testSuffixes() {
+    Assert.assertTrue(NounState.A.suffixes().contains(NounSuffix.S1));
+    Assert.assertFalse(NounState.B.suffixes().contains(NounSuffix.S11));
+  }
 }

@@ -1,9 +1,10 @@
 package org.elasticsearch.index.analysis.stemmer.turkish.states;
 
+import java.util.EnumSet;
 import org.elasticsearch.index.analysis.stemmer.turkish.suffixes.NounSuffix;
 
 public enum NounState implements State {
-  A(true, true) {
+  A(true, true, EnumSet.allOf(NounSuffix.class)) {
     @Override
     public State nextState(final NounSuffix suffix) {
       switch (suffix) {
@@ -33,7 +34,11 @@ public enum NounState implements State {
     }
   },
 
-  B(false, true) {
+  B(false, true, EnumSet.of(NounSuffix.S1,
+                            NounSuffix.S2,
+                            NounSuffix.S3,
+                            NounSuffix.S4,
+                            NounSuffix.S5)) {
     @Override
     public State nextState(final NounSuffix suffix) {
       switch(suffix) {
@@ -47,7 +52,7 @@ public enum NounState implements State {
     }
   },
 
-  C(false, false) {
+  C(false, false, EnumSet.of(NounSuffix.S6, NounSuffix.S7)) {
     @Override
     public State nextState(final NounSuffix suffix) {
       switch(suffix) {
@@ -61,7 +66,7 @@ public enum NounState implements State {
     }
   },
 
-  D(false, false) {
+  D(false, false, EnumSet.of(NounSuffix.S10, NounSuffix.S13)) {
     @Override
     public State nextState(final NounSuffix suffix) {
       switch(suffix) {
@@ -75,7 +80,14 @@ public enum NounState implements State {
     }
   },
 
-  E(false, true) {
+  E(false, true, EnumSet.of(NounSuffix.S1,
+                            NounSuffix.S2,
+                            NounSuffix.S3,
+                            NounSuffix.S4,
+                            NounSuffix.S5,
+                            NounSuffix.S6,
+                            NounSuffix.S7,
+                            NounSuffix.S18)) {
     @Override
     public State nextState(final NounSuffix suffix) {
       switch(suffix) {
@@ -93,7 +105,7 @@ public enum NounState implements State {
     }
   },
 
-  F(false, false) {
+  F(false, false, EnumSet.of(NounSuffix.S6, NounSuffix.S7, NounSuffix.S18)) {
     @Override
     public State nextState(final NounSuffix suffix) {
       switch(suffix) {
@@ -109,7 +121,12 @@ public enum NounState implements State {
     }
   },
 
-  G(false, true) {
+  G(false, true, EnumSet.of(NounSuffix.S1,
+                            NounSuffix.S2,
+                            NounSuffix.S3,
+                            NounSuffix.S4,
+                            NounSuffix.S5,
+                            NounSuffix.S18)) {
     @Override
     public State nextState(final NounSuffix suffix) {
       switch(suffix) {
@@ -125,7 +142,7 @@ public enum NounState implements State {
     }
   },
 
-  H(false, true) {
+  H(false, true, EnumSet.of(NounSuffix.S1)) {
     @Override
     public State nextState(final NounSuffix suffix) {
       switch(suffix) {
@@ -137,12 +154,12 @@ public enum NounState implements State {
     }
   },
 
-  K(false, true) {
+  K(false, true, EnumSet.noneOf(NounSuffix.class)) {
     @Override
     public State nextState(final NounSuffix suffix) { return null; }
   },
 
-  L(false, true) {
+  L(false, true, EnumSet.of(NounSuffix.S18)) {
     @Override
     public State nextState(final NounSuffix suffix) {
       switch(suffix) {
@@ -154,7 +171,14 @@ public enum NounState implements State {
     }
   },
 
-  M(false, true) {
+  M(false, true, EnumSet.of(NounSuffix.S1,
+                            NounSuffix.S2,
+                            NounSuffix.S3,
+                            NounSuffix.S4,
+                            NounSuffix.S5,
+                            NounSuffix.S6,
+                            NounSuffix.S6,
+                            NounSuffix.S7)) {
     @Override
     public State nextState(final NounSuffix suffix) {
       switch(suffix) {
@@ -172,10 +196,14 @@ public enum NounState implements State {
 
   private boolean initialState;
   private boolean finalState;
+  private EnumSet<NounSuffix> suffixes;
 
-  private NounState(final boolean initialState, final boolean finalState) {
+  private NounState(final boolean initialState,
+                    final boolean finalState,
+                    final EnumSet<NounSuffix> suffixes) {
     this.initialState = initialState;
     this.finalState = finalState;
+    this.suffixes = suffixes;
   }
 
   public boolean initialState() {
@@ -187,5 +215,10 @@ public enum NounState implements State {
   }
 
   public abstract State nextState(NounSuffix suffix);
+
+  public EnumSet<NounSuffix> suffixes() {
+    return this.suffixes;
+  }
+
 
 }

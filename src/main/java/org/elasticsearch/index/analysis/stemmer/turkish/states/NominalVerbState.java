@@ -1,9 +1,10 @@
 package org.elasticsearch.index.analysis.stemmer.turkish.states;
 
+import java.util.EnumSet;
 import org.elasticsearch.index.analysis.stemmer.turkish.suffixes.NominalVerbSuffix;
 
 public enum NominalVerbState implements State {
-  A(true, false) {
+  A(true, false, EnumSet.allOf(NominalVerbSuffix.class)) {
     @Override
     public State nextState(final NominalVerbSuffix suffix) {
       switch (suffix) {
@@ -26,7 +27,7 @@ public enum NominalVerbState implements State {
 
   },
 
-  B(false, true) {
+  B(false, true, EnumSet.of(NominalVerbSuffix.S14)) {
     @Override
     public State nextState(final NominalVerbSuffix suffix) {
       switch(suffix) {
@@ -38,7 +39,10 @@ public enum NominalVerbState implements State {
     }
   },
 
-  C(false, true) {
+  C(false, true, EnumSet.of(NominalVerbSuffix.S10,
+                            NominalVerbSuffix.S12,
+                            NominalVerbSuffix.S13,
+                            NominalVerbSuffix.S14)) {
     @Override
     public State nextState(final NominalVerbSuffix suffix) {
       switch(suffix) {
@@ -50,7 +54,7 @@ public enum NominalVerbState implements State {
     }
   },
 
-  D(false, false) {
+  D(false, false, EnumSet.of(NominalVerbSuffix.S12, NominalVerbSuffix.S13)) {
     @Override
     public State nextState(final NominalVerbSuffix suffix) {
       switch(suffix) {
@@ -62,7 +66,9 @@ public enum NominalVerbState implements State {
     }
   },
 
-  E(false, true) {
+  E(false, true, EnumSet.of(NominalVerbSuffix.S1, NominalVerbSuffix.S2,
+      NominalVerbSuffix.S3, NominalVerbSuffix.S4, NominalVerbSuffix.S5,
+      NominalVerbSuffix.S14)) {
     @Override
     public State nextState(final NominalVerbSuffix suffix) {
       switch(suffix) {
@@ -76,12 +82,12 @@ public enum NominalVerbState implements State {
     }
   },
 
-  F(false, true) {
+  F(false, true, EnumSet.noneOf(NominalVerbSuffix.class)) {
     @Override
     public State nextState(final NominalVerbSuffix suffix) { return null; }
   },
 
-  G(false, false) {
+  G(false, false, EnumSet.of(NominalVerbSuffix.S14)) {
     @Override
     public State nextState(final NominalVerbSuffix suffix) {
       switch(suffix) {
@@ -93,7 +99,12 @@ public enum NominalVerbState implements State {
     }
   },
 
-  H(false, false) {
+  H(false, false, EnumSet.of(NominalVerbSuffix.S1,
+                             NominalVerbSuffix.S2,
+                             NominalVerbSuffix.S3,
+                             NominalVerbSuffix.S4,
+                             NominalVerbSuffix.S5,
+                             NominalVerbSuffix.S14)) {
     @Override
     public State nextState(final NominalVerbSuffix suffix) {
       switch(suffix) {
@@ -109,10 +120,14 @@ public enum NominalVerbState implements State {
 
   private boolean initialState;
   private boolean finalState;
+  private EnumSet<NominalVerbSuffix> suffixes;
 
-  private NominalVerbState(final boolean initialState, final boolean finalState) {
+  private NominalVerbState(final boolean initialState,
+                           final boolean finalState,
+                           final EnumSet<NominalVerbSuffix> suffixes) {
     this.initialState = initialState;
     this.finalState = finalState;
+    this.suffixes = suffixes;
   }
 
   public boolean initialState() {
@@ -124,5 +139,10 @@ public enum NominalVerbState implements State {
   }
 
   public abstract State nextState(NominalVerbSuffix suffix);
+
+  public EnumSet<NominalVerbSuffix> suffixes() {
+    return this.suffixes;
+  }
+
 
 }
