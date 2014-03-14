@@ -135,7 +135,7 @@ public class TurkishStemmer {
    */
   public boolean hasVowelHarmony(String word) {
     String vowelsOfWord = vowels(word);
-    Integer wordLength  = vowelsOfWord.length();
+    int wordLength  = vowelsOfWord.length();
 
     char vowel, candidate;
 
@@ -161,7 +161,7 @@ public class TurkishStemmer {
    * @return        the new word affected by the last consonant rule
    */
   public String lastConsonant(String word) {
-    Integer wordLength = word.length();
+    int wordLength = word.length();
     char lastChar = word.charAt(wordLength - 1);
 
     switch(lastChar) {
@@ -191,7 +191,7 @@ public class TurkishStemmer {
    * @note    One should check if candidate character exists or not.
    */
   public boolean validOptionalLetter(String word, char candidate) {
-    Integer wordLength  = word.length();
+    int wordLength = word.length();
     char previousChar;
 
     try {
