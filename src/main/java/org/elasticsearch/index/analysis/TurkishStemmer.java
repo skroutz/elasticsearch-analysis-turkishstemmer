@@ -36,9 +36,9 @@ public class TurkishStemmer {
     this.lastConsonantExceptions = TurkishStemmer.getDefaultLastConsonantSet();
   }
 
-  public TurkishStemmer(CharArraySet protectedWords,
-                        CharArraySet vowelHarmonyExceptions,
-                        CharArraySet lastConsonantExceptions) {
+  public TurkishStemmer(final CharArraySet protectedWords,
+                        final CharArraySet vowelHarmonyExceptions,
+                        final CharArraySet lastConsonantExceptions) {
     this.protectedWords          = protectedWords;
     this.vowelHarmonyExceptions  = vowelHarmonyExceptions;
     this.lastConsonantExceptions = lastConsonantExceptions;
