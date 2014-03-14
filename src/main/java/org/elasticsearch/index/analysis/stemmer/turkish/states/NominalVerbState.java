@@ -147,6 +147,29 @@ public enum NominalVerbState {
     return this.suffixes;
   }
 
+  public static NominalVerbState getInitialState() {
+    for(NominalVerbState state : values()) {
+      if(state.initialState())
+        return state;
+    }
+
+    return null;
+  }
+
+  public EnumSet<NominalVerbState> possibleStates(final String word) {
+    EnumSet<NominalVerbState> states;
+
+    states = EnumSet.noneOf(NominalVerbState.class);
+
+    for(NominalVerbSuffix suffix : suffixes()) {
+      if(suffix.match(word)) {
+        states.add(nextState(suffix));
+      }
+    }
+
+    return states;
+  }
+
   public abstract NominalVerbState nextState(NominalVerbSuffix suffix);
 
 }

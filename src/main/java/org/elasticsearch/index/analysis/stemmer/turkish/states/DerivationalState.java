@@ -1,7 +1,8 @@
 package org.elasticsearch.index.analysis.stemmer.turkish.states;
 
-import org.elasticsearch.index.analysis.stemmer.turkish.suffixes.DerivationalSuffix;
 import java.util.EnumSet;
+import org.elasticsearch.index.analysis.stemmer.turkish.suffixes.DerivationalSuffix;
+
 
 public enum DerivationalState {
   A(true, false, EnumSet.of(DerivationalSuffix.S1)) {
@@ -43,9 +44,31 @@ public enum DerivationalState {
     return this.finalState;
   }
 
+  public static DerivationalState getInitialState() {
+    for(DerivationalState state : values()) {
+      if(state.initialState())
+        return state;
+    }
+
+    return null;
+  }
 
   public EnumSet<DerivationalSuffix> suffixes() {
     return this.suffixes;
+  }
+
+  public EnumSet<DerivationalState> possibleStates(final String word) {
+    EnumSet<DerivationalState> states;
+
+    states = EnumSet.noneOf(DerivationalState.class);
+
+    for(DerivationalSuffix suffix : suffixes()) {
+      if(suffix.match(word)) {
+        states.add(nextState(suffix));
+      }
+    }
+
+    return states;
   }
 
   public abstract DerivationalState nextState(DerivationalSuffix suffix);

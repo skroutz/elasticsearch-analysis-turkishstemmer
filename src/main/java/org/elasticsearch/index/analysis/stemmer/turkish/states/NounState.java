@@ -214,9 +214,31 @@ public enum NounState {
     return this.finalState;
   }
 
+  public static NounState getInitialState() {
+    for(NounState state : values()) {
+      if(state.initialState())
+        return state;
+    }
+
+    return null;
+  }
 
   public EnumSet<NounSuffix> suffixes() {
     return this.suffixes;
+  }
+
+  public EnumSet<NounState> possibleStates(final String word) {
+    EnumSet<NounState> states;
+
+    states = EnumSet.noneOf(NounState.class);
+
+    for(NounSuffix suffix : suffixes()) {
+      if(suffix.match(word)) {
+        states.add(nextState(suffix));
+      }
+    }
+
+    return states;
   }
 
 
