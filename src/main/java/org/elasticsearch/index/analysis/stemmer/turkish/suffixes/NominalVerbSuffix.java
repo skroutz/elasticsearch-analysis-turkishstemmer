@@ -1,5 +1,6 @@
 package org.elasticsearch.index.analysis.stemmer.turkish.suffixes;
 
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public enum NominalVerbSuffix implements Suffix {
@@ -29,7 +30,18 @@ public enum NominalVerbSuffix implements Suffix {
   private final Pattern optionalLetterPattern;
   private final boolean checkHarmony;
 
-  private Pattern pattern() { return pattern; }
+
+  private Matcher suffixMatcher(final String word) {
+    return this.pattern.matcher(word);
+  }
+
+  private Matcher optionalLetterMatcher(final String word) {
+    if(this.optionalLetterCheck) {
+    return this.optionalLetterPattern.matcher(word);
+    } else {
+      return null;
+    }
+  }
 
   private NominalVerbSuffix(final String name,
                             final String pattern,
@@ -51,7 +63,7 @@ public enum NominalVerbSuffix implements Suffix {
 
   @Override
   public boolean match(final String word) {
-    return pattern().matcher(word).find();
+    return suffixMatcher(word).find();
   }
 
 }
