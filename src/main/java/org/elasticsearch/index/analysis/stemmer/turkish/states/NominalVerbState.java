@@ -6,7 +6,7 @@ import org.elasticsearch.index.analysis.stemmer.turkish.suffixes.NominalVerbSuff
 public enum NominalVerbState implements State {
   A(true, false, EnumSet.allOf(NominalVerbSuffix.class)) {
     @Override
-    public State nextState(final NominalVerbSuffix suffix) {
+    public NominalVerbState nextState(final NominalVerbSuffix suffix) {
       switch (suffix) {
         case S1: case S2: case S3: case S4:
           return B;
@@ -29,7 +29,7 @@ public enum NominalVerbState implements State {
 
   B(false, true, EnumSet.of(NominalVerbSuffix.S14)) {
     @Override
-    public State nextState(final NominalVerbSuffix suffix) {
+    public NominalVerbState nextState(final NominalVerbSuffix suffix) {
       switch(suffix) {
         case S14:
           return F;
@@ -44,7 +44,7 @@ public enum NominalVerbState implements State {
                             NominalVerbSuffix.S13,
                             NominalVerbSuffix.S14)) {
     @Override
-    public State nextState(final NominalVerbSuffix suffix) {
+    public NominalVerbState nextState(final NominalVerbSuffix suffix) {
       switch(suffix) {
         case S10: case S12: case S13: case S14:
           return F;
@@ -56,7 +56,7 @@ public enum NominalVerbState implements State {
 
   D(false, false, EnumSet.of(NominalVerbSuffix.S12, NominalVerbSuffix.S13)) {
     @Override
-    public State nextState(final NominalVerbSuffix suffix) {
+    public NominalVerbState nextState(final NominalVerbSuffix suffix) {
       switch(suffix) {
         case S12: case S13:
           return F;
@@ -70,7 +70,7 @@ public enum NominalVerbState implements State {
       NominalVerbSuffix.S3, NominalVerbSuffix.S4, NominalVerbSuffix.S5,
       NominalVerbSuffix.S14)) {
     @Override
-    public State nextState(final NominalVerbSuffix suffix) {
+    public NominalVerbState nextState(final NominalVerbSuffix suffix) {
       switch(suffix) {
         case S1: case S2: case S3: case S4: case S5:
           return G;
@@ -84,12 +84,14 @@ public enum NominalVerbState implements State {
 
   F(false, true, EnumSet.noneOf(NominalVerbSuffix.class)) {
     @Override
-    public State nextState(final NominalVerbSuffix suffix) { return null; }
+    public NominalVerbState nextState(final NominalVerbSuffix suffix) {
+      return null;
+    }
   },
 
   G(false, false, EnumSet.of(NominalVerbSuffix.S14)) {
     @Override
-    public State nextState(final NominalVerbSuffix suffix) {
+    public NominalVerbState nextState(final NominalVerbSuffix suffix) {
       switch(suffix) {
         case S14:
           return F;
@@ -106,7 +108,7 @@ public enum NominalVerbState implements State {
                              NominalVerbSuffix.S5,
                              NominalVerbSuffix.S14)) {
     @Override
-    public State nextState(final NominalVerbSuffix suffix) {
+    public NominalVerbState nextState(final NominalVerbSuffix suffix) {
       switch(suffix) {
         case S14:
           return F;
@@ -138,11 +140,10 @@ public enum NominalVerbState implements State {
     return this.finalState;
   }
 
-  public abstract State nextState(NominalVerbSuffix suffix);
-
   public EnumSet<NominalVerbSuffix> suffixes() {
     return this.suffixes;
   }
 
+  public abstract NominalVerbState nextState(NominalVerbSuffix suffix);
 
 }

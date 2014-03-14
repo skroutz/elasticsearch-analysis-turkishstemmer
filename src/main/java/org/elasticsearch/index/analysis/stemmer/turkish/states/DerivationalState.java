@@ -6,7 +6,7 @@ import java.util.EnumSet;
 public enum DerivationalState implements State {
   A(true, false, EnumSet.of(DerivationalSuffix.S1)) {
     @Override
-    public State nextState(final DerivationalSuffix suffix) {
+    public DerivationalState nextState(final DerivationalSuffix suffix) {
       switch(suffix) {
         case S1:
           return B;
@@ -18,7 +18,7 @@ public enum DerivationalState implements State {
 
   B(false, true, EnumSet.noneOf(DerivationalSuffix.class)) {
     @Override
-    public State nextState(final DerivationalSuffix suffix) {
+    public DerivationalState nextState(final DerivationalSuffix suffix) {
       return null;
     }
   };
@@ -43,11 +43,11 @@ public enum DerivationalState implements State {
     return this.finalState;
   }
 
-  public abstract State nextState(DerivationalSuffix suffix);
 
   public EnumSet<DerivationalSuffix> suffixes() {
     return this.suffixes;
   }
 
+  public abstract DerivationalState nextState(DerivationalSuffix suffix);
 
 }
