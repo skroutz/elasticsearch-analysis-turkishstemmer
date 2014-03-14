@@ -3,7 +3,7 @@ package org.elasticsearch.index.analysis.stemmer.turkish.states;
 import java.util.EnumSet;
 import org.elasticsearch.index.analysis.stemmer.turkish.suffixes.NominalVerbSuffix;
 
-public enum NominalVerbState implements State {
+public enum NominalVerbState {
   A(true, false, EnumSet.allOf(NominalVerbSuffix.class)) {
     @Override
     public NominalVerbState nextState(final NominalVerbSuffix suffix) {

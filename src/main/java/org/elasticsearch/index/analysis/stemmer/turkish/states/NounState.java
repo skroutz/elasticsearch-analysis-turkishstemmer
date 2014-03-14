@@ -3,7 +3,7 @@ package org.elasticsearch.index.analysis.stemmer.turkish.states;
 import java.util.EnumSet;
 import org.elasticsearch.index.analysis.stemmer.turkish.suffixes.NounSuffix;
 
-public enum NounState implements State {
+public enum NounState {
   A(true, true, EnumSet.allOf(NounSuffix.class)) {
     @Override
     public NounState nextState(final NounSuffix suffix) {

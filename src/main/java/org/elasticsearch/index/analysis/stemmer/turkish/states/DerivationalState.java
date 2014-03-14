@@ -3,7 +3,7 @@ package org.elasticsearch.index.analysis.stemmer.turkish.states;
 import org.elasticsearch.index.analysis.stemmer.turkish.suffixes.DerivationalSuffix;
 import java.util.EnumSet;
 
-public enum DerivationalState implements State {
+public enum DerivationalState {
   A(true, false, EnumSet.of(DerivationalSuffix.S1)) {
     @Override
     public DerivationalState nextState(final DerivationalSuffix suffix) {
