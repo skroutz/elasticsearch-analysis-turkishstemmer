@@ -12,18 +12,6 @@ public enum DerivationalSuffix implements Suffix {
   private final Pattern optionalLetterPattern;
   private final boolean checkHarmony;
 
-  private Matcher suffixMatcher(final String word) {
-    return this.pattern.matcher(word);
-  }
-
-  private Matcher optionalLetterMatcher(final String word) {
-    if(this.optionalLetterCheck) {
-    return this.optionalLetterPattern.matcher(word);
-    } else {
-      return null;
-    }
-  }
-
   private DerivationalSuffix(final String name,
                      final String pattern,
                      final String optionalLetter,
@@ -41,9 +29,48 @@ public enum DerivationalSuffix implements Suffix {
     this.checkHarmony = checkHarmony;
   }
 
+
+  private Matcher suffixMatcher(final String word) {
+    return this.pattern.matcher(word);
+  }
+
+  private boolean optionalLetterCheck() { return this.optionalLetterCheck; }
+
+
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean match(final String word) {
     return suffixMatcher(word).find();
   }
 
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public char optionalLetter(String word) {
+    if(optionalLetterCheck()) {
+      Matcher matcher = this.optionalLetterPattern.matcher(word);
+
+      if(matcher.find()) {
+        return matcher.group().charAt(0);
+      }
+    }
+
+    return '\0';
+  }
+
+  @Override
+  public String removeSuffix(final String word) {
+    return suffixMatcher(word).replaceAll("");
+  }
+
+  @Override
+  public boolean checkHarmony() { return this.checkHarmony; }
+
+  @Override
+  public String toString() {
+    return String.format("%s (%s)", this.name, name());
+  }
 }

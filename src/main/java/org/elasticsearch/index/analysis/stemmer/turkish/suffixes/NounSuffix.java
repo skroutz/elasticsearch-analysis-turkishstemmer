@@ -44,7 +44,7 @@ public enum NounSuffix implements Suffix {
       this.optionalLetterPattern = null;
     } else {
       this.optionalLetterCheck = true;
-      this.optionalLetterPattern = Pattern.compile(optionalLetter);
+      this.optionalLetterPattern = Pattern.compile("(" + optionalLetter + ")$");
     }
     this.checkHarmony = checkHarmony;
   }
@@ -53,17 +53,48 @@ public enum NounSuffix implements Suffix {
     return this.pattern.matcher(word);
   }
 
-  private Matcher optionalLetterMatcher(final String word) {
-    if(this.optionalLetterCheck) {
-    return this.optionalLetterPattern.matcher(word);
-    } else {
-      return null;
-    }
-  }
+  private boolean optionalLetterCheck() { return this.optionalLetterCheck; }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean match(final String word) {
     return suffixMatcher(word).find();
   }
 
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public char optionalLetter(String word) {
+    if(optionalLetterCheck()) {
+      Matcher matcher = this.optionalLetterPattern.matcher(word);
+
+      if(matcher.find()) {
+        return matcher.group().charAt(0);
+      }
+    }
+
+    return '\0';
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public String removeSuffix(final String word) {
+    return suffixMatcher(word).replaceAll("");
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public boolean checkHarmony() { return this.checkHarmony; }
+
+  @Override
+  public String toString() {
+    return String.format("%s (%s)", this.name, name());
+  }
 }

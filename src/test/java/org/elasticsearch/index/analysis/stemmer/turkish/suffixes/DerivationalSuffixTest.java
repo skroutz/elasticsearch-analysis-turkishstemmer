@@ -10,4 +10,20 @@ public class DerivationalSuffixTest {
   public void testMatchSuffix() {
     Assert.assertEquals(DerivationalSuffix.S1.match("gozlu"), true);
   }
+
+  @Test
+  public void testOptionalLetter() {
+    Assert.assertEquals(DerivationalSuffix.S1.optionalLetter("gozlu"), '\0');
+  }
+
+  @Test
+  public void testCheckHarmony() {
+    Assert.assertTrue(DerivationalSuffix.S1.checkHarmony());
+  }
+
+  @Test
+  public void testRemoveSuffix() {
+    Assert.assertEquals(DerivationalSuffix.S1.removeSuffix("gozlu"), "goz");
+  }
+
 }
