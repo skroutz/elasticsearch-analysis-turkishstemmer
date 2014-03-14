@@ -3,22 +3,25 @@ package org.elasticsearch.index.analysis.stemmer.turkish.suffixes;
 import java.util.regex.Pattern;
 
 public enum NominalVerbSuffix implements Suffix {
-  //   name       pattern       optional letter     check harmony
-  S1  ("-(y)Um", "ım|im|um|üm", "y", true),
-  S2  ("-sUn", "sın|sin|sun|sün", null, true),
-  S3  ("-(y)Uz", "ız|iz|uz|üz", "y", true),
-  S4  ("-sUnUz","sınız|siniz|sunuz|sünüz", null, true),
-  S5  ("-lAr", "lar|ler", null, true),
-  S6  ("-m", "m", null, true),
-  S7  ("-n", "n", null, true),
-  S8  ("-k", "k", null, true),
-  S9  ("-nUz", "nız|niz|nuz|nüz", null, true),
-  S10 ("-DUr", "tır|tir|tur|tür|dır|dir|dur|dür", null, true),
-  S11 ("-cAsInA", "casına|çasına|cesine|çesine", null, true),
-  S12 ("-(y)DU", "dı|di|du|dü|tı|ti|tu|tü", "y", true),
-  S13 ("-(y)sA", "sa|se", "y", true),
-  S14 ("-(y)mUş", "muş|miş|müş|mış", "y", true),
-  S15 ("-(y)ken", "ken","y",true );
+  // The order of the enum definition determines the priority of the suffix.
+  // For example, -(y)ken (S15 suffix) is  checked before -n (S7 suffix).
+
+  //   name       pattern                   optional letter     check harmony
+  S11 ("-cAsInA", "casına|çasına|cesine|çesine",     null, true),
+  S4  ("-sUnUz",  "sınız|siniz|sunuz|sünüz",         null, true),
+  S14 ("-(y)mUş", "muş|miş|müş|mış",                 "y",  true),
+  S15 ("-(y)ken", "ken",                             "y",  true),
+  S2  ("-sUn",    "sın|sin|sun|sün",                 null, true),
+  S5  ("-lAr",    "lar|ler",                         null, true),
+  S9  ("-nUz",    "nız|niz|nuz|nüz",                 null, true),
+  S10 ("-DUr",    "tır|tir|tur|tür|dır|dir|dur|dür", null, true),
+  S3  ("-(y)Uz",  "ız|iz|uz|üz",                     "y",  true),
+  S1  ("-(y)Um",  "ım|im|um|üm",                     "y",  true),
+  S12 ("-(y)DU",  "dı|di|du|dü|tı|ti|tu|tü",         "y",  true),
+  S13 ("-(y)sA",  "sa|se",                           "y",  true),
+  S6  ("-m",      "m",                               null, true),
+  S7  ("-n",      "n",                               null, true),
+  S8  ("-k",      "k",                               null, true);
 
   private final String  name;
   private final Pattern pattern;
