@@ -16,11 +16,11 @@ public class TurkishStemmer {
   public static final String ALPHABET = "abcçdefgğhıijklmnoöprsştuüvyz";
   public static final String VOWELS = "üiıueöao";
   public static final String CONSONANTS = "bcçdfgğhjklmnprsştvyz";
-  public static final String ROUNDED_VOWELS            = "oöuü";
-  public static final String UNROUNDED_VOWELS          = "iıea";
-  public static final String FOLLOWING_ROUNDED_VOWELS  = "aeuü";
-  public static final String FRONT_VOWELS              = "eiöü";
-  public static final String BACK_VOWELS               = "ıuao";
+  public static final String ROUNDED_VOWELS = "oöuü";
+  public static final String UNROUNDED_VOWELS = "iıea";
+  public static final String FOLLOWING_ROUNDED_VOWELS = "aeuü";
+  public static final String FRONT_VOWELS = "eiöü";
+  public static final String BACK_VOWELS = "ıuao";
 
   public static final String DEFAULT_PROTECTED_WORDS_FILE = "protected_words.txt";
   public static final String DEFAULT_VOWEL_HARMONY_EXCEPTIONS_FILE = "vowel_harmony_exceptions.txt";
@@ -48,18 +48,17 @@ public class TurkishStemmer {
     return len;
   }
 
-  public static final CharArraySet getDefaultProtectedWordSet(){
+  public static final CharArraySet getDefaultProtectedWordSet() {
     return DefaultSetHolder.DEFAULT_PROTECTED_WORDS;
   }
 
-  public static final CharArraySet getDefaultVowelHarmonySet(){
+  public static final CharArraySet getDefaultVowelHarmonySet() {
     return DefaultSetHolder.DEFAULT_VOWEL_HARMONY_EXCEPTIONS;
   }
 
-  public static final CharArraySet getDefaultLastConsonantSet(){
+  public static final CharArraySet getDefaultLastConsonantSet() {
     return DefaultSetHolder.DEFAULT_LAST_CONSONANT_EXCEPTIONS;
   }
-
 
   /**
    * Gets the vowels of a word.
@@ -165,7 +164,7 @@ public class TurkishStemmer {
     Integer wordLength = word.length();
     char lastChar = word.charAt(wordLength - 1);
 
-    switch (lastChar) {
+    switch(lastChar) {
       case 'b':
         lastChar = 'p';
         break;
@@ -201,7 +200,7 @@ public class TurkishStemmer {
       return false;
     }
 
-    if (StringUtils.containsAny(VOWELS, candidate)) {
+    if(StringUtils.containsAny(VOWELS, candidate)) {
       return StringUtils.containsAny(CONSONANTS, previousChar);
     } else {
       return StringUtils.containsAny(VOWELS, previousChar);
@@ -248,8 +247,8 @@ public class TurkishStemmer {
    * @throws IOException
    *           if loading the stopwords throws an {@link IOException}
    */
-  private static CharArraySet loadWordSet(InputStream file,
-      Version matchVersion) throws IOException {
+  private static CharArraySet loadWordSet(InputStream file, Version matchVersion)
+      throws IOException {
     Reader reader = null;
     try {
       reader = IOUtils.getDecodingReader(file, IOUtils.CHARSET_UTF_8);
@@ -267,7 +266,8 @@ public class TurkishStemmer {
     static {
       try {
         DEFAULT_PROTECTED_WORDS = loadWordSet(
-            TurkishStemmer.class.getResourceAsStream(DEFAULT_PROTECTED_WORDS_FILE),
+            TurkishStemmer.class
+                .getResourceAsStream(DEFAULT_PROTECTED_WORDS_FILE),
             Version.LUCENE_46);
       } catch(IOException ex) {
         throw new RuntimeException("Unable to load default protected words");
@@ -275,20 +275,25 @@ public class TurkishStemmer {
 
       try {
         DEFAULT_VOWEL_HARMONY_EXCEPTIONS = loadWordSet(
-            TurkishStemmer.class.getResourceAsStream(DEFAULT_VOWEL_HARMONY_EXCEPTIONS_FILE),
+            TurkishStemmer.class
+                .getResourceAsStream(DEFAULT_VOWEL_HARMONY_EXCEPTIONS_FILE),
             Version.LUCENE_46);
       } catch(IOException ex) {
-        throw new RuntimeException("Unable to load default vowel harmony exceptions");
+        throw new RuntimeException(
+            "Unable to load default vowel harmony exceptions");
       }
 
       try {
         DEFAULT_LAST_CONSONANT_EXCEPTIONS = loadWordSet(
-            TurkishStemmer.class.getResourceAsStream(DEFAULT_LAST_CONSONANT_EXCEPTIONS_FILE),
+            TurkishStemmer.class
+                .getResourceAsStream(DEFAULT_LAST_CONSONANT_EXCEPTIONS_FILE),
             Version.LUCENE_46);
       } catch(IOException ex) {
-        throw new RuntimeException("Unable to load default vowel harmony exceptions");
+        throw new RuntimeException(
+            "Unable to load default vowel harmony exceptions");
       }
     }
 
   }
+
 }
