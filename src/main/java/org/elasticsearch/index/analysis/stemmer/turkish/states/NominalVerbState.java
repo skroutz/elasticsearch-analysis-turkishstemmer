@@ -7,7 +7,7 @@ public enum NominalVerbState {
   A(true, false, EnumSet.allOf(NominalVerbSuffix.class)) {
     @Override
     public NominalVerbState nextState(final NominalVerbSuffix suffix) {
-      switch (suffix) {
+      switch(suffix) {
         case S1: case S2: case S3: case S4:
           return B;
         case S5:
@@ -66,9 +66,12 @@ public enum NominalVerbState {
     }
   },
 
-  E(false, true, EnumSet.of(NominalVerbSuffix.S1, NominalVerbSuffix.S2,
-      NominalVerbSuffix.S3, NominalVerbSuffix.S4, NominalVerbSuffix.S5,
-      NominalVerbSuffix.S14)) {
+  E(false, true, EnumSet.of(NominalVerbSuffix.S1,
+                            NominalVerbSuffix.S2,
+                            NominalVerbSuffix.S3,
+                            NominalVerbSuffix.S4,
+                            NominalVerbSuffix.S5,
+                            NominalVerbSuffix.S14)) {
     @Override
     public NominalVerbState nextState(final NominalVerbSuffix suffix) {
       switch(suffix) {
