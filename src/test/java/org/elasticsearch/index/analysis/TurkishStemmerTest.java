@@ -21,7 +21,7 @@ public class TurkishStemmerTest {
   private int tokenLength, stemLength;
 
   @Test
-  public void testTurkishStemmer() {
+  public void testStem() {
     for (int i = 0; i < words.length; i++) {
       token = words[i].toCharArray();
       tokenLength = words[i].length();
@@ -45,13 +45,13 @@ public class TurkishStemmerTest {
   }
 
   @Test
-  public void testhasFrontness() {
+  public void testHasFrontness() {
     Assert.assertEquals(stemmer.hasFrontness('e', 'i'), true);
     Assert.assertEquals(stemmer.hasFrontness('a', 'i'), false);
   }
 
   @Test
-  public void testhasRoundness() {
+  public void testHasRoundness() {
     Assert.assertEquals(stemmer.hasRoundness('o', 'i'), false);
     Assert.assertEquals(stemmer.hasRoundness('o', 'u'), true);
   }
