@@ -66,7 +66,7 @@ public class TurkishStemmer {
    * @param   word  the word to get its vowels
    * @return        the vowels
    */
-  public static String vowels(String word) {
+  public String vowels(String word) {
     CharMatcher char_matcher = CharMatcher.anyOf(CONSONANTS);
 
     return char_matcher.removeFrom(word);
@@ -78,7 +78,7 @@ public class TurkishStemmer {
    * @param   word  the word to count its syllables
    * @return        the number of syllables
    */
-  public static int countSyllables(String word) {
+  public int countSyllables(String word) {
     return vowels(word).length();
   }
 
@@ -106,7 +106,7 @@ public class TurkishStemmer {
    * @param   candidate the second character
    * @return            whether the two characters have roundness harmony or not.
    */
-  public static boolean hasRoundness(char vowel, char candidate) {
+  public boolean hasRoundness(char vowel, char candidate) {
     if ((StringUtils.containsAny(UNROUNDED_VOWELS, vowel) &&
         StringUtils.containsAny(UNROUNDED_VOWELS, candidate)) ||
        (StringUtils.containsAny(ROUNDED_VOWELS, vowel) &&
@@ -123,7 +123,7 @@ public class TurkishStemmer {
    * @param   candidate the second character
    * @return            whether the two characters have vowel harmony or not.
    */
-  public static boolean vowelHarmony(char vowel, char candidate) {
+  public boolean vowelHarmony(char vowel, char candidate) {
     return hasRoundness(vowel, candidate) && hasFrontness(vowel, candidate);
   }
 
@@ -133,7 +133,7 @@ public class TurkishStemmer {
    * @param   word  the word to check its vowel harmony
    * @return        whether the word has vowel harmony or not.
    */
-  public static boolean hasVowelHarmony(String word) {
+  public boolean hasVowelHarmony(String word) {
     String vowelsOfWord = vowels(word);
     Integer wordLength  = vowelsOfWord.length();
 
@@ -160,7 +160,7 @@ public class TurkishStemmer {
    * @param   word  the word to check its last consonant
    * @return        the new word affected by the last consonant rule
    */
-  public static String lastConsonant(String word) {
+  public String lastConsonant(String word) {
     Integer wordLength = word.length();
     char lastChar = word.charAt(wordLength - 1);
 
@@ -190,7 +190,7 @@ public class TurkishStemmer {
    * @return            whether is valid or not
    * @note    One should check if candidate character exists or not.
    */
-  public static boolean validOptionalLetter(String word, char candidate) {
+  public boolean validOptionalLetter(String word, char candidate) {
     Integer wordLength  = word.length();
     char previousChar;
 
@@ -213,7 +213,7 @@ public class TurkishStemmer {
    * @param  word  the word to check its letters
    * @return       whether contains only Turkish letters or not.
    */
-  public static boolean turkish(String word) {
+  public boolean turkish(String word) {
     return StringUtils.containsOnly(word, ALPHABET);
   }
 
@@ -224,10 +224,10 @@ public class TurkishStemmer {
    * @return     whether to proceed or not
    */
   public boolean proceedToStem(String word) {
-    if (!turkish(word) || this.protectedWords.contains(word) || word.isEmpty() ||
-        TurkishStemmer.countSyllables(word) <= 1 ||
-        (!TurkishStemmer.hasVowelHarmony(word) &&
-         !this.vowelHarmonyExceptions.contains(word))) {
+    if(!turkish(word) || this.protectedWords.contains(word) || word.isEmpty() ||
+        countSyllables(word) <= 1 ||
+        (!hasVowelHarmony(word) &&
+            !this.vowelHarmonyExceptions.contains(word))) {
       return false;
     }
 
