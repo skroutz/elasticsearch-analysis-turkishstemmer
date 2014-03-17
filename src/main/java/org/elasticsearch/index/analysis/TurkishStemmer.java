@@ -89,7 +89,7 @@ public class TurkishStemmer {
    * @param   candidate the second character
    * @return            whether the two characters have frontness harmony or not.
    */
-  public static boolean hasFrontness(char vowel, char candidate) {
+  public boolean hasFrontness(char vowel, char candidate) {
     if ((StringUtils.containsAny(FRONT_VOWELS, vowel) &&
          StringUtils.containsAny(FRONT_VOWELS, candidate)) ||
         (StringUtils.containsAny(BACK_VOWELS, vowel) &&
