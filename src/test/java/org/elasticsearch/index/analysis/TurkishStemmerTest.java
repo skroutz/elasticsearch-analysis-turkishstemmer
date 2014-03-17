@@ -1,35 +1,32 @@
 package org.elasticsearch.index.analysis;
 
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class TurkishStemmerTest {
   private final TurkishStemmer stemmer = new TurkishStemmer();
-
-  /**
-   * a sample of Turkish words that should be stemmed by the Turkish stemmer.
-   */
-  private static final String[] words = { };
-
-  /**
-   * the stems that should be returned by the stemmer for the above words.
-   */
-  private static final String[] stems = { };
-
   private char[] token;
   private String stem;
-  private int tokenLength, stemLength;
+  private int tokenLength;
 
-  @Test
-  public void testStem() {
-    for (int i = 0; i < words.length; i++) {
-      token = words[i].toCharArray();
-      tokenLength = words[i].length();
-      stemLength = stemmer.stem(token, tokenLength);
-      stem = new String(token, 0, stemLength);
+  @DataProvider(name = "stems")
+  public Object[][] stemmingSamples() {
+    return new Object[][] {
+        { "ayfon", "ayfon" }, { "adrese", "adre" },
+        { "abiyeler", "abiye" }, { "eriklimişsincesine", "erik" },
+        { "guzelim", "guzel" }
+    };
 
-      Assert.assertEquals(stem, stems[i]);
-    }
+  }
+
+  @Test(dataProvider = "stems")
+  public void testStem(String word, String expectedStem) {
+    token = word.toCharArray();
+    tokenLength = word.length();
+    stem = stemmer.stem(token, tokenLength);
+
+    Assert.assertEquals(stem, expectedStem);
   }
 
   @Test
