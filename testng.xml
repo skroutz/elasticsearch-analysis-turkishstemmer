@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="TurkishStemmer" parallel="none">
+    <test name="transitions">
+        <packages>
+            <package name="org.elasticsearch.index.analysis.stemmer.turkish.transitions" />
+        </packages>
+    </test>
+    <test name="states">
+        <packages>
+            <package name="org.elasticsearch.index.analysis.stemmer.turkish.states" />
+        </packages>
+    </test>
+    <test name="suffixes">
+        <packages>
+            <package name="org.elasticsearch.index.analysis.stemmer.turkish.suffixes" />
+        </packages>
+    </test>
+    <test name="analysis">
+        <packages>
+            <package name="org.elasticsearch.index.analysis" />
+        </packages>
+    </test>
+</suite> <!-- Suite -->
