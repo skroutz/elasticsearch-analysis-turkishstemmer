@@ -1,5 +1,6 @@
 package org.elasticsearch.index.analysis;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 import org.elasticsearch.index.analysis.stemmer.turkish.suffixes.DerivationalSuffix;
@@ -51,6 +52,16 @@ public class TurkishStemmerTest {
 
     Assert.assertEquals(stems.size(), 1);
     Assert.assertEquals(stems.toArray(), new String[] { "telefon" });
+  }
+
+  @Test
+  public void testPostProcess() {
+    Assert.assertEquals(stemmer.postProcess(new HashSet<String>(), "originalWord"), "originalWord");
+
+    String[] stems = {"kitap", "k" };
+
+    Assert.assertEquals(stemmer.postProcess(new HashSet<String>(Arrays.asList(stems)),
+        "originalWord"), "kitap");
   }
 
   @Test

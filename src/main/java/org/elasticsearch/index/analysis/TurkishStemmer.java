@@ -22,6 +22,7 @@ import java.io.Reader;
 import java.lang.StringIndexOutOfBoundsException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.EnumSet;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -49,6 +50,8 @@ public class TurkishStemmer {
   private static final EnumSet<NominalVerbSuffix>  nominalVerbSuffixes = EnumSet.allOf(NominalVerbSuffix.class);
   private static final EnumSet<NounSuffix> nounSuffixes = EnumSet.allOf(NounSuffix.class);
   private static final EnumSet<DerivationalSuffix> derivationalSuffixes = EnumSet.allOf(DerivationalSuffix.class);
+
+  private static final int AVERAGE_STEMMED_SIZE = 4;
 
   private final CharArraySet protectedWords;
   private final CharArraySet vowelHarmonyExceptions;
@@ -301,6 +304,39 @@ public class TurkishStemmer {
     }
 
     return stemmedWord;
+  }
+
+  /**
+   * It performs a post stemming process and returns the final stem.
+   *
+   * @param stems a set of possible stems
+   * @param originalWord the original word that was stemmed
+   * @return the final stem
+   */
+  public String postProcess(final Set<String> stems, final String originalWord) {
+    Set<String> finalStems;
+    finalStems = new HashSet<String>();
+
+    for(String word : stems) {
+      if (countSyllables(word) > 0)
+        finalStems.add(lastConsonant(word));
+    }
+
+    List<String> sortedStems;
+    sortedStems = new ArrayList<String>(finalStems);
+
+    Collections.sort(new ArrayList<String>(finalStems), new Comparator<String>() {
+      @Override
+      public int compare(String s1, String s2) {
+        return Math.abs(s1.length() - AVERAGE_STEMMED_SIZE) - Math.abs(s2.length() - AVERAGE_STEMMED_SIZE);
+      }
+    });
+
+    if(sortedStems.isEmpty()) {
+      return originalWord;
+    } else {
+      return sortedStems.get(0);
+    }
   }
 
   /**
