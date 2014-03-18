@@ -161,6 +161,9 @@ public class TurkishStemmer {
    * @return        the new word affected by the last consonant rule
    */
   public String lastConsonant(String word) {
+    if(lastConsonantExceptions.contains(word))
+      return word;
+
     int wordLength = word.length();
     char lastChar = word.charAt(wordLength - 1);
 
