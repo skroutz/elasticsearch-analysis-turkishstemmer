@@ -19,7 +19,7 @@ public class UpdateStemmingSamples {
         IOUtils.CHARSET_UTF_8);
 
     char[] token;
-    int tokenLength, stemLength;
+    int tokenLength;
     String stem;
     File file = new File("src/test/resources/stemming_samples.txt");
     FileWriter fileWriter = new FileWriter(file.getAbsoluteFile());
@@ -30,8 +30,7 @@ public class UpdateStemmingSamples {
         String[] sample =  line.split(",");
         token = sample[0].toCharArray();
         tokenLength = sample[0].length();
-        stemLength = stemmer.stem(token, tokenLength);
-        stem = new String(token, 0, stemLength);
+        stem = stemmer.stem(token, tokenLength);
         writer.write(sample[0] + "," + stem);
         writer.newLine();
       }

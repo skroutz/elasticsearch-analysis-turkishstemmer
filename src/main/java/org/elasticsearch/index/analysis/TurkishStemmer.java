@@ -71,8 +71,35 @@ public class TurkishStemmer {
     this.lastConsonantExceptions = lastConsonantExceptions;
   }
 
-  public int stem(char s[], int len) {
-    return len;
+  public String stem(char s[], int len) {
+
+    String originalWord = new String(s, 0, len);
+
+    if(!proceedToStem(originalWord)) {
+      return originalWord;
+    }
+
+    Set<String> stems;
+    stems = new HashSet<String>();
+
+    nominalVerbsSuffixStripper(originalWord, stems);
+
+    Iterator<String> iterator;
+    String word;
+
+    iterator = stems.iterator();
+    while(iterator.hasNext()) {
+      word = iterator.next();
+      nounSuffixStripper(word, stems);
+    }
+
+    iterator = stems.iterator();
+    while(iterator.hasNext()) {
+      word = iterator.next();
+      derivationalSuffixStripper(word, stems);
+    }
+
+    return postProcess(stems, originalWord);
   }
 
   /**

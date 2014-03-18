@@ -20,9 +20,10 @@ public class TurkishStemmerTest {
     return new Object[][] {
         { "ayfon", "ayfon" }, { "adrese", "adre" },
         { "abiyeler", "abiye" }, { "eriklimişsincesine", "erik" },
-        { "guzelim", "guzel" }
+        { "guzelim", "guzel" }, { "satıyorsunuz", "satıyor" },
+        { "taksicisiniz", "taksici" }, { "türkiyedir", "türkiye" },
+        { "telefonlarl" , "telefon" }
     };
-
   }
 
   @Test(dataProvider = "stems")

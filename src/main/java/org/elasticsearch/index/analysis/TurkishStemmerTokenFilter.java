@@ -24,10 +24,12 @@ public class TurkishStemmerTokenFilter extends TokenFilter {
 
   @Override
   public boolean incrementToken() throws IOException {
+    String stem;
+
     if (input.incrementToken()) {
       if (!keywordAttr.isKeyword()) {
-        final int newlen = stemmer.stem(termAtt.buffer(), termAtt.length());
-        termAtt.setLength(newlen);
+        stem = stemmer.stem(termAtt.buffer(), termAtt.length());
+        termAtt.copyBuffer(stem.toCharArray(), 0, stem.length());
       }
       return true;
     } else {
