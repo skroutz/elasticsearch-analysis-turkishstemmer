@@ -48,17 +48,8 @@ public class TurkishStemmer {
     return len;
   }
 
-  public static final CharArraySet getDefaultProtectedWordSet() {
-    return DefaultSetHolder.DEFAULT_PROTECTED_WORDS;
-  }
 
-  public static final CharArraySet getDefaultVowelHarmonySet() {
-    return DefaultSetHolder.DEFAULT_VOWEL_HARMONY_EXCEPTIONS;
-  }
 
-  public static final CharArraySet getDefaultLastConsonantSet() {
-    return DefaultSetHolder.DEFAULT_LAST_CONSONANT_EXCEPTIONS;
-  }
 
   /**
    * Removes a certain suffix from the given word.
@@ -282,6 +273,33 @@ public class TurkishStemmer {
     }
 
     return false;
+  }
+
+  /**
+   * Gets the default set of protected words.
+   *
+   * @return a set of protected words
+   */
+  public static final CharArraySet getDefaultProtectedWordSet() {
+    return DefaultSetHolder.DEFAULT_PROTECTED_WORDS;
+  }
+
+  /**
+   * Gets the default set of vowel harmony exceptions.
+   *
+   * @return a set of vowel harmony exceptions
+   */
+  public static final CharArraySet getDefaultVowelHarmonySet() {
+    return DefaultSetHolder.DEFAULT_VOWEL_HARMONY_EXCEPTIONS;
+  }
+
+  /**
+   * Gets the default set of last consonant exceptions.
+   *
+   * @return a set of last consonant exceptions
+   */
+  public static final CharArraySet getDefaultLastConsonantSet() {
+    return DefaultSetHolder.DEFAULT_LAST_CONSONANT_EXCEPTIONS;
   }
 
   /**
