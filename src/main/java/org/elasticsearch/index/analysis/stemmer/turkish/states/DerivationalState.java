@@ -1,8 +1,9 @@
 package org.elasticsearch.index.analysis.stemmer.turkish.states;
 
+import java.util.List;
 import java.util.EnumSet;
 import org.elasticsearch.index.analysis.stemmer.turkish.suffixes.DerivationalSuffix;
-
+import org.elasticsearch.index.analysis.stemmer.turkish.transitions.DerivationalTransition;
 
 public enum DerivationalState {
   A(true, false, EnumSet.of(DerivationalSuffix.S1)) {
@@ -69,6 +70,27 @@ public enum DerivationalState {
     }
 
     return states;
+  }
+
+  /**
+   * Adds possible transitions from the current state to other states
+   * about a word to a given list.
+   *
+   * @param word a word to search transitions for
+   * @param transitions the initial list to add transitions
+   * @param rollbackWord a given rollback word
+   * @param marked whether to mark the transitions as marked
+   */
+  public void addTransitions(final String word,
+      final List<DerivationalTransition> transitions, final String rollbackWord,
+      final boolean marked) {
+
+    for(DerivationalSuffix suffix : suffixes()) {
+      if(suffix.match(word)) {
+        transitions.add(new DerivationalTransition(this, nextState(suffix),
+            word, suffix, rollbackWord, marked));
+      }
+    }
   }
 
   public abstract DerivationalState nextState(DerivationalSuffix suffix);

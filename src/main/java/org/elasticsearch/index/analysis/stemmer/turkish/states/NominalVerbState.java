@@ -1,7 +1,9 @@
 package org.elasticsearch.index.analysis.stemmer.turkish.states;
 
+import java.util.List;
 import java.util.EnumSet;
 import org.elasticsearch.index.analysis.stemmer.turkish.suffixes.NominalVerbSuffix;
+import org.elasticsearch.index.analysis.stemmer.turkish.transitions.NominalVerbTransition;
 
 public enum NominalVerbState {
   A(true, false, EnumSet.allOf(NominalVerbSuffix.class)) {
@@ -168,6 +170,28 @@ public enum NominalVerbState {
     }
 
     return states;
+  }
+
+  /**
+   * Adds possible transitions from the current state to other states
+   * about a word to a given list.
+   *
+   * @param word a word to search transitions for
+   * @param transitions the initial list to add transitions
+   * @param rollbackWord a given rollback word
+   * @param marked whether to mark the transitions as marked
+   */
+  public void addTransitions(final String word,
+                             final List<NominalVerbTransition> transitions,
+                             final String rollbackWord,
+                             final boolean marked) {
+
+    for(NominalVerbSuffix suffix : suffixes()) {
+      if(suffix.match(word)) {
+        transitions.add(new NominalVerbTransition(this, nextState(suffix),
+            word, suffix, rollbackWord, marked));
+      }
+    }
   }
 
   public abstract NominalVerbState nextState(NominalVerbSuffix suffix);
