@@ -235,6 +235,25 @@ public class TurkishStemmer {
   }
 
   /**
+   * Checks if a word should be stemmed or not.
+   *
+   * @param word the word to be checked
+   * @param suffix the suffix that will be removed from the word
+   * @return whether the word should be stemmed or not
+   */
+  public boolean shouldBeMarked(final String word, final Suffix suffix) {
+    if(!this.protectedWords.contains(word) &&
+        (suffix.checkHarmony() &&
+            (hasVowelHarmony(word) ||
+             this.vowelHarmonyExceptions.contains(word))) ||
+         !suffix.checkHarmony()) {
+      return true;
+    }
+
+    return false;
+  }
+
+  /**
    * Creates a CharArraySet from a file.
    *
    * @param stopwords

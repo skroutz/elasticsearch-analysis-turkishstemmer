@@ -1,5 +1,7 @@
 package org.elasticsearch.index.analysis;
 
+import org.elasticsearch.index.analysis.stemmer.turkish.suffixes.DerivationalSuffix;
+import org.elasticsearch.index.analysis.stemmer.turkish.suffixes.NominalVerbSuffix;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -27,6 +29,13 @@ public class TurkishStemmerTest {
     stem = stemmer.stem(token, tokenLength);
 
     Assert.assertEquals(stem, expectedStem);
+  }
+
+  @Test
+  public void testShouldBeMarked() {
+    Assert.assertTrue(stemmer.shouldBeMarked("gozlu", DerivationalSuffix.S1));
+    Assert.assertFalse(stemmer.shouldBeMarked("kedi", NominalVerbSuffix.S12));
+    Assert.assertTrue(stemmer.shouldBeMarked("saatler", NominalVerbSuffix.S5));
   }
 
   @Test
