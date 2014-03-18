@@ -6,11 +6,14 @@ import org.apache.lucene.analysis.util.CharArraySet;
 import org.apache.lucene.analysis.util.WordlistLoader;
 import org.apache.lucene.util.IOUtils;
 import org.apache.lucene.util.Version;
+import org.elasticsearch.index.analysis.stemmer.turkish.states.DerivationalState;
 import org.elasticsearch.index.analysis.stemmer.turkish.states.NominalVerbState;
 import org.elasticsearch.index.analysis.stemmer.turkish.states.NounState;
+import org.elasticsearch.index.analysis.stemmer.turkish.suffixes.DerivationalSuffix;
 import org.elasticsearch.index.analysis.stemmer.turkish.suffixes.NominalVerbSuffix;
 import org.elasticsearch.index.analysis.stemmer.turkish.suffixes.NounSuffix;
 import org.elasticsearch.index.analysis.stemmer.turkish.suffixes.Suffix;
+import org.elasticsearch.index.analysis.stemmer.turkish.transitions.DerivationalTransition;
 import org.elasticsearch.index.analysis.stemmer.turkish.transitions.NominalVerbTransition;
 import org.elasticsearch.index.analysis.stemmer.turkish.transitions.NounTransition;
 import java.io.IOException;
@@ -42,8 +45,10 @@ public class TurkishStemmer {
 
   private static final EnumSet<NominalVerbState> nominalVerbStates = EnumSet.allOf(NominalVerbState.class);
   private static final EnumSet<NounState> nounStates = EnumSet.allOf(NounState.class);
+  private static final EnumSet<DerivationalState> derivationalStates = EnumSet.allOf(DerivationalState.class);
   private static final EnumSet<NominalVerbSuffix>  nominalVerbSuffixes = EnumSet.allOf(NominalVerbSuffix.class);
   private static final EnumSet<NounSuffix> nounSuffixes = EnumSet.allOf(NounSuffix.class);
+  private static final EnumSet<DerivationalSuffix> derivationalSuffixes = EnumSet.allOf(DerivationalSuffix.class);
 
   private final CharArraySet protectedWords;
   private final CharArraySet vowelHarmonyExceptions;
@@ -189,6 +194,72 @@ public class TurkishStemmer {
           transition.nextState.addTransitions(stem, transitions, null, false);
         } else {
           for(NounTransition similarTransition : transition
+              .similarTransitions(transitions)) {
+            similarTransition.marked = true;
+          }
+          transition.nextState.addTransitions(stem, transitions,
+              transition.rollbackWord, true);
+        }
+      } else {
+        if(transition.rollbackWord != null
+            && transition.similarTransitions(transitions).isEmpty()) {
+          stems.add(transition.rollbackWord);
+        }
+      }
+    }
+  }
+
+  /**
+   * This method implements the state machine about derivational suffixes.
+   *
+   * It finds the possible stems of a word after applying the derivational
+   * suffix removal.
+   *
+   * @param word the word that will get stemmed
+   * @param stems a set of stems to populate
+   */
+  public final void derivationalSuffixStripper(final String word,
+                                               final Set<String> stems) {
+    String stem, wordToStem;
+    List<DerivationalTransition> transitions;
+    DerivationalState initialState;
+    DerivationalTransition transition;
+
+    wordToStem = word;
+
+    if(derivationalStates.isEmpty() || derivationalSuffixes.isEmpty()) {
+      return;
+    }
+
+    initialState = DerivationalState.getInitialState();
+
+    transitions = new ArrayList<DerivationalTransition>();
+
+    initialState.addTransitions(wordToStem, transitions, null, false);
+
+    while(!transitions.isEmpty()) {
+      transition = transitions.remove(0);
+      wordToStem = transition.word;
+
+      stem = stemWord(wordToStem, transition.suffix);
+
+      if(!stem.equals(wordToStem)) {
+        if(transition.nextState.finalState()) {
+          Iterator<DerivationalTransition> iterator = transitions.iterator();
+          DerivationalTransition transitionToRemove;
+          while(iterator.hasNext()) {
+            transitionToRemove = iterator.next();
+            if((transitionToRemove.startState == transition.startState &&
+                transitionToRemove.nextState == transition.nextState) ||
+                transitionToRemove.marked) {
+              transitions.remove(transitionToRemove);
+            }
+          }
+
+          stems.add(stem);
+          transition.nextState.addTransitions(stem, transitions, null, false);
+        } else {
+          for(DerivationalTransition similarTransition : transition
               .similarTransitions(transitions)) {
             similarTransition.marked = true;
           }

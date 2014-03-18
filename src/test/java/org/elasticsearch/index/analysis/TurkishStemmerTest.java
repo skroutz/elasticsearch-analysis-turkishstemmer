@@ -54,6 +54,16 @@ public class TurkishStemmerTest {
   }
 
   @Test
+  public void testDerivationalStripper() {
+    Set<String> stems = new HashSet<String>();
+
+    stemmer.derivationalSuffixStripper("telefonlu", stems);
+
+    Assert.assertEquals(stems.size(), 1);
+    Assert.assertEquals(stems.toArray(), new String[] { "telefon" });
+  }
+
+  @Test
   public void testStemWord() {
     Assert.assertEquals(stemmer.stemWord("gozlu", DerivationalSuffix.S1), "goz");
     Assert.assertEquals(stemmer.stemWord("kedi", NominalVerbSuffix.S12), "kedi");
