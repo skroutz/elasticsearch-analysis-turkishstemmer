@@ -1,5 +1,7 @@
 package org.elasticsearch.index.analysis;
 
+import java.util.HashSet;
+import java.util.Set;
 import org.elasticsearch.index.analysis.stemmer.turkish.suffixes.DerivationalSuffix;
 import org.elasticsearch.index.analysis.stemmer.turkish.suffixes.NominalVerbSuffix;
 import org.testng.Assert;
@@ -29,6 +31,16 @@ public class TurkishStemmerTest {
     stem = stemmer.stem(token, tokenLength);
 
     Assert.assertEquals(stem, expectedStem);
+  }
+
+  @Test
+  public void testNominalVerbSuffixStripper() {
+    Set<String> stems = new HashSet<String>();
+
+    stemmer.nominalVerbsSuffixStripper("satıyorsunuz", stems);
+
+    Assert.assertEquals(stems.size(), 1);
+    Assert.assertEquals(stems.toArray(), new String[] { "satıyor" });
   }
 
   @Test

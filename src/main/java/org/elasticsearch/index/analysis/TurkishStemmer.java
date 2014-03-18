@@ -6,10 +6,21 @@ import org.apache.lucene.analysis.util.CharArraySet;
 import org.apache.lucene.analysis.util.WordlistLoader;
 import org.apache.lucene.util.IOUtils;
 import org.apache.lucene.util.Version;
+import org.elasticsearch.index.analysis.stemmer.turkish.states.NominalVerbState;
+import org.elasticsearch.index.analysis.stemmer.turkish.suffixes.NominalVerbSuffix;
+import org.elasticsearch.index.analysis.stemmer.turkish.suffixes.Suffix;
+import org.elasticsearch.index.analysis.stemmer.turkish.transitions.NominalVerbTransition;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.Reader;
 import java.lang.StringIndexOutOfBoundsException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.EnumSet;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
 
 public class TurkishStemmer {
 
@@ -25,6 +36,9 @@ public class TurkishStemmer {
   public static final String DEFAULT_PROTECTED_WORDS_FILE = "protected_words.txt";
   public static final String DEFAULT_VOWEL_HARMONY_EXCEPTIONS_FILE = "vowel_harmony_exceptions.txt";
   public static final String DEFAULT_LAST_CONSONANT_EXCEPTIONS_FILE = "last_consonant_exceptions.txt";
+
+  private static final EnumSet<NominalVerbState> nominalVerbStates = EnumSet.allOf(NominalVerbState.class);
+  private static final EnumSet<NominalVerbSuffix>  nominalVerbSuffixes = EnumSet.allOf(NominalVerbSuffix.class);
 
   private final CharArraySet protectedWords;
   private final CharArraySet vowelHarmonyExceptions;
@@ -48,8 +62,77 @@ public class TurkishStemmer {
     return len;
   }
 
+  /**
+   * This method implements the state machine about nominal verb suffixes.
+   *
+   * It finds the possible stems of a word after applying the nominal verb
+   * suffix removal.
+   *
+   * @param word the word that will get stemmed
+   * @param stems a set of stems to populate
+   */
+  public final void nominalVerbsSuffixStripper(final String word,
+                                               final Set<String> stems) {
+    String stem, wordToStem;
+    List<NominalVerbTransition> transitions;
+    NominalVerbState initialState;
+    NominalVerbTransition transition;
 
+    wordToStem = word;
 
+    if(nominalVerbStates.isEmpty() || nominalVerbSuffixes.isEmpty()) {
+      stems.add(word);
+      return;
+    }
+
+    initialState = NominalVerbState.getInitialState();
+
+    transitions = new ArrayList<NominalVerbTransition>();
+
+    initialState.addTransitions(wordToStem, transitions, null, false);
+
+    while(!transitions.isEmpty()) {
+      transition = transitions.remove(0);
+
+      wordToStem = transition.word;
+
+      stem = stemWord(wordToStem, transition.suffix);
+
+      if(!stem.equals(wordToStem)) {
+        if(transition.nextState.finalState()) {
+          Iterator<NominalVerbTransition> iterator = transitions.iterator();
+          NominalVerbTransition transitionToRemove;
+          while(iterator.hasNext()) {
+            transitionToRemove = iterator.next();
+            if((transitionToRemove.startState == transition.startState &&
+                transitionToRemove.nextState == transition.nextState) ||
+                transitionToRemove.marked) {
+              iterator.remove();
+            }
+          }
+
+          stems.add(stem);
+          transition.nextState.addTransitions(stem, transitions, null, false);
+        } else {
+          for(NominalVerbTransition similarTransition : transition
+              .similarTransitions(transitions)) {
+            similarTransition.marked = true;
+          }
+
+          transition.nextState.addTransitions(stem, transitions,
+              transition.rollbackWord, true);
+        }
+      } else {
+        if(transition.rollbackWord != null
+            && transition.similarTransitions(transitions).isEmpty()) {
+          stems.add(transition.rollbackWord);
+        }
+      }
+    }
+
+    if(stems.isEmpty())
+      stems.add(word);
+  }
 
   /**
    * Removes a certain suffix from the given word.
