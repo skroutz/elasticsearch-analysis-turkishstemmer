@@ -32,6 +32,14 @@ public class TurkishStemmerTest {
   }
 
   @Test
+  public void testStemWord() {
+    Assert.assertEquals(stemmer.stemWord("gozlu", DerivationalSuffix.S1), "goz");
+    Assert.assertEquals(stemmer.stemWord("kedi", NominalVerbSuffix.S12), "kedi");
+    Assert.assertEquals(stemmer.stemWord("satıyorsunuz", NominalVerbSuffix.S4), "satıyor");
+    Assert.assertEquals(stemmer.stemWord("saatler", NominalVerbSuffix.S5), "saat");
+  }
+
+  @Test
   public void testShouldBeMarked() {
     Assert.assertTrue(stemmer.shouldBeMarked("gozlu", DerivationalSuffix.S1));
     Assert.assertFalse(stemmer.shouldBeMarked("kedi", NominalVerbSuffix.S12));

@@ -61,6 +61,34 @@ public class TurkishStemmer {
   }
 
   /**
+   * Removes a certain suffix from the given word.
+   *
+   * @param word the word to remove the suffix from
+   * @param suffix the suffix to be removed from the word
+   * @return the stemmed word
+   */
+  public final String stemWord(String word, Suffix suffix) {
+    String stemmedWord = word;
+
+    if(shouldBeMarked(word, suffix) && suffix.match(word)) {
+      stemmedWord = suffix.removeSuffix(stemmedWord);
+
+      char optionalLetter = suffix.optionalLetter(stemmedWord);
+
+      if(optionalLetter != '\0') {
+        if(validOptionalLetter(stemmedWord, optionalLetter)) {
+          // Remove the optional letter
+          stemmedWord = stemmedWord.substring(0, stemmedWord.length() - 1);
+        } else {
+          stemmedWord = word;
+        }
+      }
+    }
+
+    return stemmedWord;
+  }
+
+  /**
    * Gets the vowels of a word.
    *
    * @param   word  the word to get its vowels
