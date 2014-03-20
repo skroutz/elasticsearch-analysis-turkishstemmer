@@ -155,7 +155,7 @@ public class TurkishStemmer {
     stems = new HashSet<String>();
 
     // Process the word with the nominal verb suffix state machine.
-    nominalVerbsSuffixStripper(originalWord, stems);
+    nominalVerbSuffixStripper(originalWord, stems);
 
     Iterator<String> iterator;
     String word;
@@ -186,8 +186,8 @@ public class TurkishStemmer {
    * @param word the word that will get stemmed
    * @param stems a set of stems to populate
    */
-  public final void nominalVerbsSuffixStripper(final String word,
-                                               final Set<String> stems) {
+  public final void nominalVerbSuffixStripper(final String word,
+                                              final Set<String> stems) {
     String stem, wordToStem;
     List<NominalVerbTransition> transitions;
     NominalVerbState initialState;

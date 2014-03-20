@@ -39,7 +39,7 @@ public class TurkishStemmerTest {
   public void testNominalVerbSuffixStripper() {
     Set<String> stems = new HashSet<String>();
 
-    stemmer.nominalVerbsSuffixStripper("satıyorsunuz", stems);
+    stemmer.nominalVerbSuffixStripper("satıyorsunuz", stems);
 
     Assert.assertEquals(stems.size(), 1);
     Assert.assertEquals(stems.toArray(), new String[] { "satıyor" });
