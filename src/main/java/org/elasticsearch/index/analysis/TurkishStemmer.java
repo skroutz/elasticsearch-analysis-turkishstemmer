@@ -31,26 +31,91 @@ import java.util.Set;
 
 public class TurkishStemmer {
 
+  /**
+   * The turkish characters. They are used for skipping not turkish words.
+   */
   public static final String ALPHABET = "abcçdefgğhıijklmnoöprsştuüvyz";
+  /**
+   * The turkish vowels.
+   */
   public static final String VOWELS = "üiıueöao";
+  /**
+   * The turkish consonants.
+   */
   public static final String CONSONANTS = "bcçdfgğhjklmnprsştvyz";
+  /**
+   * Rounded vowels which are used for checking roundness harmony.
+   */
   public static final String ROUNDED_VOWELS = "oöuü";
-  public static final String UNROUNDED_VOWELS = "iıea";
+  /**
+   * Vowels that follow rounded vowels.
+   * They are combined with {@link ROUNDED_VOWELS} to check roundness harmony.
+   */
   public static final String FOLLOWING_ROUNDED_VOWELS = "aeuü";
+  /**
+   * The unrounded vowels which are used for checking roundness harmony.
+   */
+  public static final String UNROUNDED_VOWELS = "iıea";
+  /**
+   * Front vowels which are used for checking frontness harmony.
+   */
   public static final String FRONT_VOWELS = "eiöü";
+  /**
+   * Front vowels which are used for checking frontness harmony.
+   */
   public static final String BACK_VOWELS = "ıuao";
 
+  /**
+   * The path of the file that contains the default set of protected words.
+   */
   public static final String DEFAULT_PROTECTED_WORDS_FILE = "protected_words.txt";
+  /**
+   * The path of the file that contains the default set of vowel harmony
+   * exceptions.
+   */
   public static final String DEFAULT_VOWEL_HARMONY_EXCEPTIONS_FILE = "vowel_harmony_exceptions.txt";
+  /**
+   * The path of the file that contains the default set of last consonant
+   * exceptions.
+   */
   public static final String DEFAULT_LAST_CONSONANT_EXCEPTIONS_FILE = "last_consonant_exceptions.txt";
 
+  /**
+   * The set of nominal verb states that a word may pass during the stemming
+   * phase.
+   */
   private static final EnumSet<NominalVerbState> nominalVerbStates = EnumSet.allOf(NominalVerbState.class);
+  /**
+   * The set of noun states that a word may pass during the stemming
+   * phase.
+   */
   private static final EnumSet<NounState> nounStates = EnumSet.allOf(NounState.class);
+  /**
+   * The set of derivational states that a word may pass during the stemming
+   * phase.
+   */
   private static final EnumSet<DerivationalState> derivationalStates = EnumSet.allOf(DerivationalState.class);
+  /**
+   * The set of nominal verb suffixes that the stemmer recognizes.
+   */
   private static final EnumSet<NominalVerbSuffix>  nominalVerbSuffixes = EnumSet.allOf(NominalVerbSuffix.class);
+  /**
+   * The set of noun suffixes that the stemmer recognizes.
+   */
   private static final EnumSet<NounSuffix> nounSuffixes = EnumSet.allOf(NounSuffix.class);
+  /**
+   * The set of derivational suffixes that the stemmer recognizes.
+   */
   private static final EnumSet<DerivationalSuffix> derivationalSuffixes = EnumSet.allOf(DerivationalSuffix.class);
 
+  /**
+   * The average size of turkish stems based on which the selection of the final
+   * stem is performed.
+   *
+   * The idea behind the selection process is based on the paper
+   * F.Can, S.Kocberber, E.Balcik, C.Kaynak, H.Cagdas, O.Calan, O.Vursavas
+   * "Information Retrieval on Turkish Texts"
+   */
   private static final int AVERAGE_STEMMED_SIZE = 4;
 
   private final CharArraySet protectedWords;
@@ -71,6 +136,13 @@ public class TurkishStemmer {
     this.lastConsonantExceptions = lastConsonantExceptions;
   }
 
+  /**
+   * Finds the stem of a given word.
+   *
+   * @param s an array with the characters of the word
+   * @param len the length of the word
+   * @return the stemmed word
+   */
   public String stem(char s[], int len) {
 
     String originalWord = new String(s, 0, len);
@@ -82,6 +154,7 @@ public class TurkishStemmer {
     Set<String> stems;
     stems = new HashSet<String>();
 
+    // Process the word with the nominal verb suffix state machine.
     nominalVerbsSuffixStripper(originalWord, stems);
 
     Iterator<String> iterator;
@@ -90,12 +163,14 @@ public class TurkishStemmer {
     iterator = stems.iterator();
     while(iterator.hasNext()) {
       word = iterator.next();
+      // Process each possible stem with the noun suffix state machine.
       nounSuffixStripper(word, stems);
     }
 
     iterator = stems.iterator();
     while(iterator.hasNext()) {
       word = iterator.next();
+      // Process each possible stem with the derivational suffix state machine.
       derivationalSuffixStripper(word, stems);
     }
 
