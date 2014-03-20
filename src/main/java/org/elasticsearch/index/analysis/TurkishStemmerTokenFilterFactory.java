@@ -30,11 +30,11 @@ public class TurkishStemmerTokenFilterFactory extends AbstractTokenFilterFactory
 
     super(index, indexSettings, name, settings);
     this.protectedWords = parseProtectedWords(env, settings,
-        "protected_words_path", Version.LUCENE_46);
+        "protected_words_path", Version.LUCENE_44);
     this.lastConsonantExceptions = parseLastConsonantExceptions(env, settings,
-        "protected_words_path", Version.LUCENE_46);
+        "protected_words_path", Version.LUCENE_44);
     this.vowelHarmonyExceptions = parseVowelHarmonyExceptions(env, settings,
-        "protected_words_path", Version.LUCENE_46);
+        "protected_words_path", Version.LUCENE_44);
 
   }
 
