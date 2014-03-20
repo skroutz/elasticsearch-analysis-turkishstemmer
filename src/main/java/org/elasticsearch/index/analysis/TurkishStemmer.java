@@ -626,6 +626,7 @@ public class TurkishStemmer {
         countSyllables(word) <= 1 ||
         (!hasVowelHarmony(word) &&
             !this.vowelHarmonyExceptions.contains(word))) {
+      logger.warn("Skipping word: [{}]", word);
       return false;
     }
 
