@@ -163,6 +163,9 @@ public class TurkishStemmer {
     // Process the word with the nominal verb suffix state machine.
     nominalVerbSuffixStripper(originalWord, stems);
 
+    if(stems.isEmpty())
+      stems.add(originalWord);
+
     for(String word : stems.toArray(new String[stems.size()])) {
       // Process each possible stem with the noun suffix state machine.
       nounSuffixStripper(word, stems);
@@ -195,7 +198,6 @@ public class TurkishStemmer {
     wordToStem = word;
 
     if(nominalVerbStates.isEmpty() || nominalVerbSuffixes.isEmpty()) {
-      stems.add(word);
       return;
     }
 
@@ -248,9 +250,6 @@ public class TurkishStemmer {
         }
       }
     }
-
-    if(stems.isEmpty())
-      stems.add(word);
   }
 
   /**
