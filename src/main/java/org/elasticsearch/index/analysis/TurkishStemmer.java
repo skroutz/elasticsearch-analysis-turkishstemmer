@@ -1,11 +1,14 @@
 package org.elasticsearch.index.analysis;
 
 import com.google.common.base.CharMatcher;   // Guava
+
 import org.apache.commons.lang3.StringUtils; // Apache StringUtils
 import org.apache.lucene.analysis.util.CharArraySet;
 import org.apache.lucene.analysis.util.WordlistLoader;
 import org.apache.lucene.util.IOUtils;
 import org.apache.lucene.util.Version;
+import org.elasticsearch.common.logging.ESLogger;
+import org.elasticsearch.common.logging.Loggers;
 import org.elasticsearch.index.analysis.stemmer.turkish.states.DerivationalState;
 import org.elasticsearch.index.analysis.stemmer.turkish.states.NominalVerbState;
 import org.elasticsearch.index.analysis.stemmer.turkish.states.NounState;
@@ -16,6 +19,7 @@ import org.elasticsearch.index.analysis.stemmer.turkish.suffixes.Suffix;
 import org.elasticsearch.index.analysis.stemmer.turkish.transitions.DerivationalTransition;
 import org.elasticsearch.index.analysis.stemmer.turkish.transitions.NominalVerbTransition;
 import org.elasticsearch.index.analysis.stemmer.turkish.transitions.NounTransition;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.Reader;
@@ -31,6 +35,10 @@ import java.util.Set;
 
 public class TurkishStemmer {
 
+  /**
+   * Elasticsearch logger.
+   */
+  protected final ESLogger logger = Loggers.getLogger("turkish-stemmer");
   /**
    * The turkish characters. They are used for skipping not turkish words.
    */
@@ -156,6 +164,7 @@ public class TurkishStemmer {
 
     // Process the word with the nominal verb suffix state machine.
     nominalVerbSuffixStripper(originalWord, stems);
+    logger.debug("[nominalVerbSuffixStripper] Number of stems: [{}]", stems.size());
 
     Iterator<String> iterator;
     String word;
@@ -166,6 +175,7 @@ public class TurkishStemmer {
       // Process each possible stem with the noun suffix state machine.
       nounSuffixStripper(word, stems);
     }
+    logger.debug("[nounSuffixStripper] Number of stems: [{}]", stems.size());
 
     iterator = stems.iterator();
     while(iterator.hasNext()) {
@@ -173,6 +183,7 @@ public class TurkishStemmer {
       // Process each possible stem with the derivational suffix state machine.
       derivationalSuffixStripper(word, stems);
     }
+    logger.debug("[derivationalSuffixStripper] Number of stems: [{}]", stems.size());
 
     return postProcess(stems, originalWord);
   }
@@ -226,6 +237,7 @@ public class TurkishStemmer {
             }
           }
 
+          logger.debug("[NominalVerbSuffixStripper] Adding stem: [{}]", stem);
           stems.add(stem);
           transition.nextState.addTransitions(stem, transitions, null, false);
         } else {
@@ -295,6 +307,7 @@ public class TurkishStemmer {
             }
           }
 
+          logger.debug("[NounSuffixStripper] Adding stem: [{}]", stem);
           stems.add(stem);
           transition.nextState.addTransitions(stem, transitions, null, false);
         } else {
@@ -361,6 +374,7 @@ public class TurkishStemmer {
             }
           }
 
+          logger.debug("[DerivationalSuffixStripper] Adding stem: [{}]", stem);
           stems.add(stem);
           transition.nextState.addTransitions(stem, transitions, null, false);
         } else {
