@@ -166,20 +166,14 @@ public class TurkishStemmer {
     nominalVerbSuffixStripper(originalWord, stems);
     logger.debug("[nominalVerbSuffixStripper] Number of stems: [{}]", stems.size());
 
-    Iterator<String> iterator;
-    String word;
 
-    iterator = stems.iterator();
-    while(iterator.hasNext()) {
-      word = iterator.next();
+    for(String word : stems.toArray(new String[stems.size()])) {
       // Process each possible stem with the noun suffix state machine.
       nounSuffixStripper(word, stems);
     }
     logger.debug("[nounSuffixStripper] Number of stems: [{}]", stems.size());
 
-    iterator = stems.iterator();
-    while(iterator.hasNext()) {
-      word = iterator.next();
+    for(String word : stems.toArray(new String[stems.size()])) {
       // Process each possible stem with the derivational suffix state machine.
       derivationalSuffixStripper(word, stems);
     }
@@ -226,14 +220,11 @@ public class TurkishStemmer {
 
       if(!stem.equals(wordToStem)) {
         if(transition.nextState.finalState()) {
-          Iterator<NominalVerbTransition> iterator = transitions.iterator();
-          NominalVerbTransition transitionToRemove;
-          while(iterator.hasNext()) {
-            transitionToRemove = iterator.next();
+          for(NominalVerbTransition transitionToRemove : transitions.toArray(new NominalVerbTransition[transitions.size()])) {
             if((transitionToRemove.startState == transition.startState &&
                 transitionToRemove.nextState == transition.nextState) ||
                 transitionToRemove.marked) {
-              iterator.remove();
+              transitions.remove(transitionToRemove);
             }
           }
 
@@ -296,10 +287,7 @@ public class TurkishStemmer {
 
       if(!stem.equals(wordToStem)) {
         if(transition.nextState.finalState()) {
-          Iterator<NounTransition> iterator = transitions.iterator();
-          NounTransition transitionToRemove;
-          while(iterator.hasNext()) {
-            transitionToRemove = iterator.next();
+          for(NounTransition transitionToRemove : transitions.toArray(new NounTransition[transitions.size()])) {
             if((transitionToRemove.startState == transition.startState &&
                 transitionToRemove.nextState == transition.nextState)  ||
                 transitionToRemove.marked) {
@@ -363,10 +351,7 @@ public class TurkishStemmer {
 
       if(!stem.equals(wordToStem)) {
         if(transition.nextState.finalState()) {
-          Iterator<DerivationalTransition> iterator = transitions.iterator();
-          DerivationalTransition transitionToRemove;
-          while(iterator.hasNext()) {
-            transitionToRemove = iterator.next();
+          for(DerivationalTransition transitionToRemove : transitions.toArray(new DerivationalTransition[transitions.size()])) {
             if((transitionToRemove.startState == transition.startState &&
                 transitionToRemove.nextState == transition.nextState) ||
                 transitionToRemove.marked) {
