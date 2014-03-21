@@ -162,20 +162,16 @@ public class TurkishStemmer {
 
     // Process the word with the nominal verb suffix state machine.
     nominalVerbSuffixStripper(originalWord, stems);
-    logger.debug("[nominalVerbSuffixStripper] Number of stems: [{}]", stems.size());
-
 
     for(String word : stems.toArray(new String[stems.size()])) {
       // Process each possible stem with the noun suffix state machine.
       nounSuffixStripper(word, stems);
     }
-    logger.debug("[nounSuffixStripper] Number of stems: [{}]", stems.size());
 
     for(String word : stems.toArray(new String[stems.size()])) {
       // Process each possible stem with the derivational suffix state machine.
       derivationalSuffixStripper(word, stems);
     }
-    logger.debug("[derivationalSuffixStripper] Number of stems: [{}]", stems.size());
 
     return postProcess(stems, originalWord);
   }
@@ -208,9 +204,11 @@ public class TurkishStemmer {
     transitions = new ArrayList<NominalVerbTransition>();
 
     initialState.addTransitions(wordToStem, transitions, null, false);
+    logger.debug("[NominalVerbSuffixStripper] Initial Transitions: [{}]", transitions);
 
     while(!transitions.isEmpty()) {
       transition = transitions.remove(0);
+      logger.debug("[NominalVerbSuffixStripper] Processing transition: [{}]", transition);
 
       wordToStem = transition.word;
 
@@ -227,9 +225,12 @@ public class TurkishStemmer {
           }
 
           logger.debug("[NominalVerbSuffixStripper] Adding stem: [{}]", stem);
+
           stems.add(stem);
           transition.nextState.addTransitions(stem, transitions, null, false);
         } else {
+          logger.debug("[NominalVerbSuffixStripper] Marking non-final transitions");
+
           for(NominalVerbTransition similarTransition : transition
               .similarTransitions(transitions)) {
             similarTransition.marked = true;
@@ -241,6 +242,8 @@ public class TurkishStemmer {
       } else {
         if(transition.rollbackWord != null
             && transition.similarTransitions(transitions).isEmpty()) {
+          logger.debug("[NominalVerbSuffixStripper] Adding rollback word: [{}]", transition.rollbackWord);
+
           stems.add(transition.rollbackWord);
         }
       }
@@ -276,9 +279,12 @@ public class TurkishStemmer {
     transitions = new ArrayList<NounTransition>();
 
     initialState.addTransitions(wordToStem, transitions, null, false);
+    logger.debug("[NounSuffixStripper] Initial Transitions: [{}]", transitions);
 
     while(!transitions.isEmpty()) {
       transition = transitions.remove(0);
+      logger.debug("[NounSuffixStripper] Processing transition: [{}]", transition);
+
       wordToStem = transition.word;
 
       stem = stemWord(wordToStem, transition.suffix);
@@ -294,19 +300,25 @@ public class TurkishStemmer {
           }
 
           logger.debug("[NounSuffixStripper] Adding stem: [{}]", stem);
+
           stems.add(stem);
           transition.nextState.addTransitions(stem, transitions, null, false);
         } else {
+          logger.debug("[NounSuffixStripper] Marking non-final transitions");
+
           for(NounTransition similarTransition : transition
               .similarTransitions(transitions)) {
             similarTransition.marked = true;
           }
+
           transition.nextState.addTransitions(stem, transitions,
               transition.rollbackWord, true);
         }
       } else {
         if(transition.rollbackWord != null
             && transition.similarTransitions(transitions).isEmpty()) {
+          logger.debug("[NounSuffixStripper] Adding rollback word: [{}]", transition.rollbackWord);
+
           stems.add(transition.rollbackWord);
         }
       }
@@ -340,9 +352,12 @@ public class TurkishStemmer {
     transitions = new ArrayList<DerivationalTransition>();
 
     initialState.addTransitions(wordToStem, transitions, null, false);
+    logger.debug("[DerivationalSuffixStripper] Initial Transitions: [{}]", transitions);
 
     while(!transitions.isEmpty()) {
       transition = transitions.remove(0);
+      logger.debug("[DerivationalSuffixStripper] Processing transition: [{}]", transition);
+
       wordToStem = transition.word;
 
       stem = stemWord(wordToStem, transition.suffix);
@@ -358,19 +373,25 @@ public class TurkishStemmer {
           }
 
           logger.debug("[DerivationalSuffixStripper] Adding stem: [{}]", stem);
+
           stems.add(stem);
           transition.nextState.addTransitions(stem, transitions, null, false);
         } else {
+          logger.debug("[DerivationalSuffixStripper] Marking non-final transitions");
+
           for(DerivationalTransition similarTransition : transition
               .similarTransitions(transitions)) {
             similarTransition.marked = true;
           }
+
           transition.nextState.addTransitions(stem, transitions,
               transition.rollbackWord, true);
         }
       } else {
         if(transition.rollbackWord != null
             && transition.similarTransitions(transitions).isEmpty()) {
+          logger.debug("[DerivationalSuffixStripper] Adding rollback word: [{}]", transition.rollbackWord);
+
           stems.add(transition.rollbackWord);
         }
       }
@@ -430,6 +451,8 @@ public class TurkishStemmer {
         return Math.abs(s1.length() - AVERAGE_STEMMED_SIZE) - Math.abs(s2.length() - AVERAGE_STEMMED_SIZE);
       }
     });
+
+    logger.debug("Sorted candidate stems: " + sortedStems);
 
     if(sortedStems.isEmpty()) {
       return originalWord;
