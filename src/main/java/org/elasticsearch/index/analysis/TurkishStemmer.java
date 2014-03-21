@@ -1,6 +1,15 @@
 package org.elasticsearch.index.analysis;
 
-import com.google.common.base.CharMatcher;   // Guava
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.Reader;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.EnumSet;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 import org.apache.commons.lang3.StringUtils; // Apache StringUtils
 import org.apache.lucene.analysis.util.CharArraySet;
@@ -20,18 +29,7 @@ import org.elasticsearch.index.analysis.stemmer.turkish.transitions.Derivational
 import org.elasticsearch.index.analysis.stemmer.turkish.transitions.NominalVerbTransition;
 import org.elasticsearch.index.analysis.stemmer.turkish.transitions.NounTransition;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.Reader;
-import java.lang.StringIndexOutOfBoundsException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.EnumSet;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
+import com.google.common.base.CharMatcher;   // Guava
 
 public class TurkishStemmer {
 
