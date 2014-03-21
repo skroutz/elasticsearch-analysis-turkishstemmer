@@ -158,20 +158,26 @@ public class TurkishStemmer {
     }
 
     Set<String> stems;
+    Set<String> wordsToStem;
     stems = new HashSet<String>();
 
     // Process the word with the nominal verb suffix state machine.
     nominalVerbSuffixStripper(originalWord, stems);
 
-    if(stems.isEmpty())
-      stems.add(originalWord);
+    wordsToStem = new HashSet<String>(stems);
+    if(wordsToStem.isEmpty()) {
+      wordsToStem.add(originalWord);
+    }
 
-    for(String word : stems.toArray(new String[stems.size()])) {
+    for(String word : wordsToStem) {
       // Process each possible stem with the noun suffix state machine.
       nounSuffixStripper(word, stems);
     }
 
-    for(String word : stems.toArray(new String[stems.size()])) {
+    wordsToStem = new HashSet<String>(stems);
+    wordsToStem.add(originalWord);
+
+    for(String word : wordsToStem) {
       // Process each possible stem with the derivational suffix state machine.
       derivationalSuffixStripper(word, stems);
     }
