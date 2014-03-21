@@ -3,6 +3,7 @@ package org.elasticsearch.index.analysis;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
+
 import org.elasticsearch.index.analysis.stemmer.turkish.suffixes.DerivationalSuffix;
 import org.elasticsearch.index.analysis.stemmer.turkish.suffixes.NominalVerbSuffix;
 import org.testng.Assert;
@@ -18,11 +19,22 @@ public class TurkishStemmerTest {
   @DataProvider(name = "stems")
   public Object[][] stemmingSamples() {
     return new Object[][] {
-        { "ayfon", "ayfon" }, { "adrese", "adre" },
-        { "abiyeler", "abiye" }, { "eriklimişsincesine", "erik" },
-        { "guzelim", "guzel" }, { "satıyorsunuz", "satıyor" },
-        { "taksicisiniz", "taksici" }, { "türkiyedir", "türkiye" },
-        { "telefonlarl" , "telefon" }
+      { "ayfon", "ayfon" },
+      { "adrese", "adre" },
+      { "abiyeler", "abi" },
+      { "eriklimişsincesine", "erik" },
+      { "guzelim", "guzel" },
+      { "satıyorsunuz", "satıyor" },
+      { "taksicisiniz", "taksiç" },
+      { "türkiyedir", "türki" },
+      { "telefonları" , "telefon" },
+      { "acana", "acan" },
+      { "telefonu", "telefon" },
+      { "telefon", "telefon" },
+      { "alarm", "alar" },
+      { "altında", "alt" },
+      { "altın", "al" },
+      { "arada", "ara" }
     };
   }
 
@@ -49,10 +61,10 @@ public class TurkishStemmerTest {
   public void testNounSuffixStripper() {
     Set<String> stems = new HashSet<String>();
 
-    stemmer.nounSuffixStripper("telefonlarl", stems);
+    stemmer.nounSuffixStripper("telefonları", stems);
 
-    Assert.assertEquals(stems.size(), 1);
-    Assert.assertEquals(stems.toArray(), new String[] { "telefon" });
+    Assert.assertEquals(stems.size(), 2);
+    Assert.assertEquals(stems.toArray(), new String[] { "telefonlar", "telefon" });
   }
 
   @Test

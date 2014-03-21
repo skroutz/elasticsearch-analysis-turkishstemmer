@@ -4,7 +4,9 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.util.List;
+
 import org.apache.lucene.analysis.util.WordlistLoader;
 import org.apache.lucene.util.IOUtils;
 
@@ -34,8 +36,9 @@ public class UpdateStemmingSamples {
         writer.write(sample[0] + "," + stem);
         writer.newLine();
       }
-    } finally {
       writer.close();
+    } catch(IOException e) {
+      e.printStackTrace();
     }
   }
 }
