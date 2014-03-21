@@ -54,8 +54,8 @@ abercrombie,abercrombi
 abesimo,abesimo
 abiiye,abii
 abiseleri,abise
-abiye,abi
-abiyeler,abi
+abiye,abiye
+abiyeler,abiye
 ablet,ablet
 abliotablet,abliotablet
 abn,abn
@@ -132,7 +132,7 @@ adam,adam
 adamlar,adam
 adamları,adam
 adams,adams
-adana,adan
+adana,adana
 adanada,adana
 adanadakiler,adana
 adanazeynepcicekcilik,adanazeynepcicekcilik

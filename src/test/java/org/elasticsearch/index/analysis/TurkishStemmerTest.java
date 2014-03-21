@@ -21,7 +21,7 @@ public class TurkishStemmerTest {
     return new Object[][] {
       { "ayfon", "ayfon" },
       { "adrese", "adre" },
-      { "abiyeler", "abi" },
+      { "abiyeler", "abiye" },
       { "eriklimişsincesine", "erik" },
       { "guzelim", "guzel" },
       { "satıyorsunuz", "satıyor" },
