@@ -9,7 +9,7 @@ public enum NounSuffix implements Suffix {
 
   //   name       pattern       optional letter     check harmony
   S16 ("-nDAn",   "ndan|ntan|nden|nten", null,      true),
-  S7  ("-lArl",   "larl|lerl",           null,      true),
+  S7  ("-lArI",   "ları|leri",           null,      true),
   S3  ("-(U)mUz", "mız|miz|muz|müz",     "ı|i|u|ü", true),
   S5  ("-(U)nUz", "nız|niz|nuz|nüz",     "ı|i|u|ü", true),
   S1  ("-lAr",    "lar|ler",             null,      true),
