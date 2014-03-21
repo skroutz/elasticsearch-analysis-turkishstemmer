@@ -641,27 +641,27 @@ public class TurkishStemmer {
    */
   public boolean proceedToStem(String word) {
     if(word.isEmpty()) {
-      logger.warn("Skipping empty word");
+      logger.debug("Skipping empty word");
       return false;
     }
 
     if(!turkish(word)) {
-      logger.warn("Skipping non-turkish word: [{}]", word);
+      logger.debug("Skipping non-turkish word: [{}]", word);
       return false;
     }
 
     if(this.protectedWords.contains(word)) {
-      logger.warn("Skipping protected word: [{}]", word);
+      logger.debug("Skipping protected word: [{}]", word);
       return false;
     }
 
     if(countSyllables(word) < 2) {
-      logger.warn("Skipping small word: [{}]", word);
+      logger.debug("Skipping small word: [{}]", word);
       return false;
     }
 
     if(!this.vowelHarmonyExceptions.contains(word) && !hasVowelHarmony(word)) {
-      logger.warn("Skipping word with no vowel harmony: [{}]", word);
+      logger.debug("Skipping word with no vowel harmony: [{}]", word);
       return false;
     }
 
