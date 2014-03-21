@@ -445,10 +445,15 @@ public class TurkishStemmer {
     List<String> sortedStems;
     sortedStems = new ArrayList<String>(finalStems);
 
-    Collections.sort(new ArrayList<String>(finalStems), new Comparator<String>() {
+    Collections.sort(sortedStems, new Comparator<String>() {
       @Override
       public int compare(String s1, String s2) {
-        return Math.abs(s1.length() - AVERAGE_STEMMED_SIZE) - Math.abs(s2.length() - AVERAGE_STEMMED_SIZE);
+        int average_distance = Math.abs(s1.length() - AVERAGE_STEMMED_SIZE) - Math.abs(s2.length() - AVERAGE_STEMMED_SIZE);
+        if(average_distance == 0) {
+          return s1.length() - s2.length();
+        } else {
+          return average_distance;
+        }
       }
     });
 
