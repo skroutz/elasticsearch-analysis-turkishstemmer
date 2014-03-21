@@ -442,6 +442,8 @@ public class TurkishStemmer {
     Set<String> finalStems;
     finalStems = new HashSet<String>();
 
+    stems.remove(originalWord);
+
     for(String word : stems) {
       if (countSyllables(word) > 0)
         finalStems.add(lastConsonant(word));
