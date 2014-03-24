@@ -1,15 +1,17 @@
 package org.elasticsearch.index.analysis.stemmer.turkish.states;
 
-import java.util.List;
 import java.util.EnumSet;
-import org.elasticsearch.index.analysis.stemmer.turkish.suffixes.NounSuffix;
-import org.elasticsearch.index.analysis.stemmer.turkish.transitions.NounTransition;
+import java.util.List;
 
-public enum NounState {
+import org.elasticsearch.index.analysis.stemmer.turkish.suffixes.NounSuffix;
+import org.elasticsearch.index.analysis.stemmer.turkish.suffixes.Suffix;
+import org.elasticsearch.index.analysis.stemmer.turkish.transitions.Transition;
+
+public enum NounState implements State {
   A(true, true, EnumSet.allOf(NounSuffix.class)) {
     @Override
-    public NounState nextState(final NounSuffix suffix) {
-      switch (suffix) {
+    public State nextState(final Suffix suffix) {
+      switch ((NounSuffix) suffix) {
         case S8: case S11: case S13:
           return B;
         case S9: case S16:
@@ -42,8 +44,8 @@ public enum NounState {
                             NounSuffix.S4,
                             NounSuffix.S5)) {
     @Override
-    public NounState nextState(final NounSuffix suffix) {
-      switch(suffix) {
+    public State nextState(final Suffix suffix) {
+      switch((NounSuffix) suffix) {
         case S2: case S3: case S4: case S5:
           return H;
         case S1:
@@ -56,8 +58,8 @@ public enum NounState {
 
   C(false, false, EnumSet.of(NounSuffix.S6, NounSuffix.S7)) {
     @Override
-    public NounState nextState(final NounSuffix suffix) {
-      switch(suffix) {
+    public State nextState(final Suffix suffix) {
+      switch((NounSuffix) suffix) {
         case S6:
           return H;
         case S7:
@@ -70,8 +72,8 @@ public enum NounState {
 
   D(false, false, EnumSet.of(NounSuffix.S10, NounSuffix.S13)) {
     @Override
-    public NounState nextState(final NounSuffix suffix) {
-      switch(suffix) {
+    public State nextState(final Suffix suffix) {
+      switch((NounSuffix) suffix) {
         case S13:
           return B;
         case S10:
@@ -91,8 +93,8 @@ public enum NounState {
                             NounSuffix.S7,
                             NounSuffix.S18)) {
     @Override
-    public NounState nextState(final NounSuffix suffix) {
-      switch(suffix) {
+    public State nextState(final Suffix suffix) {
+      switch((NounSuffix) suffix) {
         case S18:
           return D;
         case S2: case S3: case S4: case S5: case S6:
@@ -109,8 +111,8 @@ public enum NounState {
 
   F(false, false, EnumSet.of(NounSuffix.S6, NounSuffix.S7, NounSuffix.S18)) {
     @Override
-    public NounState nextState(final NounSuffix suffix) {
-      switch(suffix) {
+    public State nextState(final Suffix suffix) {
+      switch((NounSuffix) suffix) {
         case S18:
           return D;
         case S6:
@@ -130,8 +132,8 @@ public enum NounState {
                             NounSuffix.S5,
                             NounSuffix.S18)) {
     @Override
-    public NounState nextState(final NounSuffix suffix) {
-      switch(suffix) {
+    public State nextState(final Suffix suffix) {
+      switch((NounSuffix) suffix) {
         case S18:
           return D;
         case S2: case S3: case S4: case S5:
@@ -146,8 +148,8 @@ public enum NounState {
 
   H(false, true, EnumSet.of(NounSuffix.S1)) {
     @Override
-    public NounState nextState(final NounSuffix suffix) {
-      switch(suffix) {
+    public NounState nextState(final Suffix suffix) {
+      switch((NounSuffix) suffix) {
         case S1:
           return L;
         default:
@@ -158,13 +160,13 @@ public enum NounState {
 
   K(false, true, EnumSet.noneOf(NounSuffix.class)) {
     @Override
-    public NounState nextState(final NounSuffix suffix) { return null; }
+    public State nextState(final Suffix suffix) { return null; }
   },
 
   L(false, true, EnumSet.of(NounSuffix.S18)) {
     @Override
-    public NounState nextState(final NounSuffix suffix) {
-      switch(suffix) {
+    public State nextState(final Suffix suffix) {
+      switch((NounSuffix) suffix) {
         case S18:
           return D;
         default:
@@ -182,8 +184,8 @@ public enum NounState {
                             NounSuffix.S6,
                             NounSuffix.S7)) {
     @Override
-    public NounState nextState(final NounSuffix suffix) {
-      switch(suffix) {
+    public State nextState(final Suffix suffix) {
+      switch((NounSuffix) suffix) {
         case S2: case S3: case S4: case S5: case S6:
           return H;
         case S7:
@@ -208,10 +210,17 @@ public enum NounState {
     this.suffixes = suffixes;
   }
 
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public boolean initialState() {
     return this.initialState;
   }
-
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public boolean finalState() {
     return this.finalState;
   }
@@ -229,41 +238,20 @@ public enum NounState {
     return this.suffixes;
   }
 
-  public EnumSet<NounState> possibleStates(final String word) {
-    EnumSet<NounState> states;
-
-    states = EnumSet.noneOf(NounState.class);
-
-    for(NounSuffix suffix : suffixes()) {
-      if(suffix.match(word)) {
-        states.add(nextState(suffix));
-      }
-    }
-
-    return states;
-  }
-
   /**
-   * Adds possible transitions from the current state to other states
-   * about a word to a given list.
-   *
-   * @param word a word to search transitions for
-   * @param transitions the initial list to add transitions
-   * @param rollbackWord a given rollback word
-   * @param marked whether to mark the transitions as marked
+   * {@inheritDoc}
    */
+  @Override
   public void addTransitions(final String word,
-                             final List<NounTransition> transitions,
+                             final List<Transition> transitions,
                              final String rollbackWord,
                              final boolean marked) {
 
-    for(NounSuffix suffix : suffixes()) {
+    for(Suffix suffix : suffixes()) {
       if(suffix.match(word)) {
-        transitions.add(new NounTransition(this, nextState(suffix),
+        transitions.add(new Transition(this, nextState(suffix),
             word, suffix, rollbackWord, marked));
       }
     }
   }
-
-  public abstract NounState nextState(NounSuffix suffix);
 }

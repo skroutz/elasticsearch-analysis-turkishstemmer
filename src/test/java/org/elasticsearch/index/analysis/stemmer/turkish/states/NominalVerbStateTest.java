@@ -1,10 +1,10 @@
 package org.elasticsearch.index.analysis.stemmer.turkish.states;
 
 import java.util.ArrayList;
-import java.util.EnumSet;
 import java.util.List;
+
 import org.elasticsearch.index.analysis.stemmer.turkish.suffixes.NominalVerbSuffix;
-import org.elasticsearch.index.analysis.stemmer.turkish.transitions.NominalVerbTransition;
+import org.elasticsearch.index.analysis.stemmer.turkish.transitions.Transition;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -30,20 +30,14 @@ public class NominalVerbStateTest {
   }
 
   @Test
-  public void testPossibleStates() {
-    Assert.assertEquals(NominalVerbState.A.possibleStates("satıyorsunuz"),
-                        EnumSet.of(NominalVerbState.B, NominalVerbState.D));
-  }
-
-  @Test
   public void testAddTransactions() {
-    List<NominalVerbTransition> transitions = new ArrayList<NominalVerbTransition>();
+    List<Transition> transitions = new ArrayList<Transition>();
 
     NominalVerbState.A.addTransitions("satıyorsunuz", transitions, null, false);
 
     Assert.assertEquals(transitions.size(), 3);
 
-    NominalVerbTransition transition = transitions.get(0);
+    Transition transition = transitions.get(0);
 
     Assert.assertEquals(transition.startState, NominalVerbState.A);
     Assert.assertEquals(transition.nextState, NominalVerbState.B);

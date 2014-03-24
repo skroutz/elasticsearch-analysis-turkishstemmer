@@ -1,15 +1,17 @@
 package org.elasticsearch.index.analysis.stemmer.turkish.states;
 
-import java.util.List;
 import java.util.EnumSet;
-import org.elasticsearch.index.analysis.stemmer.turkish.suffixes.DerivationalSuffix;
-import org.elasticsearch.index.analysis.stemmer.turkish.transitions.DerivationalTransition;
+import java.util.List;
 
-public enum DerivationalState {
+import org.elasticsearch.index.analysis.stemmer.turkish.suffixes.DerivationalSuffix;
+import org.elasticsearch.index.analysis.stemmer.turkish.suffixes.Suffix;
+import org.elasticsearch.index.analysis.stemmer.turkish.transitions.Transition;
+
+public enum DerivationalState implements State {
   A(true, false, EnumSet.of(DerivationalSuffix.S1)) {
     @Override
-    public DerivationalState nextState(final DerivationalSuffix suffix) {
-      switch(suffix) {
+    public State nextState(final Suffix suffix) {
+      switch((DerivationalSuffix) suffix) {
         case S1:
           return B;
         default:
@@ -20,7 +22,7 @@ public enum DerivationalState {
 
   B(false, true, EnumSet.noneOf(DerivationalSuffix.class)) {
     @Override
-    public DerivationalState nextState(final DerivationalSuffix suffix) {
+    public State nextState(final Suffix suffix) {
       return null;
     }
   };
@@ -37,10 +39,18 @@ public enum DerivationalState {
     this.suffixes = suffixes;
   }
 
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public boolean initialState() {
     return this.initialState;
   }
 
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public boolean finalState() {
     return this.finalState;
   }
@@ -58,41 +68,20 @@ public enum DerivationalState {
     return this.suffixes;
   }
 
-  public EnumSet<DerivationalState> possibleStates(final String word) {
-    EnumSet<DerivationalState> states;
-
-    states = EnumSet.noneOf(DerivationalState.class);
-
-    for(DerivationalSuffix suffix : suffixes()) {
-      if(suffix.match(word)) {
-        states.add(nextState(suffix));
-      }
-    }
-
-    return states;
-  }
-
   /**
-   * Adds possible transitions from the current state to other states
-   * about a word to a given list.
-   *
-   * @param word a word to search transitions for
-   * @param transitions the initial list to add transitions
-   * @param rollbackWord a given rollback word
-   * @param marked whether to mark the transitions as marked
+   * {@inheritDoc}
    */
+  @Override
   public void addTransitions(final String word,
-      final List<DerivationalTransition> transitions, final String rollbackWord,
-      final boolean marked) {
+                             final List<Transition> transitions,
+                             final String rollbackWord,
+                             final boolean marked) {
 
-    for(DerivationalSuffix suffix : suffixes()) {
+    for(Suffix suffix : suffixes()) {
       if(suffix.match(word)) {
-        transitions.add(new DerivationalTransition(this, nextState(suffix),
+        transitions.add(new Transition(this, nextState(suffix),
             word, suffix, rollbackWord, marked));
       }
     }
   }
-
-  public abstract DerivationalState nextState(DerivationalSuffix suffix);
-
 }

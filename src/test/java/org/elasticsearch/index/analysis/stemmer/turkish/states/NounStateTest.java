@@ -1,10 +1,10 @@
 package org.elasticsearch.index.analysis.stemmer.turkish.states;
 
 import java.util.ArrayList;
-import java.util.EnumSet;
 import java.util.List;
+
 import org.elasticsearch.index.analysis.stemmer.turkish.suffixes.NounSuffix;
-import org.elasticsearch.index.analysis.stemmer.turkish.transitions.NounTransition;
+import org.elasticsearch.index.analysis.stemmer.turkish.transitions.Transition;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -30,20 +30,14 @@ public class NounStateTest {
   }
 
   @Test
-  public void testPossibleStates() {
-    Assert.assertEquals(NounState.A.possibleStates("bebekler"),
-                        EnumSet.of(NounState.L));
-  }
-
-  @Test
   public void testAddTransactions() {
-    List<NounTransition> transitions = new ArrayList<NounTransition>();
+    List<Transition> transitions = new ArrayList<Transition>();
 
     NounState.A.addTransitions("bebekler", transitions, null, false);
 
     Assert.assertEquals(transitions.size(), 1);
 
-    NounTransition transition = transitions.get(0);
+    Transition transition = transitions.get(0);
 
     Assert.assertEquals(transition.startState, NounState.A);
     Assert.assertEquals(transition.nextState, NounState.L);

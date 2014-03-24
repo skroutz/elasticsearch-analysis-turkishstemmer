@@ -1,15 +1,17 @@
 package org.elasticsearch.index.analysis.stemmer.turkish.states;
 
-import java.util.List;
 import java.util.EnumSet;
-import org.elasticsearch.index.analysis.stemmer.turkish.suffixes.NominalVerbSuffix;
-import org.elasticsearch.index.analysis.stemmer.turkish.transitions.NominalVerbTransition;
+import java.util.List;
 
-public enum NominalVerbState {
+import org.elasticsearch.index.analysis.stemmer.turkish.suffixes.NominalVerbSuffix;
+import org.elasticsearch.index.analysis.stemmer.turkish.suffixes.Suffix;
+import org.elasticsearch.index.analysis.stemmer.turkish.transitions.Transition;
+
+public enum NominalVerbState implements State {
   A(true, false, EnumSet.allOf(NominalVerbSuffix.class)) {
     @Override
-    public NominalVerbState nextState(final NominalVerbSuffix suffix) {
-      switch(suffix) {
+    public State nextState(final Suffix suffix) {
+      switch((NominalVerbSuffix) suffix) {
         case S1: case S2: case S3: case S4:
           return B;
         case S5:
@@ -31,8 +33,8 @@ public enum NominalVerbState {
 
   B(false, true, EnumSet.of(NominalVerbSuffix.S14)) {
     @Override
-    public NominalVerbState nextState(final NominalVerbSuffix suffix) {
-      switch(suffix) {
+    public State nextState(final Suffix suffix) {
+      switch((NominalVerbSuffix) suffix) {
         case S14:
           return F;
         default:
@@ -46,8 +48,8 @@ public enum NominalVerbState {
                             NominalVerbSuffix.S13,
                             NominalVerbSuffix.S14)) {
     @Override
-    public NominalVerbState nextState(final NominalVerbSuffix suffix) {
-      switch(suffix) {
+    public State nextState(final Suffix suffix) {
+      switch((NominalVerbSuffix) suffix) {
         case S10: case S12: case S13: case S14:
           return F;
         default:
@@ -58,8 +60,8 @@ public enum NominalVerbState {
 
   D(false, false, EnumSet.of(NominalVerbSuffix.S12, NominalVerbSuffix.S13)) {
     @Override
-    public NominalVerbState nextState(final NominalVerbSuffix suffix) {
-      switch(suffix) {
+    public State nextState(final Suffix suffix) {
+      switch((NominalVerbSuffix) suffix) {
         case S12: case S13:
           return F;
         default:
@@ -75,8 +77,8 @@ public enum NominalVerbState {
                             NominalVerbSuffix.S5,
                             NominalVerbSuffix.S14)) {
     @Override
-    public NominalVerbState nextState(final NominalVerbSuffix suffix) {
-      switch(suffix) {
+    public State nextState(final Suffix suffix) {
+      switch((NominalVerbSuffix) suffix) {
         case S1: case S2: case S3: case S4: case S5:
           return G;
         case S14:
@@ -89,15 +91,15 @@ public enum NominalVerbState {
 
   F(false, true, EnumSet.noneOf(NominalVerbSuffix.class)) {
     @Override
-    public NominalVerbState nextState(final NominalVerbSuffix suffix) {
+    public State nextState(final Suffix suffix) {
       return null;
     }
   },
 
   G(false, false, EnumSet.of(NominalVerbSuffix.S14)) {
     @Override
-    public NominalVerbState nextState(final NominalVerbSuffix suffix) {
-      switch(suffix) {
+    public State nextState(final Suffix suffix) {
+      switch((NominalVerbSuffix) suffix) {
         case S14:
           return F;
         default:
@@ -113,8 +115,8 @@ public enum NominalVerbState {
                              NominalVerbSuffix.S5,
                              NominalVerbSuffix.S14)) {
     @Override
-    public NominalVerbState nextState(final NominalVerbSuffix suffix) {
-      switch(suffix) {
+    public State nextState(final Suffix suffix) {
+      switch((NominalVerbSuffix) suffix) {
         case S14:
           return F;
         case S1: case S2: case S3: case S4: case S5:
@@ -137,10 +139,18 @@ public enum NominalVerbState {
     this.suffixes = suffixes;
   }
 
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public boolean initialState() {
     return this.initialState;
   }
 
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public boolean finalState() {
     return this.finalState;
   }
@@ -158,42 +168,20 @@ public enum NominalVerbState {
     return null;
   }
 
-  public EnumSet<NominalVerbState> possibleStates(final String word) {
-    EnumSet<NominalVerbState> states;
-
-    states = EnumSet.noneOf(NominalVerbState.class);
-
-    for(NominalVerbSuffix suffix : suffixes()) {
-      if(suffix.match(word)) {
-        states.add(nextState(suffix));
-      }
-    }
-
-    return states;
-  }
-
   /**
-   * Adds possible transitions from the current state to other states
-   * about a word to a given list.
-   *
-   * @param word a word to search transitions for
-   * @param transitions the initial list to add transitions
-   * @param rollbackWord a given rollback word
-   * @param marked whether to mark the transitions as marked
+   * {@inheritDoc}
    */
+  @Override
   public void addTransitions(final String word,
-                             final List<NominalVerbTransition> transitions,
+                             final List<Transition> transitions,
                              final String rollbackWord,
                              final boolean marked) {
 
-    for(NominalVerbSuffix suffix : suffixes()) {
+    for(Suffix suffix : suffixes()) {
       if(suffix.match(word)) {
-        transitions.add(new NominalVerbTransition(this, nextState(suffix),
+        transitions.add(new Transition(this, nextState(suffix),
             word, suffix, rollbackWord, marked));
       }
     }
   }
-
-  public abstract NominalVerbState nextState(NominalVerbSuffix suffix);
-
 }

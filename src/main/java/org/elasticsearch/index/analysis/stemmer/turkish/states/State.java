@@ -2,6 +2,7 @@ package org.elasticsearch.index.analysis.stemmer.turkish.states;
 
 import java.util.List;
 
+import org.elasticsearch.index.analysis.stemmer.turkish.suffixes.Suffix;
 import org.elasticsearch.index.analysis.stemmer.turkish.transitions.Transition;
 
 public interface State {
@@ -29,5 +30,7 @@ public interface State {
    */
   void addTransitions(String word, List<Transition> transitions,
       String rollbackWord, boolean marked);
+
+  public abstract State nextState(Suffix suffix);
 
 }

@@ -1,10 +1,10 @@
 package org.elasticsearch.index.analysis.stemmer.turkish.states;
 
 import java.util.ArrayList;
-import java.util.EnumSet;
 import java.util.List;
+
 import org.elasticsearch.index.analysis.stemmer.turkish.suffixes.DerivationalSuffix;
-import org.elasticsearch.index.analysis.stemmer.turkish.transitions.DerivationalTransition;
+import org.elasticsearch.index.analysis.stemmer.turkish.transitions.Transition;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -30,22 +30,14 @@ public class DerivationalStateTest {
   }
 
   @Test
-  public void testPossibleStates() {
-    Assert.assertEquals(DerivationalState.A.possibleStates("gozlu"),
-                        EnumSet.of(DerivationalState.B));
-    Assert.assertEquals(DerivationalState.B.possibleStates("telefonu"),
-                        EnumSet.noneOf(DerivationalState.class));
-  }
-
-  @Test
   public void testAddTransactions() {
-    List<DerivationalTransition> transitions = new ArrayList<DerivationalTransition>();
+    List<Transition> transitions = new ArrayList<Transition>();
 
     DerivationalState.A.addTransitions("gozlu", transitions, null, false);
 
     Assert.assertEquals(transitions.size(), 1);
 
-    DerivationalTransition transition = transitions.get(0);
+    Transition transition = transitions.get(0);
 
     Assert.assertEquals(transition.startState, DerivationalState.A);
     Assert.assertEquals(transition.nextState, DerivationalState.B);

@@ -35,7 +35,7 @@ public class TurkishStemmerTest {
       { "altında", "alt" },
       { "altın", "al" },
       { "arada", "ara" },
-      {"gozluklerinde", "gozluk" }
+      { "gozluklerinde", "gozluk" }
     };
   }
 
