@@ -23,14 +23,12 @@ public class TransitionTest {
                                                   NominalVerbState.B,
                                                   "someWord",
                                                   NominalVerbSuffix.S2,
-                                                  "someOtherWord",
                                                   false);
 
     Transition differentTransition = new Transition(NominalVerbState.C,
                                                     NominalVerbState.D,
                                                     "someWord",
                                                     NominalVerbSuffix.S2,
-                                                    "someOtherWord",
                                                     false);
 
     List<Transition> initialTransitions = new ArrayList<Transition>();
@@ -54,7 +52,6 @@ public class TransitionTest {
                                 NominalVerbState.B,
                                 "aword",
                                 NominalVerbSuffix.S1,
-                                "anotherWord",
                                 false);
 
     Assert.assertEquals(transition.similarTransitions(transitions),
@@ -67,14 +64,12 @@ public class TransitionTest {
                                                   NounState.B,
                                                   "someWord",
                                                   NounSuffix.S2,
-                                                  "someOtherWord",
                                                   false);
 
     Transition differentTransition = new Transition(NounState.C,
                                                     NounState.D,
                                                     "someWord",
                                                     NounSuffix.S2,
-                                                    "someOtherWord",
                                                     false);
 
     List<Transition> initialTransitions = new ArrayList<Transition>();
@@ -98,7 +93,6 @@ public class TransitionTest {
                                 NounState.B,
                                 "aword",
                                 NounSuffix.S1,
-                                "anotherWord",
                                 false);
 
     Assert.assertEquals(transition.similarTransitions(transitions),
@@ -111,14 +105,12 @@ public class TransitionTest {
                                                   DerivationalState.B,
                                                   "someWord",
                                                   DerivationalSuffix.S1,
-                                                  "someOtherWord",
                                                   false);
 
     Transition differentTransition = new Transition(DerivationalState.A,
                                                     null,
                                                     "someWord",
                                                     DerivationalSuffix.S1,
-                                                    "someOtherWord",
                                                     false);
 
     List<Transition> initialTransitions = new ArrayList<Transition>();
@@ -142,7 +134,6 @@ public class TransitionTest {
                                 DerivationalState.B,
                                 "aword",
                                 DerivationalSuffix.S1,
-                                "anotherWord",
                                 false);
 
     Assert.assertEquals(transition.similarTransitions(transitions),

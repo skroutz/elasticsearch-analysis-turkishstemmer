@@ -267,7 +267,7 @@ public class TurkishStemmer {
     wordToStem = word;
     transitions = new ArrayList<Transition>();
 
-    initialState.addTransitions(wordToStem, transitions, null, false);
+    initialState.addTransitions(wordToStem, transitions, false);
     logger.debug("[{}SuffixStripper] Initial Transitions: [{}]", machine, transitions);
 
 
@@ -292,7 +292,7 @@ public class TurkishStemmer {
           logger.debug("[{}SuffixStripper] Adding stem: [{}]", machine, stem);
 
           stems.add(stem);
-          transition.nextState.addTransitions(stem, transitions, null, false);
+          transition.nextState.addTransitions(stem, transitions, false);
         } else {
           logger.debug("[{}SuffixStripper] Marking non-final transitions", machine);
 
@@ -301,15 +301,7 @@ public class TurkishStemmer {
             similarTransition.marked = true;
           }
 
-          transition.nextState.addTransitions(stem, transitions,
-              transition.rollbackWord, true);
-        }
-      } else {
-        if(transition.rollbackWord != null
-            && transition.similarTransitions(transitions).isEmpty()) {
-          logger.debug("[{}SuffixStripper] Adding rollback word: [{}]", machine, transition.rollbackWord);
-
-          stems.add(transition.rollbackWord);
+          transition.nextState.addTransitions(stem, transitions, true);
         }
       }
     }

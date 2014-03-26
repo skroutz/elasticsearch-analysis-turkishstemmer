@@ -33,7 +33,7 @@ public class NominalVerbStateTest {
   public void testAddTransactions() {
     List<Transition> transitions = new ArrayList<Transition>();
 
-    NominalVerbState.A.addTransitions("satıyorsunuz", transitions, null, false);
+    NominalVerbState.A.addTransitions("satıyorsunuz", transitions, false);
 
     Assert.assertEquals(transitions.size(), 3);
 
@@ -42,18 +42,15 @@ public class NominalVerbStateTest {
     Assert.assertEquals(transition.startState, NominalVerbState.A);
     Assert.assertEquals(transition.nextState, NominalVerbState.B);
     Assert.assertEquals(transition.suffix, NominalVerbSuffix.S4);
-    Assert.assertNull(transition.rollbackWord);
 
     transition = transitions.get(1);
     Assert.assertEquals(transition.startState, NominalVerbState.A);
     Assert.assertEquals(transition.nextState, NominalVerbState.D);
     Assert.assertEquals(transition.suffix, NominalVerbSuffix.S9);
-    Assert.assertNull(transition.rollbackWord);
 
     transition = transitions.get(2);
     Assert.assertEquals(transition.startState, NominalVerbState.A);
     Assert.assertEquals(transition.nextState, NominalVerbState.B);
     Assert.assertEquals(transition.suffix, NominalVerbSuffix.S3);
-    Assert.assertNull(transition.rollbackWord);
   }
 }

@@ -33,7 +33,7 @@ public class DerivationalStateTest {
   public void testAddTransactions() {
     List<Transition> transitions = new ArrayList<Transition>();
 
-    DerivationalState.A.addTransitions("gozlu", transitions, null, false);
+    DerivationalState.A.addTransitions("gozlu", transitions, false);
 
     Assert.assertEquals(transitions.size(), 1);
 
@@ -42,7 +42,6 @@ public class DerivationalStateTest {
     Assert.assertEquals(transition.startState, DerivationalState.A);
     Assert.assertEquals(transition.nextState, DerivationalState.B);
     Assert.assertEquals(transition.suffix, DerivationalSuffix.S1);
-    Assert.assertNull(transition.rollbackWord);
   }
 
 }

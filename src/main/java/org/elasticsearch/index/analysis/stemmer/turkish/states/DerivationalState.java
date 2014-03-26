@@ -74,13 +74,12 @@ public enum DerivationalState implements State {
   @Override
   public void addTransitions(final String word,
                              final List<Transition> transitions,
-                             final String rollbackWord,
                              final boolean marked) {
 
     for(Suffix suffix : suffixes()) {
       if(suffix.match(word)) {
         transitions.add(new Transition(this, nextState(suffix),
-            word, suffix, rollbackWord, marked));
+            word, suffix, marked));
       }
     }
   }

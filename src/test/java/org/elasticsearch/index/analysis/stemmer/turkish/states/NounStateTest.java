@@ -33,7 +33,7 @@ public class NounStateTest {
   public void testAddTransactions() {
     List<Transition> transitions = new ArrayList<Transition>();
 
-    NounState.A.addTransitions("bebekler", transitions, null, false);
+    NounState.A.addTransitions("bebekler", transitions, false);
 
     Assert.assertEquals(transitions.size(), 1);
 
@@ -42,8 +42,6 @@ public class NounStateTest {
     Assert.assertEquals(transition.startState, NounState.A);
     Assert.assertEquals(transition.nextState, NounState.L);
     Assert.assertEquals(transition.suffix, NounSuffix.S1);
-    // This is final state show the input word is set as rollback word
-    Assert.assertEquals(transition.rollbackWord, "bebekler");
   }
 
 }

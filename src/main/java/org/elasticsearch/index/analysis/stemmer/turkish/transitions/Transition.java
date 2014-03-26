@@ -12,13 +12,11 @@ public class Transition {
   public String  word;
   public Suffix  suffix;
   public boolean marked;
-  public String  rollbackWord;
 
   public Transition(final State startState,
                     final State nextState,
                     final String word,
                     final Suffix suffix,
-                    final String rollbackWord,
                     final boolean marked) {
 
     this.startState = startState;
@@ -26,11 +24,6 @@ public class Transition {
     this.word = word;
     this.suffix = suffix;
     this.marked = false;
-    if(rollbackWord != null) {
-      this.rollbackWord = rollbackWord;
-    } else if(startState.finalState()) {
-      this.rollbackWord = word;
-    }
   }
 
   public List<Transition> similarTransitions(final List<Transition> transitions) {
@@ -49,7 +42,7 @@ public class Transition {
 
   @Override
   public String toString() {
-    return String.format("%s(%s) -> %s (rollback: %s)", this.startState,
-        this.suffix, this.nextState, this.rollbackWord);
+    return String.format("%s(%s) -> %s", this.startState,
+        this.suffix, this.nextState);
   }
 }

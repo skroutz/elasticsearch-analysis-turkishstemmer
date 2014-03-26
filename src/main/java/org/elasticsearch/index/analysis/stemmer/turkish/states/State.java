@@ -25,11 +25,9 @@ public interface State {
    *
    * @param word a word to search transitions for
    * @param transitions the initial list to add transitions
-   * @param rollbackWord a given rollback word
    * @param marked whether to mark the transitions as marked
    */
-  void addTransitions(String word, List<Transition> transitions,
-      String rollbackWord, boolean marked);
+  void addTransitions(String word, List<Transition> transitions, boolean marked);
 
   public abstract State nextState(Suffix suffix);
 
