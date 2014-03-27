@@ -7,19 +7,49 @@ alet
 ağda
 ağız
 alarm
-altınbaşak # brand
-altınyıldız # brand
-anakucağı # brand
-anasayfa # brand
+altınbaşak
+altınyıldız
+anakucağı
+anasayfa
 anime
 antifriz
 araba
-ardeşen # name
-armanı  # brand
+ardeşen
+armanı
 aroma
 arma
 arsız
 asa
+askı
+astra
+asus
+atkı
+ayakkabı
+aynı
+ayı
+banka
+başka
+batık
+bayı
+belge
+bellona
+benten
+benzin
+beşinci
+bilgi
+bitki
+boyut
+branda
+bütün
+buzlu
+çağrı
+camsız
+çanta
+çarşı
+ceyiz
+kayısı
+kedi
 masa
 soyad
-kedi
+yıldız
+zayıflama

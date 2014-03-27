@@ -453,7 +453,7 @@ altı,al
 altın,al
 altınbasak,altınp
 altında,alt
-altınyıldız,altınyılt
+altınyıldız,altınyıldız
 altının,altı
 altınııslatanbebek,altınııslatanbebek
 alu,alu
@@ -551,7 +551,7 @@ anakucagı,anakucag
 analog,analog
 ananis,ananis
 ananta,anan
-anasayfa,anasayf
+anasayfa,anasayfa
 anayıs,anayıs
 and,and
 andaz,andaz
@@ -830,7 +830,7 @@ arma,arma
 armani,armani
 armania,armania
 armany,armany
-armanı,arman
+armanı,armanı
 armatur,armatur
 armek,armek
 armoni,armoni
@@ -929,7 +929,7 @@ askerler,asker
 askero,askero
 aski,aski
 askisi,aski
-askı,ask
+askı,askı
 askılı,askı
 askılık,askılık
 askısı,askı
@@ -970,7 +970,7 @@ assortie,assorti
 assos,assos
 asst,asst
 aston,aston
-astra,astr
+astra,astra
 astro,astro
 astronot,astronot
 asua,asu
@@ -1010,7 +1010,7 @@ atin,atin
 ativ,ativ
 ativbook,ativbook
 ative,ativ
-atkı,atk
+atkı,atkı
 atlada,atla
 atlama,atla
 atlanta,atlan
@@ -1118,8 +1118,8 @@ ayakkabi,ayakkabi
 ayakkabilar,ayakkabilar
 ayakkabilari,ayakkabilari
 ayakkabilik,ayakkabilik
-ayakkabı,ayakkap
-ayakkabılar,ayakkap
+ayakkabı,ayakkabı
+ayakkabılar,ayakkabı
 ayakkabıları,ayakkabı
 ayakkabılık,ayakkabılık
 ayakkabısı,ayakkabı
@@ -1173,7 +1173,7 @@ aynalı,ayna
 aynars,aynars
 aynasız,aynas
 aynasızsistem,aynasızsiste
-aynı,ayn
+aynı,aynı
 aypan,aypan
 aype,aype
 ayped,ayped
@@ -1203,7 +1203,7 @@ aytiji,aytij
 ayu,ayu
 ayvalık,ayvalık
 ayvon,ayvon
-ayı,ay
+ayı,ayı
 ayıcık,ayıcık
 ayılar,ayı
 az,az
@@ -1357,7 +1357,7 @@ bangella,bangella
 bangunes,bangunes
 banio,banio
 bank,bank
-banka,bank
+banka,banka
 bankası,banka
 banoo,banoo
 bant,bant
@@ -1470,7 +1470,7 @@ battniye,battni
 batu,batu
 baturlar,batur
 batwing,batwing
-batık,ba
+batık,batık
 batırfılay,batırfılay
 bave,bave
 bavul,bavul
@@ -1501,7 +1501,7 @@ baymaku,baymaku
 bayragı,bayrag
 bayrakli,bayrakli
 bayside,baysi
-bayı,bay
+bayı,bayı
 bayıı,bayı
 baza,baz
 bazalı,baza
@@ -1589,7 +1589,7 @@ belderia,belderia
 belek,belek
 belenay,belenay
 beleza,beleza
-belge,belg
+belge,belge
 believe,believ
 belirlenirm,belirlenir
 belis,belis
@@ -1603,7 +1603,7 @@ bellek,bellek
 bellekler,bellek
 belleno,belleno
 bellisima,bellisima
-bellona,bellon
+bellona,bellona
 bellone,bellone
 belloni,belloni
 bellonni,bellonni
@@ -1631,7 +1631,7 @@ benjamin,benjamin
 benq,benq
 benqu,benqu
 benrus,benrus
-benten,ben
+benten,benten
 bentini,bent
 bentinisaat,bentinisaat
 bentley,bentley
@@ -1776,12 +1776,12 @@ bileklık,bileklık
 bilekten,bilek
 bilen,bilen
 bilestirme,bilestir
-bileti,bile
+bileti,bilet
 biletisim,biletis
 bileyici,bileyiç
 bileyzik,bileyzik
 bilgasayar,bilgasayar
-bilgi,bilg
+bilgi,bilgi
 bilgileri,bilgi
 bilgileriiletisim,bilgileriiletis
 bilgisaray,bilgisaray
@@ -1865,12 +1865,12 @@ bisijlet,bisijlet
 bisiklet,bisiklet
 bisikletcilerin,bisikletci
 bisikletfiatları,bisikletfiat
-bisikleti,bisik
+bisikleti,bisiklet
 bisip,bisip
 biskovoli,biskovoli
 bisrksglg,bisrksglg
 bit,bit
-bitki,bitk
+bitki,bitki
 bitkisel,bitkisel
 bitmeyen,bitmeyen
 bituluk,bituluk
@@ -2140,7 +2140,7 @@ brabantia,brabantia
 braccai,braccai
 brain,brain
 brainstorm,brainstorm
-branda,bran
+branda,branda
 brandası,branda
 brandt,brandt
 branu,branu
@@ -2301,7 +2301,7 @@ bulunamadı,buluna
 bulunur,bulunur
 bulurum,bulur
 bulutooth,bulutooth
-bulutu,bulu
+bulutu,bulut
 bulutuk,bulu
 bulutut,bulutut
 bulututlu,bulutut
@@ -2380,7 +2380,7 @@ buzdolabi,buzdolabi
 buzdolabı,buzdolap
 buzdolapları,buzdolap
 buzdolbı,buzdolbı
-buzlu,buzl
+buzlu,buzlu
 buzluk,buzluk
 buzmatik,buzmatik
 buzz,buzz
@@ -2519,7 +2519,7 @@ campell,campell
 camper,camper
 campil,campil
 camsehpa,camsehpa
-camsız,cams
+camsız,camsız
 camurluk,camurluk
 camı,cam
 camını,cam
@@ -2852,7 +2852,7 @@ cevirici,ceviriç
 cevirme,cevir
 cevrilebilirmi,cevrilebilir
 cexv,cexv
-ceyiz,ce
+ceyiz,ceyiz
 ceyizi,ceyiz
 ceyrek,ceyrek
 ceyyiz,ceyyiz
@@ -8333,7 +8333,7 @@ kayık,kayık
 kayıs,kayıs
 kayısları,kayıs
 kayıslı,kayıs
-kayısı,kayı
+kayısı,kayısı
 kayıt,kayıt
 kayıtlı,kayıt
 kaza,kaz
@@ -17546,7 +17546,7 @@ yıkama,yıka
 yıl,yıl
 yılan,yılan
 yılbası,yılba
-yıldız,yılt
+yıldız,yıldız
 yıldızı,yıldız
 yılı,yıl
 yıyafetı,yıyafetı
@@ -17569,7 +17569,7 @@ zarz,zarz
 zass,zass
 zayflama,zayfla
 zayiflatan,zayifla
-zayıflama,zayıfla
+zayıflama,zayıflama
 zb,zb
 zcxcivfb,zcxcivfb
 zd,zd

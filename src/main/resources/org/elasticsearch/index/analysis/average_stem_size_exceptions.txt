@@ -2,6 +2,9 @@ al
 am
 aparat
 ara
+bilet
+bisiklet
+bulut
 ev
 git
 gıt
