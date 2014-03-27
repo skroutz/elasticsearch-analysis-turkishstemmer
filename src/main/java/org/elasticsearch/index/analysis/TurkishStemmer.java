@@ -287,6 +287,7 @@ public class TurkishStemmer {
       stem = stemWord(wordToStem, transition.suffix);
 
       if(!stem.equals(wordToStem)) {
+        logger.debug("[{}SuffixStripper] Word stemmed: [{}] -> [{}]", machine, wordToStem, stem);
         if(transition.nextState.finalState()) {
           for(Transition transitionToRemove : transitions.toArray(new Transition[transitions.size()])) {
             if((transitionToRemove.startState == transition.startState &&
