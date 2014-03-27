@@ -84,6 +84,11 @@ public class TurkishStemmer {
    * exceptions.
    */
   public static final String DEFAULT_LAST_CONSONANT_EXCEPTIONS_FILE = "last_consonant_exceptions.txt";
+  /**
+   * The path of the file that contains the  default set of average stem size
+   * exceptions.
+   */
+  public static final String DEFAULT_AVERAGE_STEM_SIZE_EXCEPTION_FILE = "average_stem_size_exceptions.txt";
 
   /**
    * The set of nominal verb states that a word may pass during the stemming
@@ -126,19 +131,23 @@ public class TurkishStemmer {
   private final CharArraySet protectedWords;
   private final CharArraySet vowelHarmonyExceptions;
   private final CharArraySet lastConsonantExceptions;
+  private final CharArraySet averageStemSizeExceptions;
 
   public TurkishStemmer() {
-    this.protectedWords          = TurkishStemmer.getDefaultProtectedWordSet();
-    this.vowelHarmonyExceptions  = TurkishStemmer.getDefaultVowelHarmonySet();
-    this.lastConsonantExceptions = TurkishStemmer.getDefaultLastConsonantSet();
+    this.protectedWords            = TurkishStemmer.getDefaultProtectedWordSet();
+    this.vowelHarmonyExceptions    = TurkishStemmer.getDefaultVowelHarmonySet();
+    this.lastConsonantExceptions   = TurkishStemmer.getDefaultLastConsonantSet();
+    this.averageStemSizeExceptions = TurkishStemmer.getDefaultAverageStemSizeSet();
   }
 
   public TurkishStemmer(final CharArraySet protectedWords,
                         final CharArraySet vowelHarmonyExceptions,
-                        final CharArraySet lastConsonantExceptions) {
+                        final CharArraySet lastConsonantExceptions,
+                        final CharArraySet averageStemSizeExceptions) {
     this.protectedWords          = protectedWords;
     this.vowelHarmonyExceptions  = vowelHarmonyExceptions;
     this.lastConsonantExceptions = lastConsonantExceptions;
+    this.averageStemSizeExceptions = averageStemSizeExceptions;
   }
 
   /**
@@ -359,6 +368,13 @@ public class TurkishStemmer {
     Collections.sort(sortedStems, new Comparator<String>() {
       @Override
       public int compare(String s1, String s2) {
+
+        if(averageStemSizeExceptions.contains(s1)) {
+          return -1;
+        } else if(averageStemSizeExceptions.contains(s2)) {
+          return 1;
+        }
+
         int average_distance = Math.abs(s1.length() - AVERAGE_STEMMED_SIZE) - Math.abs(s2.length() - AVERAGE_STEMMED_SIZE);
         if(average_distance == 0) {
           return s1.length() - s2.length();
@@ -619,6 +635,16 @@ public class TurkishStemmer {
   }
 
   /**
+   * Gets the default set of average stem size exceptions.
+   *
+   * @return a set of average stem size exceptions
+   */
+  public static CharArraySet getDefaultAverageStemSizeSet() {
+    return DefaultSetHolder.DEFAULT_AVERAGE_STEM_SIZE_EXCEPTIONS;
+  }
+
+
+  /**
    * Creates a CharArraySet from a file.
    *
    * @param stopwords
@@ -646,6 +672,7 @@ public class TurkishStemmer {
     private static final CharArraySet DEFAULT_PROTECTED_WORDS;
     private static final CharArraySet DEFAULT_VOWEL_HARMONY_EXCEPTIONS;
     private static final CharArraySet DEFAULT_LAST_CONSONANT_EXCEPTIONS;
+    private static final CharArraySet DEFAULT_AVERAGE_STEM_SIZE_EXCEPTIONS;
 
     static {
       try {
@@ -675,6 +702,16 @@ public class TurkishStemmer {
       } catch(IOException ex) {
         throw new RuntimeException(
             "Unable to load default vowel harmony exceptions");
+      }
+
+      try {
+        DEFAULT_AVERAGE_STEM_SIZE_EXCEPTIONS = loadWordSet(
+            TurkishStemmer.class
+                .getResourceAsStream(DEFAULT_AVERAGE_STEM_SIZE_EXCEPTION_FILE),
+            Version.LUCENE_44);
+      } catch(IOException ex) {
+        throw new RuntimeException(
+            "Unable to load default average stem size exceptions");
       }
     }
 

@@ -16,10 +16,13 @@ public class TurkishStemmerTokenFilter extends TokenFilter {
   public TurkishStemmerTokenFilter(TokenStream input,
                                    CharArraySet protectedWords,
                                    CharArraySet vowelHarmonyExceptions,
-                                   CharArraySet lastConsonantExceptions) {
+                                   CharArraySet lastConsonantExceptions,
+                                   CharArraySet averageStemSizeExceptions) {
     super(input);
     this.stemmer = new TurkishStemmer(protectedWords,
-        vowelHarmonyExceptions, lastConsonantExceptions);
+                                      vowelHarmonyExceptions,
+                                      lastConsonantExceptions,
+                                      averageStemSizeExceptions);
   }
 
   @Override

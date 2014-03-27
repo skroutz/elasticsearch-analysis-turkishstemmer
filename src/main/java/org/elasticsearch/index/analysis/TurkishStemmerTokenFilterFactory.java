@@ -21,6 +21,8 @@ public class TurkishStemmerTokenFilterFactory extends AbstractTokenFilterFactory
   private final CharArraySet protectedWords;
   private final CharArraySet lastConsonantExceptions;
   private final CharArraySet vowelHarmonyExceptions;
+  private final CharArraySet averageStemSizeExceptions;
+
 
   @Inject
   public TurkishStemmerTokenFilterFactory(Index index,
@@ -31,17 +33,21 @@ public class TurkishStemmerTokenFilterFactory extends AbstractTokenFilterFactory
     super(index, indexSettings, name, settings);
     this.protectedWords = parseProtectedWords(env, settings,
         "protected_words_path", Version.LUCENE_44);
-    this.lastConsonantExceptions = parseLastConsonantExceptions(env, settings,
-        "protected_words_path", Version.LUCENE_44);
     this.vowelHarmonyExceptions = parseVowelHarmonyExceptions(env, settings,
-        "protected_words_path", Version.LUCENE_44);
-
+        "vowel_harmony_exceptions_path", Version.LUCENE_44);
+    this.lastConsonantExceptions = parseLastConsonantExceptions(env, settings,
+        "last_consonant_exceptions_path", Version.LUCENE_44);
+    this.averageStemSizeExceptions = parseAverageStemSizeExceptions(env, settings,
+        "average_stem_size_exceptions_path", Version.LUCENE_44);
   }
 
   @Override
   public TokenStream create(TokenStream tokenStream) {
     return new TurkishStemmerTokenFilter(tokenStream,
-        protectedWords, lastConsonantExceptions, vowelHarmonyExceptions);
+                                         protectedWords,
+                                         vowelHarmonyExceptions,
+                                         lastConsonantExceptions,
+                                         averageStemSizeExceptions);
   }
 
   private CharArraySet parseProtectedWords(Environment env, Settings settings,
@@ -98,7 +104,25 @@ public class TurkishStemmerTokenFilterFactory extends AbstractTokenFilterFactory
     }
 
     return vowelHarmonyExceptions;
+  }
 
+  private CharArraySet parseAverageStemSizeExceptions(Environment env,
+      Settings settings, String settingPrefix, Version version) {
+
+    CharArraySet averageStemSizeExceptions = null;
+
+    try {
+      averageStemSizeExceptions =
+          parseExceptions(env, settings, settingPrefix, version);
+    } catch (IOException e) {
+      logger.info("Failed to load given average stem size exceptions, using default set");
+    }
+
+    if (averageStemSizeExceptions == null) {
+      averageStemSizeExceptions = TurkishStemmer.getDefaultAverageStemSizeSet();
+    }
+
+    return averageStemSizeExceptions;
   }
   private CharArraySet parseExceptions(Environment env, Settings settings,
       String settingPrefix, Version version) throws IOException {
