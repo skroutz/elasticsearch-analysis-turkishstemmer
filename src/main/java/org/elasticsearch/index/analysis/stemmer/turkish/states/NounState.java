@@ -70,7 +70,7 @@ public enum NounState implements State {
     }
   },
 
-  D(false, false, EnumSet.of(NounSuffix.S10, NounSuffix.S13)) {
+  D(false, false, EnumSet.of(NounSuffix.S10, NounSuffix.S13, NounSuffix.S14)) {
     @Override
     public State nextState(final Suffix suffix) {
       switch((NounSuffix) suffix) {
@@ -78,6 +78,8 @@ public enum NounState implements State {
           return B;
         case S10:
           return E;
+        case S14:
+          return F;
         default:
           return null;
       }
