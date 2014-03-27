@@ -31,10 +31,15 @@ public class TurkishStemmerTest {
       { "acana", "acan" },
       { "telefonu", "telefon" },
       { "telefon", "telefon" },
-      { "alarm", "alar" },
+      { "alarm", "alarm" },
+      { "alarmı", "alarm" },
       { "altında", "alt" },
+      { "adını", "adın" },
+      { "adın", "adın" },
       { "altın", "al" },
+      { "aparatı", "aparat" },
       { "arada", "ara" },
+      { "arasındaki", "ara" },
       { "gozluklerinde", "gozluk" }
     };
   }

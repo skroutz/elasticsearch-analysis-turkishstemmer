@@ -330,7 +330,7 @@ akıllibtwlefon,akıllibtwlefon
 akıllı,akıl
 akıllıtelefon,akıllıtelefon
 akıllıxperia,akıllıxperia
-akılsız,akıls
+akılsız,akılsız
 akılı,akıl
 akılıu,akılıu
 akım,ak
@@ -346,10 +346,10 @@ alanı,alan
 alarco,alarco
 alarko,alarko
 alarkokombi,alarkokombi
-alarm,alar
+alarm,alarm
 alarmlı,alarm
-alarmı,alar
-alaska,alask
+alarmı,alarm
+alaska,alaska
 alaxy,alaxy
 alba,alp
 albe,albe
@@ -595,7 +595,7 @@ angır,angır
 angıry,angıry
 ani,ani
 animals,animals
-anime,anim
+anime,anime
 anita,anita
 ankara,ankar
 ankarada,ankara
@@ -633,7 +633,7 @@ anteni,anten
 anti,anti
 antialerjikkucuk,antialerjikkucuk
 antibakteriyel,antibakteriyel
-antifriz,antifr
+antifriz,antifriz
 antik,antik
 antika,antika
 antipersperant,antipersperant
@@ -726,10 +726,10 @@ aqw,aqw
 ar,ar
 ara,ar
 arab,arab
-araba,arap
+araba,araba
 arabaci,arabaci
 arabakari,arabakari
-arabalar,arap
+arabalar,araba
 arabalari,arabalari
 arabaları,araba
 arabalasi,arabalasi
@@ -826,7 +826,7 @@ arkalı,arka
 arkasdasımessk,arkasdasımessk
 arkham,arkha
 arm,arm
-arma,arm
+arma,arma
 armani,armani
 armania,armania
 armany,armany
@@ -842,8 +842,8 @@ arnica,arnica
 arnika,arnika
 arnova,arnov
 arnıca,arnı
-aroma,arom
-aromalar,arom
+aroma,aroma
+aromalar,aroma
 aromalı,aroma
 aromatics,aromatics
 aromej,aromej
@@ -856,7 +856,7 @@ ars,ars
 arsa,ars
 arslan,arslan
 arstil,arstil
-arsız,ars
+arsız,arsız
 art,art
 artchitecture,artchitecture
 artema,artema
@@ -887,7 +887,7 @@ arızaları,arıza
 arızalı,arıza
 arızası,arıza
 as,as
-asa,as
+asa,asa
 asasn,asasn
 asasıns,asasıns
 asaya,asa
@@ -8365,7 +8365,7 @@ ke,ke
 ked,ked
 kedi,kedi
 kediler,kedi
-kedim,ket
+kedim,ked
 kedinin,kedi
 keen,keen
 keenway,keenway
@@ -10016,7 +10016,7 @@ marvel,marvel
 marvels,marvels
 marvin,marvin
 marınes,marınes
-masa,mas
+masa,masa
 masada,masa
 masadı,masa
 masadısac,masadısac
