@@ -100,7 +100,7 @@ public class TurkishStemmerTokenFilterFactory extends AbstractTokenFilterFactory
     }
 
     if (vowelHarmonyExceptions == null) {
-      vowelHarmonyExceptions = TurkishStemmer.getDefaultLastConsonantSet();
+      vowelHarmonyExceptions = TurkishStemmer.getDefaultVowelHarmonySet();
     }
 
     return vowelHarmonyExceptions;
