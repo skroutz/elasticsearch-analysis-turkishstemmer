@@ -3563,7 +3563,7 @@ daksan,dak
 dakson,dakson
 daky,daky
 daldırma,daldır
-dalga,dalg
+dalga,dalga
 dalgalandırıcı,dalgalandırıç
 dalgası,dalga
 dalgıc,dalgıc
@@ -3576,7 +3576,7 @@ damacana,damacan
 damal,damal
 dambıl,dambıl
 dame,dame
-damla,daml
+damla,damla
 damlası,damla
 damperli,damper
 damsun,damsun
@@ -3797,7 +3797,7 @@ deplasmanda,deplasman
 depo,depo
 depolu,depo
 deposu,depo
-derece,dere
+derece,derece
 derecede,derece
 dereceleri,derece
 dereceli,derece
@@ -4041,7 +4041,7 @@ divn,divn
 dixcovery,dixcovery
 diyarbakır,diyarbakır
 diyene,diyen
-diyeti,diye
+diyeti,diyet
 diyital,diyital
 diyor,diyor
 diz,diz
@@ -4561,7 +4561,7 @@ efsane,efsane
 efsaneleri,efsane
 efx,efx
 eg,eg
-ege,eg
+ege,ege
 egesan,egesan
 egg,egg
 egimi,egim
@@ -4659,8 +4659,8 @@ el'ixier,el'ixier
 elapple,elapple
 elazıg,elazıg
 elazıgda,elazıg
-elbise,elbi
-elbiseler,elbi
+elbise,elbise
+elbiseler,elbise
 elbiseleri,elbise
 elbisesi,elbise
 elbisseler,elbis
@@ -5020,8 +5020,8 @@ eskisehiralve,eskisehiralve
 eskisehirdekimedyamarketdeki,eskisehirdekimedyamarket
 eskort,eskort
 eskı,eskı
-eslere,esler
-esme,esm
+eslere,es
+esme,es
 esofman,esofman
 esohman,esohman
 esortmanlar,esortman
@@ -5042,7 +5042,7 @@ espritbayan,espritbayan
 esrar,esrar
 ess,ess
 essandes,essandes
-esse,ess
+esse,es
 essence,esse
 essence'in,essence'in
 essenso,essenso
@@ -5387,7 +5387,7 @@ feme,fem
 femme,femm
 fen,fen
 fender,fender
-fendi,fent
+fendi,fendi
 fendı,fendı
 fener,fener
 fenerbahce,fenerbahce
@@ -5483,7 +5483,7 @@ filml,filml
 filmler,film
 filmleri,film
 filter,filter
-filtre,filtr
+filtre,filtre
 filtreli,filtre
 filtresi,filtre
 fimi,fim
@@ -5577,7 +5577,7 @@ fiyatt,fiyatt
 fiyatta,fiyat
 fiyattı,fiyat
 fiyaty,fiyaty
-fiyatı,fiya
+fiyatı,fiyat
 fiyatıgalaksi,fiyatıgalaksi
 fiyatıları,fiyatı
 fiyatına,fiyat
@@ -5691,13 +5691,13 @@ forchino,forchino
 ford,ford
 fores,fores
 forest,forest
-forma,form
+forma,forma
 formaları,forma
 forması,forma
 format,format
 formatlaması,formatlama
 formatları,format
-formatı,form
+formatı,forma
 formen,formen
 formers,formers
 formersoyunları,formersoyun
@@ -5913,7 +5913,7 @@ fırin,fırin
 fırlattı,fırlat
 fırsat,fırsat
 fırsatbul,fırsatbul
-fırsatı,fırs
+fırsatı,fırsat
 fırst,fırst
 fırın,fır
 fırınlar,fır
@@ -6138,8 +6138,8 @@ gaxi,gaxi
 gaxy,gaxy
 gaz,gaz
 gazateler,gazate
-gazete,gaze
-gazeteler,gaze
+gazete,gazete
+gazeteler,gazete
 gazetelik,gazetelik
 gazetesi,gazete
 gazi,gazi
@@ -6200,7 +6200,7 @@ gelistirici,gelistiriç
 gelistirme,gelistir
 gelistrme,gelistr
 gem',gem'
-gemi,gem
+gemi,gemi
 gemileri,gemi
 gemisi,gemi
 gemiss,gemiss
@@ -6222,8 +6222,8 @@ gencligi,genclig
 genel,genel
 geneler,gene
 general,general
-generale,generale
-generali,generali
+generale,general
+generali,general
 generalius,generalius
 generall,generall
 generalmobaly,generalmobaly
@@ -7280,9 +7280,9 @@ icgiyim,icgi
 ici,iç
 icim,iç
 icin,iç
-icinde,icin
-icindeki,icin
-icindekiler,icin
+icinde,iç
+icindeki,iç
+icindekiler,iç
 iclik,iclik
 iclued,iclued
 icoat,icoat
@@ -7324,7 +7324,7 @@ iforya,iforya
 igalaxy,igalaxy
 ighon,ighon
 iglas,iglas
-igne,ign
+igne,igne
 igneli,igne
 ignesi,igne
 igrhana,igrhan
@@ -7428,7 +7428,7 @@ inc,inc
 inca,inca
 incanto,incanto
 incase,incase
-ince,inç
+ince,ince
 incele,ince
 inceleme,incele
 inch,inch
@@ -7527,7 +7527,7 @@ interface,interface
 internal,internal
 internet,internet
 internete,interne
-interneti,intern
+interneti,internet
 internetli,internet
 interver,interver
 intest,intest
@@ -7617,12 +7617,12 @@ iphonr,iphonr
 iphoone,iphoone
 iphıne,iphıne
 ipi,ip
-ipine,ipin
+ipine,ip
 ipione,ipione
 ipjone,ipjone
 ipl,ipl
-ipleri,ipler
-ipli,ipl
+ipleri,ip
+ipli,ip
 ipne,ipn
 ipnon,ipnon
 ipnone,ipnone
@@ -7757,12 +7757,12 @@ ixpiresmuzik,ixpiresmuzik
 ixreria,ixreria
 ixsperia,ixsperia
 ixus,ixus
-iyi,iy
+iyi,iyi
 iyibir,iyibir
 iyiler,iyi
 iyileri,iyi
 iyiparfumu,iyiparfum
-iyisi,iyis
+iyisi,iyi
 iyo,iyo
 iyon,iyon
 iyonik,iyonik
@@ -8053,7 +8053,7 @@ kalın,kal
 kalıp,kalıp
 kalıplar,kalıp
 kalıpları,kalıp
-kama,kam
+kama,kama
 kamara,kamar
 kamaralı,kamara
 kamasonic,kamasonic
@@ -8299,7 +8299,7 @@ katogorileri,katogori
 katran,katran
 katus,katus
 katyeri,katyer
-katı,kat
+katı,katı
 kaucuk,kaucuk
 kavanoz,kavanoz
 kavasaki,kavasaki
@@ -8363,7 +8363,7 @@ kdn,kdn
 kdvli,kdvli
 ke,ke
 ked,ked
-kedi,kedi
+kedi,ked
 kediler,kedi
 kedim,ked
 kedinin,kedi
@@ -8626,7 +8626,7 @@ kod,kod
 kodak,kodak
 koddiva,koddiva
 kodları,kot
-kodlu,kodl
+kodlu,kot
 kodu,kot
 kodu:,kodu:
 kofte,kofte
@@ -8942,8 +8942,8 @@ kulu,kul
 kuluska,kulusk
 kum,kum
 kuma,kum
-kumanda,kuman
-kumandalar,kuman
+kumanda,kumanda
+kumandalar,kumanda
 kumandali,kumandali
 kumandalı,kumanda
 kumandalısaat,kumandalısaat
@@ -9163,7 +9163,7 @@ lal,lal
 lalaloopsi,lalaloopsi
 lalaloopsy,lalaloopsy
 lale,lale
-lamba,lamp
+lamba,lamba
 lambader,lambader
 lambası,lamba
 lambau,lambau
@@ -9543,7 +9543,7 @@ litablet,litablet
 lite,li
 lithium,lithium
 litmann,litmann
-litre,litr
+litre,litre
 litreli,litre
 litrelik,litrelik
 little,litt
@@ -9795,8 +9795,8 @@ madini,madin
 madmazel,madmazel
 madrasa,madr
 maestro,maestro
-magaza,magaz
-magazalar,magaz
+magaza,magaza
+magazalar,magaza
 magazalari,magazalari
 magazaları,magaza
 magazalarındaki,magaza
@@ -9834,7 +9834,7 @@ maintenance,maintenance
 maisto,maisto
 mak,mak
 makarala,makara
-makaralar,makar
+makaralar,makara
 makaralı,makara
 makası,maka
 makasıu,makasıu
@@ -9865,11 +9865,11 @@ makinasının,makina
 makinasınınkullanımı,makinasınınkullan
 makinasısarj,makinasısarj
 makinaısı,makinaı
-makine,makin
-makinedi,makin
+makine,makine
+makinedi,makine
 makinelar,makinelar
 makinelari,makinelari
-makineler,makin
+makineler,makine
 makineleri,makine
 makinelerini,makine
 makineleripowor,makineleripowor
@@ -9920,7 +9920,7 @@ malo,malo
 malone,malone
 malovelence,malovele
 malovence,malove
-malzeme,malzem
+malzeme,malzeme
 malzemeleri,malzeme
 malzemesi,malzeme
 malzmeleri,malzme
@@ -9934,7 +9934,7 @@ maması,mama
 mamba,mamp
 mamtmazel,mamtmazel
 man,man
-mana,man
+mana,mana
 manager,manager
 manası,mana
 manchester,manchester
@@ -9982,10 +9982,10 @@ marine,marin
 marines,marines
 mario,mario
 mark,mark
-marka,mark
+marka,marka
 marka@alverosal,marka@alverosal
 markafoni,markafoni
-markalar,mark
+markalar,marka
 markalari,markalari
 markaları,marka
 markali,markali
@@ -10033,8 +10033,8 @@ masculine,masculin
 mascumo,mascumo
 masif,masif
 mask,mask
-maskara,maskar
-maskaralar,maskar
+maskara,maskara
+maskaralar,maskara
 maskarası,maskara
 maske,maske
 maskeli,maske
@@ -10361,7 +10361,7 @@ mindstorms,mindstorms
 mindstorms®,mindstorms®
 mindstorum,mindstor
 mindstroms,mindstroms
-mine,min
+mine,mine
 minecarft,minecarft
 minecon,minecon
 minecraft,minecraft
@@ -10373,7 +10373,7 @@ minera,minera
 mineral,mineral
 miners,miners
 minesraft,minesraft
-mini,min
+mini,mini
 minibar,minibar
 minibook,minibook
 minibox,minibox
@@ -10956,8 +10956,8 @@ nekon,nekon
 neksus,neksus
 neksux,neksux
 nektar,nektar
-nelerdir,neler
-nelere,neler
+nelerdir,ne
+nelere,ne
 nelly,nelly
 nelx,nelx
 nemlendirme,nemlendir
@@ -11064,7 +11064,7 @@ nilfisk,nilfisk
 nin,nin
 nina,nina
 nincago,nincago
-nine,nin
+nine,nine
 ningago,ningago
 ningo,ningo
 ninja,ninja
@@ -11234,7 +11234,7 @@ nuit,nuit
 nulona,nulon
 num,num
 numalı,numa
-numara,numar
+numara,numara
 numaraları,numara
 numaralarıo,numaralarıo
 numarali,numarali
@@ -11321,7 +11321,7 @@ odeme,odem
 odemeli,odeme
 odn,odn
 odoksan,odok
-odun,ot
+odun,odun
 odunlu,odun
 odunsu,oduns
 odunsuhome,odunsuhome
@@ -11623,7 +11623,7 @@ otomabl,otomabl
 otomat,otomat
 otomati,otomati
 otomatik,otomatik
-otomatı,otom
+otomatı,otomat
 otomatıgı,otomatıg
 otomatık,otom
 otomobil,otomobil
@@ -11676,7 +11676,7 @@ oyster,oyster
 oyu,oy
 oyucak,oyucak
 oyular,oyu
-oyun,oy
+oyun,oyun
 oyuna,oyun
 oyunari,oyunari
 oyunarı,oyunar
@@ -11782,7 +11782,7 @@ paketi,pake
 pal,pal
 palaroid,palaroid
 palet,palet
-paleti,pale
+paleti,palet
 palio,palio
 palm,palm
 palme,palme
@@ -12005,8 +12005,8 @@ perakende,peraken
 perceive,perceiv
 perceıve,perceıve
 perdd,perdd
-perde,per
-perdeler,per
+perde,perde
+perdeler,perde
 perdeleri,perde
 perdeli,perde
 perdesi,perde
@@ -12340,7 +12340,7 @@ polypat,polypat
 polyped,polyped
 polıce,polıce
 pome,pome
-pompa,pomp
+pompa,pompa
 pompası,pompa
 pon,pon
 pone,pone
@@ -12664,7 +12664,7 @@ pıppa,pıpp
 pıranha,pıranh
 pırec,pırec
 pıremiks,pıremiks
-pırlanta,pırlan
+pırlanta,pırlanta
 pırlantada,pırlanta
 pırofesyonel,pırofesyonel
 pırogram,pırogra
@@ -12786,7 +12786,7 @@ rainwalker,rainwalker
 rakamlı,rakam
 rakc,rakc
 raket,raket
-raketi,rake
+raketi,raket
 raks,raks
 rakı,rak
 rakım,rak
@@ -12809,7 +12809,7 @@ rane,rane
 range,range
 ranger,ranger
 rany,rany
-ranza,ranz
+ranza,ranza
 rapid,rapid
 rapor,rapor
 rapsodi,rapsodi
@@ -13063,7 +13063,7 @@ robotix,robotix
 robotlar,robot
 robotları,robot
 robotto,robotto
-robotu,robo
+robotu,robot
 robur,robur
 roccat,roccat
 rochas,rochas
@@ -13835,7 +13835,7 @@ sention,sention
 separator,separator
 seperator,seperator
 sepet,sepet
-sepeti,sepe
+sepeti,sepet
 sephora,sephor
 ser,ser
 seradens,seradens
@@ -13867,7 +13867,7 @@ serumu,serum
 server,server
 service,serv
 servis,servis
-servisi,servi
+servisi,servis
 servisler,servis
 servisleri,servis
 servo,servo
@@ -14754,7 +14754,7 @@ sunny,sunny
 sunon,sunon
 sunpower,sunpower
 sunshine,sunshin
-sunu,sun
+sunu,sunu
 sunuks,sunuks
 suny,suny
 sunyy,sunyy
@@ -14949,7 +14949,7 @@ tab,tab
 tabac,tabac
 tabagı,tabag
 tabak,tabak
-tabakalar,tabak
+tabakalar,tabaka
 tabaltler,tabaltler
 taban,taban
 tabanca,taba
@@ -14973,9 +14973,9 @@ tabler,tabler
 tablertleri,tablert
 tablet,tablet
 tabletcantası,tabletcanta
-tabletin,table
+tabletin,tablet
 tabletl,tabletl
-tabletlar,tabletlar
+tabletlar,tablet
 tabletlartaplet,tabletlartaplet
 tabletler,tablet
 tabletleri,tablet
@@ -15042,12 +15042,12 @@ takı,tak
 takılan,takılan
 takıları,takı
 takılır,takılır
-takım,tak
-takımlar,tak
+takım,takım
+takımlar,takım
 takımlaroı,takımlaroı
 takımları,takım
 takımlı,takım
-takımı,tak
+takımı,takım
 takıncagı,takıncag
 takını,tak
 talet,talet
@@ -15055,7 +15055,7 @@ talimatnamesi,talimatname
 talimatı,talima
 talk,talk
 talking,talking
-talımatı,tal
+talımatı,talımat
 tam,tam
 tamborim,tamborim
 tamir,tamir
@@ -15086,7 +15086,7 @@ tant,tant
 tantum,tantum
 tanıs,tanıs
 tanıtm,tanıt
-tanıtım,tanı
+tanıtım,tanıt
 tanıtımt,tanıtımt
 tanıtımı,tanıt
 tao,tao
@@ -15122,7 +15122,7 @@ tarifi,tarif
 tariflrri,tariflrr
 tarih,tarih
 tarihi,tarih
-tarlalar,tarl
+tarlalar,tarla
 tarlalarin,tarlalarin
 tartı,tart
 tartısı,tartı
@@ -15153,7 +15153,7 @@ taslamalar,tasla
 tasları,tas
 tasli,tasli
 taslı,tasl
-tasma,tasm
+tasma,tasma
 tası,tas
 tasıma,tas
 tasın,tas
@@ -15465,7 +15465,7 @@ tender,tender
 tendre,tendr
 tengere,tenger
 tenis,tenis
-tenisi,teni
+tenisi,tenis
 teniu,teniu
 tennis,tennis
 tenosa,teno
@@ -15862,7 +15862,7 @@ toys,toys
 toyus,toyus
 toyz,toyz
 toz,toz
-tozlu,tozl
+tozlu,tozlu
 tozu,toz
 toılette,toılet
 tp,tp
@@ -16180,8 +16180,8 @@ ucan,ucan
 ucgen,ucgen
 ucin,ucin
 uciz,uciz
-ucları,uclar
-uclu,ucl
+ucları,uç
+uclu,uç
 uclumodel,uclumodel
 ucret,ucret
 ucreti,ucre
@@ -16367,10 +16367,10 @@ uyelles,uyelles
 uygulamalar,uygula
 uygulamaları,uygulama
 uygulamasi,uygulamasi
-uygun,uyg
+uygun,uygun
 uygunfiyat,uygunfiyat
 uygunları,uygun
-uygunu,uyg
+uygunu,uygun
 uyku,uyk
 uyssal,uyssal
 uyumlu,uyum
@@ -16380,7 +16380,7 @@ uzak,uzak
 uzakdan,uzak
 uzaktan,uzak
 uzatan,uza
-uzatma,uzat
+uzatma,uzatma
 uzatmalı,uzatma
 uzatması,uzatma
 uzay,uzay
@@ -16388,7 +16388,7 @@ uzaygemisi,uzaygemi
 uzeri,uzer
 uzukler,uzukler
 uzul<,uzul<
-uzun,uz
+uzun,uzun
 uzunlugu,uzunlug
 uzunulugu,uzunulug
 uzuz,uz
@@ -16440,7 +16440,7 @@ vampir,vampir
 vampirlereymis,vampirlereymis
 vampyre,vampyre
 van,van
-vana,van
+vana,vana
 vanaları,vana
 vandaki,van
 vande,vande
@@ -16472,8 +16472,8 @@ varis,varis
 varker,varker
 varmatec,varmatec
 varmi,varmi
-varmı,varm
-varmıdır,varm
+varmı,var
+varmıdır,var
 vars,vars
 vary,vary
 vasillant,vasillant
@@ -17251,7 +17251,7 @@ yang,yang
 yangin,yangin
 yangmini,yangmin
 yangın,yang
-yaninda,yaninda
+yaninda,yan
 yaniziz,yaniz
 yank,yank
 yankapaklı,yankapak
@@ -17276,7 +17276,7 @@ yapi,yapi
 yapilir,yapilir
 yapimi,yapim
 yaplet,yaplet
-yapma,yapm
+yapma,yapma
 yapmaca,yapma
 yapmayan,yapmayan
 yapon,yapon
@@ -17299,7 +17299,7 @@ yapıstırıcı,yapıstırıç
 yar,yar
 yarak,yarak
 yards,yards
-yardım,yart
+yardım,yardım
 yari,yari
 yarisarabası,yarisaraba
 yarlık,yarlık
@@ -17316,7 +17316,7 @@ yarısmacı,yarısmaç
 yarısı,yarı
 yarıyogusmalı,yarıyogusma
 yas,yas
-yasa,yas
+yasa,yasa
 yasakladıgı,yasakladıg
 yasaklı,yasak
 yasar,yasar
@@ -17584,7 +17584,7 @@ zeka,zeka
 zelix,zelix
 zeltıq,zeltıq
 zemax,zemax
-zemin,zem
+zemin,zemin
 zen,zen
 zenbook,zenbook
 zenbooktm,zenbooktm

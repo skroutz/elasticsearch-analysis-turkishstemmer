@@ -6,6 +6,7 @@ import java.util.Set;
 
 import org.elasticsearch.index.analysis.stemmer.turkish.suffixes.DerivationalSuffix;
 import org.elasticsearch.index.analysis.stemmer.turkish.suffixes.NominalVerbSuffix;
+import org.elasticsearch.index.analysis.stemmer.turkish.suffixes.NounSuffix;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -96,7 +97,7 @@ public class TurkishStemmerTest {
   @Test
   public void testStemWord() {
     Assert.assertEquals(stemmer.stemWord("gozlu", DerivationalSuffix.S1), "goz");
-    Assert.assertEquals(stemmer.stemWord("kedi", NominalVerbSuffix.S12), "kedi");
+    Assert.assertEquals(stemmer.stemWord("ağda", NounSuffix.S13), "ağda");
     Assert.assertEquals(stemmer.stemWord("satıyorsunuz", NominalVerbSuffix.S4), "satıyor");
     Assert.assertEquals(stemmer.stemWord("saatler", NominalVerbSuffix.S5), "saat");
   }
@@ -104,7 +105,7 @@ public class TurkishStemmerTest {
   @Test
   public void testShouldBeMarked() {
     Assert.assertTrue(stemmer.shouldBeMarked("gozlu", DerivationalSuffix.S1));
-    Assert.assertFalse(stemmer.shouldBeMarked("kedi", NominalVerbSuffix.S12));
+    Assert.assertFalse(stemmer.shouldBeMarked("ağda", NounSuffix.S13));
     Assert.assertTrue(stemmer.shouldBeMarked("saatler", NominalVerbSuffix.S5));
   }
 
@@ -167,7 +168,7 @@ public class TurkishStemmerTest {
   @Test
   public void testProceedToStem() {
     Assert.assertEquals(stemmer.proceedToStem("αθήνα"), false);
-    Assert.assertEquals(stemmer.proceedToStem("kedi"), false);
+    Assert.assertEquals(stemmer.proceedToStem("ağda"), false);
     Assert.assertEquals(stemmer.proceedToStem(""), false);
     Assert.assertEquals(stemmer.proceedToStem("a"), false);
     Assert.assertEquals(stemmer.proceedToStem("saatler"), true);
