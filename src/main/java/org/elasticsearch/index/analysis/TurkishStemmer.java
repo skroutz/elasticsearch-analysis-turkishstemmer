@@ -173,9 +173,7 @@ public class TurkishStemmer {
     nominalVerbSuffixStripper(originalWord, stems);
 
     wordsToStem = new HashSet<String>(stems);
-    if(wordsToStem.isEmpty()) {
-      wordsToStem.add(originalWord);
-    }
+    wordsToStem.add(originalWord);
 
     for(String word : wordsToStem) {
       // Process each possible stem with the noun suffix state machine.
