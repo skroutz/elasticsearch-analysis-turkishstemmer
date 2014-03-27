@@ -124,6 +124,7 @@ public class TurkishStemmerTokenFilterFactory extends AbstractTokenFilterFactory
 
     return averageStemSizeExceptions;
   }
+
   private CharArraySet parseExceptions(Environment env, Settings settings,
       String settingPrefix, Version version) throws IOException {
 

@@ -1,8 +1,9 @@
 package org.elasticsearch.index.analysis;
 
 import java.io.IOException;
-import org.apache.lucene.analysis.TokenStream;
+
 import org.apache.lucene.analysis.TokenFilter;
+import org.apache.lucene.analysis.TokenStream;
 import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
 import org.apache.lucene.analysis.tokenattributes.KeywordAttribute;
 import org.apache.lucene.analysis.util.CharArraySet;
