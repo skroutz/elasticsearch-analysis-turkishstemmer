@@ -578,11 +578,6 @@ public class TurkishStemmer {
       return false;
     }
 
-    if(!this.vowelHarmonyExceptions.contains(word) && !hasVowelHarmony(word)) {
-      logger.debug("Skipping word with no vowel harmony: [{}]", word);
-      return false;
-    }
-
     return true;
   }
 

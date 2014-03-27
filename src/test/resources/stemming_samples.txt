@@ -742,7 +742,7 @@ arabaya,araba
 araberı,araberı
 arabic,arabic
 arabistan,arabistan
-arabistandaki,arabistandaki
+arabistandaki,arabistan
 arabsı,arabs
 arac,arac
 araci,araci
@@ -760,7 +760,7 @@ arasi,arasi
 arasindaki,arasindaki
 arası,ara
 arasında,ara
-arasındaki,arasındaki
+arasındaki,ara
 arava,arav
 arayan,arayan
 arazi,arazi
@@ -4342,7 +4342,7 @@ dunlop,dunlop
 dunlopilo,dunlopilo
 dunya,dunya
 dunyaca,dunya
-dunyadaki,dunyadaki
+dunyadaki,dunya
 dunyanin,dunyanin
 dunyanın,dunya
 dunyasi,dunyasi
@@ -4986,7 +4986,7 @@ erris,erris
 erxson,erxson
 erzak,erzak
 erzincan,erzincan
-erzincandaki,erzincandaki
+erzincandaki,erzincan
 erzurum,erzur
 erıccsonn,erıccsonn
 erıcsny,erıcsny
@@ -6739,9 +6739,9 @@ hait,hait
 hakinda,hakinda
 hakkinda,hakkinda
 hakkında,hakk
-hakkındaki,hakkındaki
+hakkındaki,hakk
 hakında,hak
-hakındaki,hakındaki
+hakındaki,hak
 hal,hal
 halaksi,halaksi
 halalet,halalet
@@ -8074,7 +8074,7 @@ kamp,kamp
 kampanaları,kampana
 kampany,kampany
 kampanya,kampanya
-kampanyadaki,kampanyadaki
+kampanyadaki,kampanya
 kampanyalar,kampanya
 kampanyalari,kampanyalari
 kampanyaları,kampanya
@@ -8082,7 +8082,7 @@ kampanyali,kampanyali
 kampanyalı,kampanya
 kampanyasi,kampanyasi
 kampanyası,kampanya
-kampayadaki,kampayadaki
+kampayadaki,kampaya
 kampayası,kampaya
 kampaynaya,kampayna
 kamra,kamr
@@ -8095,7 +8095,7 @@ kamyonlar,kamyon
 kamyonu,kamyon
 kamıs,kamıs
 kana,kan
-kanadadaki,kanadadaki
+kanadadaki,kanada
 kanal,kanal
 kanali,kanali
 kanalli,kanalli
@@ -9006,7 +9006,7 @@ kuslar,kus
 kutahya,kutahya
 kutahyada,kutahya
 kutu,kut
-kutudaki,kutudaki
+kutudaki,kutu
 kutuları,kutu
 kutusu,kutu
 kuu,ku
@@ -9799,7 +9799,7 @@ magaza,magaz
 magazalar,magaz
 magazalari,magazalari
 magazaları,magaza
-magazalarındaki,magazalarındaki
+magazalarındaki,magaza
 magazasi,magazasi
 magazası,magaza
 magazasından,magaza
@@ -11041,7 +11041,7 @@ niikon,niikon
 niinja,niinja
 nijago,nijago
 nijargo,nijargo
-nijeryadaki,nijeryadaki
+nijeryadaki,nijerya
 nik,nik
 nikah,nikah
 nikai,nikai
@@ -12895,7 +12895,7 @@ reklamda,reklam
 reklamfoni,reklamfoni
 reklamlarda,reklam
 reklamları,reklam
-reklamndaki,reklamndaki
+reklamndaki,reklamn
 reklamı,reklam
 rekli,rekl
 reklikartus,reklikartus
@@ -15384,7 +15384,7 @@ televizyon",televizyon"
 televizyona,televizyon
 televizyonda,televizyon
 televizyondak,televizyondak
-televizyondaki,televizyondaki
+televizyondaki,televizyon
 televizyondakixperia,televizyondakixperia
 televizyondan,televizyon
 televizyonlar,televizyon
@@ -16442,7 +16442,7 @@ vampyre,vampyre
 van,van
 vana,van
 vanaları,vana
-vandaki,vandaki
+vandaki,van
 vande,vande
 vander,vander
 vandir,vandir
