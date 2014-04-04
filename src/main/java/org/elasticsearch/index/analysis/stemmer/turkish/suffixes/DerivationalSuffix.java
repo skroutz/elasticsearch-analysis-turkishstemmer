@@ -13,9 +13,9 @@ public enum DerivationalSuffix implements Suffix {
   private final boolean checkHarmony;
 
   private DerivationalSuffix(final String name,
-                     final String pattern,
-                     final String optionalLetter,
-                     final boolean checkHarmony) {
+                             final String pattern,
+                             final String optionalLetter,
+                             final boolean checkHarmony) {
     this.name = name;
     this.pattern =  Pattern.compile("(" + pattern + ")$");
     if (optionalLetter == null) {

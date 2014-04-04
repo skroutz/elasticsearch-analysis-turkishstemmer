@@ -134,6 +134,7 @@ public enum NominalVerbState implements State {
   private NominalVerbState(final boolean initialState,
                            final boolean finalState,
                            final EnumSet<NominalVerbSuffix> suffixes) {
+
     this.initialState = initialState;
     this.finalState = finalState;
     this.suffixes = suffixes;

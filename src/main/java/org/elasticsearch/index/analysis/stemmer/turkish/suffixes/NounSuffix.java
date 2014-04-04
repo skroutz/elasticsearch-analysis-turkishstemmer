@@ -34,8 +34,10 @@ public enum NounSuffix implements Suffix {
   private final Pattern optionalLetterPattern;
   private final boolean checkHarmony;
 
-  private NounSuffix(final String name, final String pattern,
-      final String optionalLetter, final boolean checkHarmony) {
+  private NounSuffix(final String name,
+                     final String pattern,
+                     final String optionalLetter,
+                     final boolean checkHarmony) {
 
     this.name = name;
     this.pattern = Pattern.compile("(" + pattern + ")$");

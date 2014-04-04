@@ -34,6 +34,7 @@ public enum DerivationalState implements State {
   private DerivationalState(final boolean initialState,
                             final boolean finalState,
                             final EnumSet<DerivationalSuffix> suffixes) {
+
     this.initialState = initialState;
     this.finalState = finalState;
     this.suffixes = suffixes;

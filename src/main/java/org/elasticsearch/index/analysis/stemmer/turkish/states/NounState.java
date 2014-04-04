@@ -207,6 +207,7 @@ public enum NounState implements State {
   private NounState(final boolean initialState,
                     final boolean finalState,
                     final EnumSet<NounSuffix> suffixes) {
+
     this.initialState = initialState;
     this.finalState = finalState;
     this.suffixes = suffixes;
