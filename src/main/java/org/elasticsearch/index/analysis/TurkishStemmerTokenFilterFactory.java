@@ -10,6 +10,7 @@ import org.apache.lucene.analysis.util.CharArraySet;
 import org.apache.lucene.util.Version;
 import org.elasticsearch.common.inject.Inject;
 import org.elasticsearch.common.inject.assistedinject.Assisted;
+import org.elasticsearch.common.lucene.Lucene;
 import org.elasticsearch.common.settings.Settings;
 import org.elasticsearch.env.Environment;
 import org.elasticsearch.env.FailedToResolveConfigException;
@@ -32,13 +33,13 @@ public class TurkishStemmerTokenFilterFactory extends AbstractTokenFilterFactory
 
     super(index, indexSettings, name, settings);
     this.protectedWords = parseProtectedWords(env, settings,
-        "protected_words_path", Version.LUCENE_44);
+        "protected_words_path", Lucene.VERSION);
     this.vowelHarmonyExceptions = parseVowelHarmonyExceptions(env, settings,
-        "vowel_harmony_exceptions_path", Version.LUCENE_44);
+        "vowel_harmony_exceptions_path", Lucene.VERSION);
     this.lastConsonantExceptions = parseLastConsonantExceptions(env, settings,
-        "last_consonant_exceptions_path", Version.LUCENE_44);
+        "last_consonant_exceptions_path", Lucene.VERSION);
     this.averageStemSizeExceptions = parseAverageStemSizeExceptions(env, settings,
-        "average_stem_size_exceptions_path", Version.LUCENE_44);
+        "average_stem_size_exceptions_path", Lucene.VERSION);
   }
 
   @Override
