@@ -5,10 +5,10 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 import org.apache.lucene.analysis.util.WordlistLoader;
-import org.apache.lucene.util.IOUtils;
 
 public class UpdateStemmingSamples {
   private final static TurkishStemmer stemmer = new TurkishStemmer();
@@ -18,7 +18,7 @@ public class UpdateStemmingSamples {
   {
     List<String> lines = WordlistLoader.getLines(
         new FileInputStream("src/test/resources/stemming_samples.txt"),
-        IOUtils.CHARSET_UTF_8);
+        StandardCharsets.UTF_8);
 
     char[] token;
     int tokenLength;
