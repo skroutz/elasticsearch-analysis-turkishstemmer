@@ -257,6 +257,7 @@ Versions:
 
 TurkishStemmer Plugin  | ElasticSearch
 -----------------------|------------------
+0.1.1                  | 1.5.0
 0.1.0                  | 0.90.4
 
 
@@ -280,4 +281,3 @@ TurkishStemmer Plugin  | ElasticSearch
 ## License
 
 elasticsearch-analysis-turkishstemmer is licensed under the Apache Software License, Version 2.0.
-
