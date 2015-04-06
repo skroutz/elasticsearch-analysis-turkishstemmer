@@ -277,7 +277,11 @@ TurkishStemmer Plugin  | ElasticSearch
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
 
+## Issues
+
+For stemming issues: [here](https://github.com/skroutz/turkish_stemmer)
+For plugin issues: [here](https://github.com/skroutz/elasticsearch-analysis-turkishstemmer)
+
 ## License
 
 elasticsearch-analysis-turkishstemmer is licensed under the Apache Software License, Version 2.0.
-
