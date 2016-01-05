@@ -58,6 +58,7 @@ ege
 elbise
 fendi
 filtre
+fıfa
 fiyat
 forma
 gazete
