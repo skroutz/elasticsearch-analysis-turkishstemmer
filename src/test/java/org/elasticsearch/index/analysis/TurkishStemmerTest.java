@@ -1,7 +1,7 @@
 package org.elasticsearch.index.analysis;
 
 import java.util.Arrays;
-import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 import org.elasticsearch.index.analysis.stemmer.turkish.suffixes.DerivationalSuffix;
@@ -56,7 +56,7 @@ public class TurkishStemmerTest {
 
   @Test
   public void testNominalVerbSuffixStripper() {
-    Set<String> stems = new HashSet<String>();
+    Set<String> stems = new LinkedHashSet<String>();
 
     stemmer.nominalVerbSuffixStripper("satıyorsunuz", stems);
 
@@ -66,27 +66,27 @@ public class TurkishStemmerTest {
 
   @Test
   public void testNounSuffixStripper() {
-    Set<String> stems = new HashSet<String>();
+    Set<String> stems = new LinkedHashSet<String>();
 
     stemmer.nounSuffixStripper("telefonları", stems);
 
     Assert.assertEquals(stems.size(), 2);
-    Assert.assertEquals(stems.toArray(), new String[] { "telefonlar", "telefon" });
+    Assert.assertEquals(stems.toArray(), new String[] { "telefon", "telefonlar" });
   }
 
   @Test
   public void testPostProcess() {
-    Assert.assertEquals(stemmer.postProcess(new HashSet<String>(), "originalWord"), "originalWord");
+    Assert.assertEquals(stemmer.postProcess(new LinkedHashSet<String>(), "originalWord"), "originalWord");
 
     String[] stems = {"kitap", "k" };
 
-    Assert.assertEquals(stemmer.postProcess(new HashSet<String>(Arrays.asList(stems)),
+    Assert.assertEquals(stemmer.postProcess(new LinkedHashSet<String>(Arrays.asList(stems)),
         "originalWord"), "kitap");
   }
 
   @Test
   public void testDerivationalStripper() {
-    Set<String> stems = new HashSet<String>();
+    Set<String> stems = new LinkedHashSet<String>();
 
     stemmer.derivationalSuffixStripper("telefonlu", stems);
 
