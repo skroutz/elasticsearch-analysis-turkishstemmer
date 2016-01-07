@@ -521,11 +521,11 @@ public class TurkishStemmer {
 
   /**
    * Checks whether an optional letter is valid or not.
+   * Note:  One should check if candidate character exists or not.
    *
    * @param   word      the word to check its last letter
    * @param   candidate the last character candidate
    * @return            whether is valid or not
-   * @note    One should check if candidate character exists or not.
    */
   public boolean validOptionalLetter(String word, char candidate) {
     int wordLength = word.length();
