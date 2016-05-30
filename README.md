@@ -250,13 +250,16 @@ kitap-UmUz-(y)DU               | Kitap
 
 In order to install the latest version of the plugin, simply run:
 
-    bin/plugin -install gr.skroutz/elasticsearch-analysis-turkishstemmer/0.1.1
+    bin/plugin -install gr.skroutz/elasticsearch-analysis-turkishstemmer/0.1.2
 
+In order to install the plugin for versions prior to 1.5.x, run:
+    bin/plugin -install gr.skroutz/elasticsearch-analysis-turkishstemmer/0.1.0
 
 Versions:
 
 TurkishStemmer Plugin  | ElasticSearch
 -----------------------|------------------
+0.1.2                  | 1.5.x
 0.1.1                  | 1.5.x
 0.1.0                  | 0.90.4
 
