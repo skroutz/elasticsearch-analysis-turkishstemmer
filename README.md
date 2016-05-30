@@ -253,6 +253,7 @@ In order to install the latest version of the plugin, simply run:
     bin/plugin -install gr.skroutz/elasticsearch-analysis-turkishstemmer/0.1.2
 
 In order to install the plugin for versions prior to 1.5.x, run:
+
     bin/plugin -install gr.skroutz/elasticsearch-analysis-turkishstemmer/0.1.0
 
 Versions:
