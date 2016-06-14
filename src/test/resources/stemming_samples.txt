@@ -7974,7 +7974,7 @@ kadin,kadin
 kadran,kadran
 kadranlı,kadran
 kadro,kadro
-kadın,kat
+kadın,kadın
 kadınayakkabı,kadınayakkap
 kafa,kaf
 kafalı,kafa
