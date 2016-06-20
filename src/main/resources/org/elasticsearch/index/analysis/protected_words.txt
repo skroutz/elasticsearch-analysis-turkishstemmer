@@ -49,6 +49,7 @@ camsız
 ceyiz
 çıkış
 cımbiz
+çini
 dalga
 damla
 derece
@@ -73,6 +74,7 @@ kayısı
 kama
 katı
 kötü
+kuma
 kumanda
 lamba
 lazım
@@ -105,6 +107,7 @@ ranza
 şamdan
 şapka
 şifre
+salı
 sunu
 soyad
 tabaka
@@ -123,6 +126,7 @@ uygun
 uzatma
 uzun
 vana
+vibe
 yağlı
 yapma
 yardım

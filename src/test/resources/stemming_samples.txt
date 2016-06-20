@@ -8941,7 +8941,7 @@ kultur,kul
 kulu,kul
 kuluska,kulusk
 kum,kum
-kuma,kum
+kuma,kuma
 kumanda,kumanda
 kumandalar,kumanda
 kumandali,kumandali
@@ -13333,7 +13333,7 @@ salsa,sals
 salvadore,salvadore
 salvatore,salvatore
 salyangoz,salyangoz
-salı,sal
+salı,salı
 salıncagı,salıncag
 salıncak,salıncak
 salıncaklı,salıncak
