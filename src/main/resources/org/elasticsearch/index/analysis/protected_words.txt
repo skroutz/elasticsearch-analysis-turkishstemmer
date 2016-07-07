@@ -65,6 +65,7 @@ forma
 gazete
 gemi
 görüntü
+halı
 igne
 ince
 internet

@@ -6759,7 +6759,7 @@ halo,halo
 halojen,halojen
 halsı,hals
 halupan,halupan
-halı,hal
+halı,halı
 halısaha,halısah
 halısı,halı
 hamak,hamak
