@@ -2550,8 +2550,8 @@ canoprofesyoneln,canoprofesyoneln
 canpet,canpet
 cansu,cansu
 cant,cant
-canta,can
-cantalar,can
+canta,canta
+cantalar,canta
 cantalari,cantalari
 cantaları,canta
 cantasi,cantasi
