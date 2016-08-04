@@ -3782,7 +3782,7 @@ denge,deng
 deni,den
 deniel,deniel
 denirdokum,denirdok
-deniz,den
+deniz,deniz
 denizli,deniz
 denox,denox
 dental,dental
