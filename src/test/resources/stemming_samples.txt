@@ -8251,6 +8251,8 @@ karus,karus
 karusu,karu
 karyip,karyip
 karys,karys
+karyola,karyola
+karyolası,karyola
 karyus,karyus
 karı,kar
 karısım,karıs
