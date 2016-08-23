@@ -54,6 +54,8 @@ cımbiz
 dalga
 damla
 derece
+deniz
+denim
 dişli
 düğün
 ege
@@ -71,6 +73,7 @@ igne
 ince
 internet
 iyi
+karyola
 kadın
 kayısı
 kama
