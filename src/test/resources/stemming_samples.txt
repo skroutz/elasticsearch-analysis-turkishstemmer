@@ -13226,7 +13226,7 @@ saarti,saarti
 saat,saat
 saat&saat,saat&saat
 saatcılık,saatcılık
-saati,saati
+saati,saat
 saaticasio,saaticasio
 saatimaurice,saatimauri
 saatkeri,saatker
