@@ -8665,7 +8665,7 @@ kolsaatli,kolsaatli
 kolsaatı,kolsa
 kolsatleri,kolsat
 koltugu,koltug
-koltuk,kol
+koltuk,koltuk
 koltuklar,koltuk
 koltukları,koltuk
 koltuktan,koltuk
