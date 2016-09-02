@@ -69,6 +69,7 @@ gazete
 gemi
 görüntü
 halı
+havuzu
 igne
 ince
 internet
