@@ -69,6 +69,7 @@ gazete
 gemi
 görüntü
 halı
+havuzu
 igne
 ince
 internet
@@ -84,6 +85,7 @@ köse
 kötü
 kuma
 kumanda
+koltuk
 lamba
 lazım
 litre

@@ -6856,7 +6856,7 @@ havlupan,havlupan
 havlusu,havlu
 havlusuu,havlusu
 havuz,havuz
-havuzu,havuz
+havuzu,havuzu
 havyar,havyar
 havıza,havız
 hawai,hawai
@@ -8665,7 +8665,7 @@ kolsaatli,kolsaatli
 kolsaatı,kolsa
 kolsatleri,kolsat
 koltugu,koltug
-koltuk,kol
+koltuk,koltuk
 koltuklar,koltuk
 koltukları,koltuk
 koltuktan,koltuk
@@ -13226,7 +13226,7 @@ saarti,saarti
 saat,saat
 saat&saat,saat&saat
 saatcılık,saatcılık
-saati,saati
+saati,saat
 saaticasio,saaticasio
 saatimaurice,saatimauri
 saatkeri,saatker
