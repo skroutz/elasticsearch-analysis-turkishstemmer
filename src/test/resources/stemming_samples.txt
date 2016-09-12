@@ -8669,7 +8669,7 @@ koltuk,koltuk
 koltuklar,koltuk
 koltukları,koltuk
 koltuktan,koltuk
-kolu,kol
+kolu,kolu
 koly,koly
 kolye,kolye
 kolyeler,kolye

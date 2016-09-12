@@ -86,6 +86,7 @@ kötü
 kuma
 kumanda
 koltuk
+kolu
 lamba
 lazım
 litre
