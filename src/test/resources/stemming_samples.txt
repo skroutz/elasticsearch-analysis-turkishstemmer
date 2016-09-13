@@ -1146,7 +1146,7 @@ aybet,aybet
 aybon,aybon
 aydon,aydon
 aydın,ayt
-aydınlatma,aydınlat
+aydınlatma,aydınlatma
 aydınlatmalı,aydınlatma
 ayfan,ayfan
 ayfhone,ayfhone
