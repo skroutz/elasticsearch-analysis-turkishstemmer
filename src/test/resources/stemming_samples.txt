@@ -11048,7 +11048,7 @@ nijeryadaki,nijerya
 nik,nik
 nikah,nikah
 nikai,nikai
-nike,nik
+nike,nike
 nikia,nikia
 nikko,nikko
 nikkon,nikkon
