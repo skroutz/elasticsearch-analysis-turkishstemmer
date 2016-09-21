@@ -67,6 +67,7 @@ filtre
 fıfa
 fiyat
 forma
+fular
 gazete
 gemi
 görüntü

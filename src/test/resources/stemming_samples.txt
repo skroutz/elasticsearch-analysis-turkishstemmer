@@ -5844,7 +5844,7 @@ fujitsu,fujitsu
 fujı,fujı
 fujıflim,fujıflim
 ful,ful
-fular,fu
+fular,fular
 full,full
 fullfilm,fullfilm
 fullhd,fullhd
