@@ -10527,7 +10527,7 @@ mobılge,mobılge
 mobılya,mobılya
 mocbook,mocbook
 mod,mod
-moda,mo
+moda,moda
 modacanvas,modacanvas
 modacar,modacar
 modacarfiat,modacarfiat
