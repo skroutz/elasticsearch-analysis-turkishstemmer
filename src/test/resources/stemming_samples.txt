@@ -8965,7 +8965,7 @@ kundagı,kundag
 kuntell,kuntell
 kunyeler,kunye
 kup,kup
-kupa,kup
+kupa,kupa
 kupalar,kupa
 kupalari,kupalari
 kupası,kupa
