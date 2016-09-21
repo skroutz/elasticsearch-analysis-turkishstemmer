@@ -8105,7 +8105,8 @@ kanalında,kanal
 kananır,kananır
 kanca,kanç
 kandum,kandum
-kanepe,kanep
+kanepe,kanepe
+kanepeleri,kanepe
 kanguru,kangur
 kanin,kanin
 kano,kano
