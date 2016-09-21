@@ -8970,6 +8970,7 @@ kupalar,kupa
 kupalari,kupalari
 kupası,kupa
 kupe,kupe
+küpe,küpe
 kupler,kupler
 kuplu,kupl
 kupu,kup
