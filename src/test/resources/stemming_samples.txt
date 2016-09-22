@@ -6857,6 +6857,7 @@ havlusu,havlu
 havlusuu,havlusu
 havuz,havuz
 havuzu,havuzu
+havuzlu,havuzlu
 havyar,havyar
 havıza,havız
 hawai,hawai

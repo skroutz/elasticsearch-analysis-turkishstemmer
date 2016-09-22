@@ -73,6 +73,7 @@ gemi
 görüntü
 halı
 havuzu
+havuzlu
 igne
 ince
 internet
