@@ -48,6 +48,8 @@ buzlu
 camsız
 canta
 çanta
+calar
+çalar
 çarşı
 çerçeve
 ceyiz

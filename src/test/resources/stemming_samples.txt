@@ -2463,7 +2463,8 @@ cakması,cakma
 cakı,cak
 cal,cal
 calan,calan
-calar,ca
+calar,calar
+çalar,çalar
 calbaylar,calbay
 calendar,calendar
 calender,calender
