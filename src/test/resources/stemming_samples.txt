@@ -2439,6 +2439,7 @@ cadde,cadde
 cade,cade
 cadesinde,cade
 cadir,cadir
+çadır,çadır
 cadır,ca
 cafe,cafe
 cagatay,cagatay
@@ -2462,7 +2463,8 @@ cakması,cakma
 cakı,cak
 cal,cal
 calan,calan
-calar,ca
+calar,calar
+çalar,çalar
 calbaylar,calbay
 calendar,calendar
 calender,calender
@@ -5844,7 +5846,7 @@ fujitsu,fujitsu
 fujı,fujı
 fujıflim,fujıflim
 ful,ful
-fular,fu
+fular,fular
 full,full
 fullfilm,fullfilm
 fullhd,fullhd
@@ -6857,6 +6859,7 @@ havlusu,havlu
 havlusuu,havlusu
 havuz,havuz
 havuzu,havuzu
+havuzlu,havuzlu
 havyar,havyar
 havıza,havız
 hawai,hawai
@@ -8105,7 +8108,8 @@ kanalında,kanal
 kananır,kananır
 kanca,kanç
 kandum,kandum
-kanepe,kanep
+kanepe,kanepe
+kanepeleri,kanepe
 kanguru,kangur
 kanin,kanin
 kano,kano
@@ -8965,11 +8969,12 @@ kundagı,kundag
 kuntell,kuntell
 kunyeler,kunye
 kup,kup
-kupa,kup
+kupa,kupa
 kupalar,kupa
 kupalari,kupalari
 kupası,kupa
 kupe,kupe
+küpe,küpe
 kupler,kupler
 kuplu,kupl
 kupu,kup
@@ -10526,7 +10531,7 @@ mobılge,mobılge
 mobılya,mobılya
 mocbook,mocbook
 mod,mod
-moda,mo
+moda,moda
 modacanvas,modacanvas
 modacar,modacar
 modacarfiat,modacarfiat
