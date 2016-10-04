@@ -9001,7 +9001,7 @@ kurulması,kurulma
 kurulum,kurul
 kurulumu,kurul
 kurutceporno,kurutceporno
-kurutma,kurut
+kurutma,kurutma
 kurutmali,kurutmali
 kurutmalı,kurutma
 kurutucu,kurutuç
@@ -9300,8 +9300,8 @@ lecoste,lecoste
 lecoultre,lecoultre
 led,led
 lede,le
-ledler,let
-ledli,ledl
+ledler,led
+ledli,led
 ledsadece,ledsade
 ledtoplar,ledtop
 ledtv,ledtv
