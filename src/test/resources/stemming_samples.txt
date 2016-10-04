@@ -6147,10 +6147,10 @@ gazetelik,gazetelik
 gazetesi,gazete
 gazi,gazi
 gaziantep,gaziantep
-gazla,gazl
+gazla,gaz
 gazli,gazli
 gazlli,gazlli
-gazlı,gazl
+gazlı,gaz
 gazyagı,gazyag
 gazzaro,gazzaro
 gaıaksi,gaıaksi
