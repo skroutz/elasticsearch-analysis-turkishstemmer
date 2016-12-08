@@ -158,3 +158,4 @@ yıldız
 zayıflama
 zemin
 kurutma
+yazı

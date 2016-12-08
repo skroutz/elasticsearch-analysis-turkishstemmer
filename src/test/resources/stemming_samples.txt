@@ -17362,7 +17362,7 @@ yazici/tarayici/fotokopi/fax,yazici/tarayici/fotokopi/fax
 yazilim,yazil
 yazlik,yazlik
 yazması,yazma
-yazı,yaz
+yazı,yazı
 yazıcı,yazıç
 yazıcılar,yazıç
 yazıcısı,yazıcı
