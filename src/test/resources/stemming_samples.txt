@@ -449,10 +449,10 @@ altinkaplama,altinkapla
 altligi,altlig
 altmodeli,altmode
 altus,altus
-altı,al
-altın,al
+altı,altı
+altın,altın
 altınbasak,altınp
-altında,alt
+altında,altın
 altınyıldız,altınyıldız
 altının,altı
 altınııslatanbebek,altınııslatanbebek
