@@ -2,6 +2,7 @@ package org.elasticsearch.index.analysis;
 
 import java.io.IOException;
 import java.io.Reader;
+import java.nio.file.InvalidPathException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,7 +12,6 @@ import org.elasticsearch.common.inject.Inject;
 import org.elasticsearch.common.inject.assistedinject.Assisted;
 import org.elasticsearch.common.settings.Settings;
 import org.elasticsearch.env.Environment;
-import org.elasticsearch.env.FailedToResolveConfigException;
 import org.elasticsearch.index.Index;
 import org.elasticsearch.index.settings.IndexSettingsService;
 
@@ -132,7 +132,7 @@ public class TurkishStemmerTokenFilterFactory extends AbstractTokenFilterFactory
 
     try {
       exceptionsReader = Analysis.getReaderFromFile(env, settings, settingPrefix);
-    } catch (FailedToResolveConfigException e) {
+    } catch (InvalidPathException e) {
       logger.info("failed to find the " + settingPrefix + ", using the default set");
     }
 
