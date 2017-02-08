@@ -16,10 +16,8 @@ import org.apache.commons.lang3.StringUtils; // Apache StringUtils
 import org.apache.lucene.analysis.util.CharArraySet;
 import org.apache.lucene.analysis.util.WordlistLoader;
 import org.apache.lucene.util.IOUtils;
-import org.apache.lucene.util.Version;
 import org.elasticsearch.common.logging.ESLogger;
 import org.elasticsearch.common.logging.Loggers;
-import org.elasticsearch.common.lucene.Lucene;
 import org.elasticsearch.index.analysis.stemmer.turkish.states.DerivationalState;
 import org.elasticsearch.index.analysis.stemmer.turkish.states.NominalVerbState;
 import org.elasticsearch.index.analysis.stemmer.turkish.states.NounState;
@@ -645,20 +643,17 @@ public class TurkishStemmer {
    *
    * @param stopwords
    *          Input stream from the stopwords file
-   *
-   * @param matchVersion
-   *          the Lucene version for cross version compatibility
    * @return a CharArraySet containing the distinct stopwords from the given
    *         file
    * @throws IOException
    *           if loading the stopwords throws an {@link IOException}
    */
-  private static CharArraySet loadWordSet(InputStream file, Version matchVersion)
+  private static CharArraySet loadWordSet(InputStream file)
       throws IOException {
     Reader reader = null;
     try {
       reader = IOUtils.getDecodingReader(file, StandardCharsets.UTF_8);
-      return WordlistLoader.getWordSet(reader, matchVersion);
+      return WordlistLoader.getWordSet(reader);
     } finally {
       IOUtils.close(reader);
     }
@@ -674,8 +669,7 @@ public class TurkishStemmer {
       try {
         DEFAULT_PROTECTED_WORDS = loadWordSet(
             TurkishStemmer.class
-                .getResourceAsStream(DEFAULT_PROTECTED_WORDS_FILE),
-            Lucene.VERSION);
+                .getResourceAsStream(DEFAULT_PROTECTED_WORDS_FILE));
       } catch(IOException ex) {
         throw new RuntimeException("Unable to load default protected words");
       }
@@ -683,8 +677,7 @@ public class TurkishStemmer {
       try {
         DEFAULT_VOWEL_HARMONY_EXCEPTIONS = loadWordSet(
             TurkishStemmer.class
-                .getResourceAsStream(DEFAULT_VOWEL_HARMONY_EXCEPTIONS_FILE),
-            Lucene.VERSION);
+                .getResourceAsStream(DEFAULT_VOWEL_HARMONY_EXCEPTIONS_FILE));
       } catch(IOException ex) {
         throw new RuntimeException(
             "Unable to load default vowel harmony exceptions");
@@ -693,8 +686,7 @@ public class TurkishStemmer {
       try {
         DEFAULT_LAST_CONSONANT_EXCEPTIONS = loadWordSet(
             TurkishStemmer.class
-                .getResourceAsStream(DEFAULT_LAST_CONSONANT_EXCEPTIONS_FILE),
-            Lucene.VERSION);
+                .getResourceAsStream(DEFAULT_LAST_CONSONANT_EXCEPTIONS_FILE));
       } catch(IOException ex) {
         throw new RuntimeException(
             "Unable to load default vowel harmony exceptions");
@@ -703,8 +695,7 @@ public class TurkishStemmer {
       try {
         DEFAULT_AVERAGE_STEM_SIZE_EXCEPTIONS = loadWordSet(
             TurkishStemmer.class
-                .getResourceAsStream(DEFAULT_AVERAGE_STEM_SIZE_EXCEPTION_FILE),
-            Lucene.VERSION);
+                .getResourceAsStream(DEFAULT_AVERAGE_STEM_SIZE_EXCEPTION_FILE));
       } catch(IOException ex) {
         throw new RuntimeException(
             "Unable to load default average stem size exceptions");
