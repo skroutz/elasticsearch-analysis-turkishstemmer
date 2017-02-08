@@ -16,7 +16,7 @@ import org.apache.commons.lang3.StringUtils; // Apache StringUtils
 import org.apache.lucene.analysis.CharArraySet;
 import org.apache.lucene.analysis.util.WordlistLoader;
 import org.apache.lucene.util.IOUtils;
-import org.elasticsearch.common.logging.ESLogger;
+import org.apache.logging.log4j.Logger;
 import org.elasticsearch.common.logging.Loggers;
 import org.elasticsearch.index.analysis.stemmer.turkish.states.DerivationalState;
 import org.elasticsearch.index.analysis.stemmer.turkish.states.NominalVerbState;
@@ -33,9 +33,10 @@ import com.google.common.base.CharMatcher;   // Guava
 public class TurkishStemmer {
 
   /**
-   * Elasticsearch logger.
+   * Logger.
    */
-  protected final ESLogger logger = Loggers.getLogger("turkish-stemmer");
+  protected final Logger logger = Loggers.getLogger("turkish-stemmer");
+
   /**
    * The turkish characters. They are used for skipping not turkish words.
    */
