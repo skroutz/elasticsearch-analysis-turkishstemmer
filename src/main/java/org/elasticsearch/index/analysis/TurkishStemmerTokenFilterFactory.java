@@ -13,7 +13,7 @@ import org.elasticsearch.common.settings.Settings;
 import org.elasticsearch.env.Environment;
 import org.elasticsearch.env.FailedToResolveConfigException;
 import org.elasticsearch.index.Index;
-import org.elasticsearch.index.settings.IndexSettings;
+import org.elasticsearch.index.settings.IndexSettingsService;
 
 public class TurkishStemmerTokenFilterFactory extends AbstractTokenFilterFactory {
 
@@ -25,11 +25,11 @@ public class TurkishStemmerTokenFilterFactory extends AbstractTokenFilterFactory
 
   @Inject
   public TurkishStemmerTokenFilterFactory(Index index,
-      @IndexSettings Settings indexSettings,
+      IndexSettingsService indexSettings,
       Environment env, @Assisted String name,
       @Assisted Settings settings) {
 
-    super(index, indexSettings, name, settings);
+    super(index, indexSettings.getSettings(), name, settings);
     this.protectedWords = parseProtectedWords(env, settings,
         "protected_words_path");
     this.vowelHarmonyExceptions = parseVowelHarmonyExceptions(env, settings,
