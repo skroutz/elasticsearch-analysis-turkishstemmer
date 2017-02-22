@@ -2,9 +2,9 @@ package org.elasticsearch.plugin.analysis.turkishstemmer;
 
 import org.elasticsearch.index.analysis.AnalysisModule;
 import org.elasticsearch.index.analysis.TurkishStemmerBinderProcessor;
-import org.elasticsearch.plugins.AbstractPlugin;
+import org.elasticsearch.plugins.Plugin;
 
-public class TurkishStemmerPlugin extends AbstractPlugin {
+public class TurkishStemmerPlugin extends Plugin {
 
   @Override
   public String description() {
