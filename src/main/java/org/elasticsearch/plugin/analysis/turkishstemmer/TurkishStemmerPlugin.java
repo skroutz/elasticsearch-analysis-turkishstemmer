@@ -1,22 +1,21 @@
 package org.elasticsearch.plugin.analysis.turkishstemmer;
 
-import org.elasticsearch.index.analysis.AnalysisModule;
-import org.elasticsearch.index.analysis.TurkishStemmerBinderProcessor;
+import org.elasticsearch.indices.analysis.AnalysisModule.AnalysisProvider;
+import org.elasticsearch.index.analysis.TokenFilterFactory;
+import org.elasticsearch.plugins.AnalysisPlugin;
 import org.elasticsearch.plugins.Plugin;
+import org.elasticsearch.index.analysis.TurkishStemmerTokenFilterFactory;
 
-public class TurkishStemmerPlugin extends Plugin {
+import java.util.Map;
+ 
+import static java.util.Collections.singletonMap;
 
-  @Override
-  public String description() {
-    return "Turkish stemmer";
-  }
+public class TurkishStemmerPlugin extends Plugin implements AnalysisPlugin {
 
-  @Override
-  public String name() {
-    return "turkish-stemmer";
-  }
-
-  public void onModule(AnalysisModule module) {
-    module.addProcessor(new TurkishStemmerBinderProcessor());
-  }
+	// Use singletonMap to register our token filter,
+	// since we only have one in our plugin.
+	@Override
+	public Map<String, AnalysisProvider<TokenFilterFactory>> getTokenFilters() {
+		return singletonMap("turkish_stemmer", TurkishStemmerTokenFilterFactory::new);
+	}
 }
