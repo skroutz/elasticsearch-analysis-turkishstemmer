@@ -21,7 +21,7 @@ public class TurkishStemmerTokenFilterFactory extends AbstractTokenFilterFactory
   private final CharArraySet vowelHarmonyExceptions;
   private final CharArraySet averageStemSizeExceptions;
 
-
+  @Inject
   public TurkishStemmerTokenFilterFactory(IndexSettings indexSettings,
       Environment env, @Assisted String name,
       @Assisted Settings settings) {
