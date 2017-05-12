@@ -2,6 +2,15 @@
 
 Stemmer algorithm for Τurkish language.
 
+Versions
+------------
+
+Greeklish Plugin | ElasticSearch | Branch |
+-----------------|---------------|--------|
+5.4.0.1          | 5.4.0         | 5.4.0  |  
+2.4.4.1          | 2.4.4         | 2.4.4  | 
+0.19             | 1.5.0         | 1.5.0  |
+
 ## Introduction to Turkish language morphology
 
 > Turkish is an agglutinative language and has a very rich morphological
