@@ -7,9 +7,9 @@ Versions
 
 TurkishStemmer Plugin | ElasticSearch | Branch |
 ----------------------|---------------|--------|
-5.4.0.1               | 5.4.0         | 5.4.0  |  
-2.4.4.1               | 2.4.4         | 2.4.4  | 
-0.19                  | 1.5.0         | 1.5.0  |
+5.4.0.1               | 5.4.0         | 5.4.0  |
+2.4.4.1               | 2.4.4         | 2.4.4  |
+0.1.9                 | 1.5.0         | 1.5.0  |
 
 ## Introduction to Turkish language morphology
 
@@ -257,23 +257,25 @@ kitap-UmUz-(y)DU               | Kitap
 
 ## Installation
 
+To list all plugins in current installation:
+
+    sudo bin/elasticsearch-plugin list
+
 In order to install the latest version of the plugin, simply run:
 
-    bin/plugin -install gr.skroutz/elasticsearch-analysis-turkishstemmer/0.1.2
+    sudo bin/elasticsearch-plugin install gr.skroutz:elasticsearch-analysis-turkishstemmer:5.4.0.1
+
+In order to install the plugin for version 2.4.4, run:
+
+    sudo bin/plugin install gr.skroutz/elasticsearch-analysis-turkishstemmer/2.4.4.1
 
 In order to install the plugin for versions prior to 1.5.x, run:
 
-    bin/plugin -install gr.skroutz/elasticsearch-analysis-turkishstemmer/0.1.0
+    sudo bin/plugin -install gr.skroutz/elasticsearch-analysis-turkishstemmer/0.1.9
 
-Versions:
+To remove a plugin (5.x.x):
 
-TurkishStemmer Plugin  | ElasticSearch
------------------------|------------------
-0.1.4                  | 1.5.x
-0.1.2                  | 1.5.x
-0.1.1                  | 1.5.x
-0.1.0                  | 0.90.4
-
+    sudo bin/elasticsearch-plugin remove <plugin_name>
 
 ## Usage
 
@@ -282,7 +284,6 @@ TurkishStemmer Plugin  | ElasticSearch
 	    filter:
 	      stem-turkish:
 	        type: turkish_stemmer
-
 
 ## Contributing
 
