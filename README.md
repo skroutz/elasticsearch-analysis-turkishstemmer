@@ -7,6 +7,7 @@ Versions
 
 TurkishStemmer Plugin | ElasticSearch | Branch |
 ----------------------|---------------|--------|
+5.4.2.1               | 5.4.2         | 5.4.2  |
 5.4.0.1               | 5.4.0         | 5.4.0  |
 2.4.4.1               | 2.4.4         | 2.4.4  |
 0.1.9                 | 1.5.0         | 1.5.0  |
@@ -263,7 +264,7 @@ To list all plugins in current installation:
 
 In order to install the latest version of the plugin, simply run:
 
-    sudo bin/elasticsearch-plugin install gr.skroutz:elasticsearch-analysis-turkishstemmer:5.4.0.1
+    sudo bin/elasticsearch-plugin install gr.skroutz:elasticsearch-analysis-turkishstemmer:5.4.2.1
 
 In order to install the plugin for version 2.4.4, run:
 
