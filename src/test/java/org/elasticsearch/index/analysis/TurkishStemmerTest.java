@@ -30,6 +30,7 @@ public class TurkishStemmerTest {
       { "türkiyedir", "türki" },
       { "telefonları" , "telefon" },
       { "acana", "acan" },
+      { "tekken", "tekken" },
       { "telefonu", "telefon" },
       { "telefon", "telefon" },
       { "alarm", "alarm" },
@@ -170,6 +171,7 @@ public class TurkishStemmerTest {
     Assert.assertEquals(stemmer.proceedToStem("ağda"), false);
     Assert.assertEquals(stemmer.proceedToStem(""), false);
     Assert.assertEquals(stemmer.proceedToStem("a"), false);
+    Assert.assertEquals(stemmer.proceedToStem("tekken"), false);
     Assert.assertEquals(stemmer.proceedToStem("saatler"), true);
   }
 }
