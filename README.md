@@ -7,9 +7,10 @@ Versions
 
 TurkishStemmer Plugin | ElasticSearch | Branch |
 ----------------------|---------------|--------|
+5.4.2.2               | 5.4.2         | 5.4.2  |  
 5.4.0.1               | 5.4.0         | 5.4.0  |  
-2.4.4.1               | 2.4.4         | 2.4.4  | 
-0.19                  | 1.5.0         | 1.5.0  |
+2.4.4.2               | 2.4.4         | 2.4.4  | 
+1.5.0.2               | 1.5.0         | 1.5.0  |
 
 ## Introduction to Turkish language morphology
 
