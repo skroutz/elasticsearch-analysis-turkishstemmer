@@ -41,7 +41,9 @@ public class TurkishStemmerTest {
       { "aparatı", "aparat" },
       { "arada", "ara" },
       { "arasındaki", "ara" },
-      { "gozluklerinde", "gozluk" }
+      { "gozluklerinde", "gozluk" },
+      { "monitörü", "monitör" },
+      { "monitöru", "monitör" }
     };
   }
 

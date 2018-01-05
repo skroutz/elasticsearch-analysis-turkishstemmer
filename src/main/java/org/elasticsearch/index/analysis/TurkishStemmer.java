@@ -184,6 +184,35 @@ public class TurkishStemmer {
     wordsToStem = new HashSet<String>(stems);
     wordsToStem.add(originalWord);
 
+    // If it's not a protected word
+    if (!protectedWords.contains(String.valueOf(s))) {
+      // and none of the stemming rules matches
+      if (stems.size() == 0) {
+        char lastLetter = s[s.length - 1];
+        if(lastLetter == 'u' || lastLetter == 'ü' || lastLetter == 'i' ||
+                lastLetter == 'ı') {
+          // if it's a u replace it with ü and vice versa
+          if (lastLetter == 'u') {
+            s[s.length - 1] = 'ü';
+          } else if (lastLetter == 'ü') {
+            s[s.length - 1] = 'u';
+            // if it's a i replace it with ı and vice versa
+          } else if (lastLetter == 'i') {
+            s[s.length - 1] = 'ı';
+          } else if (lastLetter == 'ı') {
+            s[s.length - 1] = 'i';
+          }
+
+          // and try stemming again - hopefully it will find a match this time
+          // recursive call - beware!
+          // TODO: add an argument to restrict number of potential calls in order
+          // to avoid worst case scenario -> stack overflow
+          // TODO: check if there are other cases we need to consider e.g.
+          // vowel harmony
+          return stem(s, len);
+        }
+      }
+    }
     for(String word : wordsToStem) {
       // Process each possible stem with the derivational suffix state machine.
       derivationalSuffixStripper(word, stems);
