@@ -41,7 +41,13 @@ public class TurkishStemmerTest {
       { "aparatı", "aparat" },
       { "arada", "ara" },
       { "arasındaki", "ara" },
-      { "gozluklerinde", "gozluk" }
+      { "gozluklerinde", "gozluk" },
+      { "monitoru", "monitor" },
+      { "monitörü", "monitör" },
+      { "monitorü", "monitor" },
+      { "monitöru", "monitör" },
+      { "çantası", "çanta" },
+      { "çantasi", "çanta" }
     };
   }
 
@@ -49,7 +55,7 @@ public class TurkishStemmerTest {
   public void testStem(String word, String expectedStem) {
     token = word.toCharArray();
     tokenLength = word.length();
-    stem = stemmer.stem(token, tokenLength);
+    stem = stemmer.stem(token, tokenLength, 0);
 
     Assert.assertEquals(stem, expectedStem);
   }

@@ -32,7 +32,7 @@ public class UpdateStemmingSamples {
         String[] sample =  line.split(",");
         token = sample[0].toCharArray();
         tokenLength = sample[0].length();
-        stem = stemmer.stem(token, tokenLength);
+        stem = stemmer.stem(token, tokenLength, 0);
         writer.write(sample[0] + "," + stem);
         writer.newLine();
       }

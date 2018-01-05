@@ -153,12 +153,15 @@ public class TurkishStemmer {
 
   /**
    * Finds the stem of a given word.
+   * In case it remained unstemmed it attempts to correct some mistypes such
+   * as 'u' instead of 'ü' and 'i' instead of 'ı'.
    *
    * @param s an array with the characters of the word
    * @param len the length of the word
+   * @param d the call stack depth
    * @return the stemmed word
    */
-  public String stem(char s[], int len) {
+  public String stem(char s[], int len, int d) {
 
     String originalWord = new String(s, 0, len);
 
@@ -183,6 +186,28 @@ public class TurkishStemmer {
 
     wordsToStem = new HashSet<String>(stems);
     wordsToStem.add(originalWord);
+
+    if (wordsToStem.contains(new String(s, 0, len)) && wordsToStem.size() < 2
+            && d < 1) {
+      // If none of the stemming rules matches
+        char lastLetter = s[len - 1];
+        if (lastLetter == 'u' || lastLetter == 'ü' || lastLetter == 'i' ||
+                lastLetter == 'ı') {
+          // if it's a u replace it with ü and vice versa
+          if (lastLetter == 'u') {
+            s[len - 1] = 'ü';
+          } else if (lastLetter == 'ü') {
+            s[len - 1] = 'u';
+            // if it's a i replace it with ı and vice versa
+          } else if (lastLetter == 'i') {
+            s[len - 1] = 'ı';
+          } else if (lastLetter == 'ı') {
+            s[len - 1] = 'i';
+          }
+          // and try stemming again - hopefully it will find a match this time
+          return stem(s, len, ++d);
+        }
+    }
 
     for(String word : wordsToStem) {
       // Process each possible stem with the derivational suffix state machine.

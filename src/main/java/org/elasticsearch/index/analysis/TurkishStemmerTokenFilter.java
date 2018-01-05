@@ -32,7 +32,7 @@ public class TurkishStemmerTokenFilter extends TokenFilter {
 
     if (input.incrementToken()) {
       if (!keywordAttr.isKeyword()) {
-        stem = stemmer.stem(termAtt.buffer(), termAtt.length());
+        stem = stemmer.stem(termAtt.buffer(), termAtt.length(), 0);
         termAtt.copyBuffer(stem.toCharArray(), 0, stem.length());
       }
       return true;
