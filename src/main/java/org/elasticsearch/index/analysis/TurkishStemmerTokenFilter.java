@@ -27,7 +27,7 @@ public class TurkishStemmerTokenFilter extends TokenFilter {
   }
 
   @Override
-  public boolean incrementToken() throws IOException {
+  public final boolean incrementToken() throws IOException {
     String stem;
 
     if (input.incrementToken()) {
