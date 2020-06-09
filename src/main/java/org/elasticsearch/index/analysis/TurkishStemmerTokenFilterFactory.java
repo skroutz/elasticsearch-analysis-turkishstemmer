@@ -49,13 +49,7 @@ public class TurkishStemmerTokenFilterFactory extends AbstractTokenFilterFactory
   private CharArraySet parseProtectedWords(Environment env, Settings settings,
       String settingPrefix) {
 
-    CharArraySet protectedWords = null;
-
-    try{
-      protectedWords = parseExceptions(env, settings, settingPrefix);
-    } catch(IOException e) {
-      logger.info("Failed to load given protected words, using default set");
-    }
+    CharArraySet protectedWords = parseExceptions(env, settings, settingPrefix);
 
     if (protectedWords == null) {
       protectedWords = TurkishStemmer.getDefaultProtectedWordSet();
@@ -67,15 +61,7 @@ public class TurkishStemmerTokenFilterFactory extends AbstractTokenFilterFactory
   private CharArraySet parseLastConsonantExceptions(Environment env,
       Settings settings, String settingPrefix) {
 
-    CharArraySet lastConsonantExceptions = null;
-
-    try {
-      lastConsonantExceptions =
-          parseExceptions(env, settings, settingPrefix);
-    } catch (IOException e) {
-      logger.info("Failed to load given last consonant exceptions, using default set");
-    }
-
+    CharArraySet lastConsonantExceptions = parseExceptions(env, settings, settingPrefix);
     if (lastConsonantExceptions == null) {
       lastConsonantExceptions = TurkishStemmer.getDefaultLastConsonantSet();
     }
@@ -86,14 +72,7 @@ public class TurkishStemmerTokenFilterFactory extends AbstractTokenFilterFactory
   private CharArraySet parseVowelHarmonyExceptions(Environment env,
       Settings settings, String settingPrefix) {
 
-    CharArraySet vowelHarmonyExceptions = null;
-
-    try {
-      vowelHarmonyExceptions =
-          parseExceptions(env, settings, settingPrefix);
-    } catch (IOException e) {
-      logger.info("Failed to load given last consonant exceptions, using default set");
-    }
+    CharArraySet vowelHarmonyExceptions = parseExceptions(env, settings, settingPrefix);
 
     if (vowelHarmonyExceptions == null) {
       vowelHarmonyExceptions = TurkishStemmer.getDefaultVowelHarmonySet();
@@ -105,14 +84,7 @@ public class TurkishStemmerTokenFilterFactory extends AbstractTokenFilterFactory
   private CharArraySet parseAverageStemSizeExceptions(Environment env,
       Settings settings, String settingPrefix) {
 
-    CharArraySet averageStemSizeExceptions = null;
-
-    try {
-      averageStemSizeExceptions =
-          parseExceptions(env, settings, settingPrefix);
-    } catch (IOException e) {
-      logger.info("Failed to load given average stem size exceptions, using default set");
-    }
+    CharArraySet averageStemSizeExceptions = parseExceptions(env, settings, settingPrefix);
 
     if (averageStemSizeExceptions == null) {
       averageStemSizeExceptions = TurkishStemmer.getDefaultAverageStemSizeSet();
@@ -121,32 +93,12 @@ public class TurkishStemmerTokenFilterFactory extends AbstractTokenFilterFactory
     return averageStemSizeExceptions;
   }
 
-  private CharArraySet parseExceptions(Environment env, Settings settings,
-      String settingPrefix) throws IOException {
-
-    List<String> exceptionsList = new ArrayList<String>();
-    Reader exceptionsReader = null;
-
-    try {
-      exceptionsReader = Analysis.getReaderFromFile(env, settings, settingPrefix);
-    } catch (InvalidPathException e) {
-      logger.info("failed to find the " + settingPrefix + ", using the default set");
-    }
-
-    if (exceptionsReader != null) {
-      try {
-        exceptionsList = Analysis.loadWordList(exceptionsReader, "#");
-        if (exceptionsList.isEmpty()) {
-          return CharArraySet.EMPTY_SET;
-        } else {
-          return new CharArraySet(exceptionsList, false);
-        }
-      } finally {
-        if (exceptionsReader != null)
-          exceptionsReader.close();
-      }
+  private CharArraySet parseExceptions(Environment env, Settings settings, String settingPrefix) {
+    List<String> exceptionsList  = Analysis.getWordList(env, settings, settingPrefix);
+    if (exceptionsList.isEmpty()) {
+      return CharArraySet.EMPTY_SET;
     } else {
-      return null;
+      return new CharArraySet(exceptionsList, false);
     }
   }
 }

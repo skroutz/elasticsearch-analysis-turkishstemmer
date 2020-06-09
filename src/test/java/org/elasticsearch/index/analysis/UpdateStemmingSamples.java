@@ -8,14 +8,12 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 
-import org.apache.lucene.analysis.util.WordlistLoader;
+import org.apache.lucene.analysis.WordlistLoader;
 
 public class UpdateStemmingSamples {
   private final static TurkishStemmer stemmer = new TurkishStemmer();
 
-  public static void main(String args[])
-      throws java.io.IOException, java.io.FileNotFoundException
-  {
+  public static void main(String args[]) throws java.io.IOException {
     List<String> lines = WordlistLoader.getLines(
         new FileInputStream("src/test/resources/stemming_samples.txt"),
         StandardCharsets.UTF_8);

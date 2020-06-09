@@ -14,7 +14,7 @@ import java.util.Set;
 
 import org.apache.commons.lang3.StringUtils; // Apache StringUtils
 import org.apache.lucene.analysis.CharArraySet;
-import org.apache.lucene.analysis.util.WordlistLoader;
+import org.apache.lucene.analysis.WordlistLoader;
 import org.apache.lucene.util.IOUtils;
 import org.apache.logging.log4j.Logger;
 import org.elasticsearch.common.logging.Loggers;
@@ -35,7 +35,7 @@ public class TurkishStemmer {
   /**
    * Logger.
    */
-  protected final Logger logger = Loggers.getLogger("turkish-stemmer");
+  protected final Logger logger = Loggers.getLogger(this.getClass(), "TurkishStemmer");
 
   /**
    * The turkish characters. They are used for skipping not turkish words.
