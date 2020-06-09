@@ -1,6 +1,8 @@
 .classpath
 .settings
 .project
+.idea
 target
 bin
 test-output
+*.iml
