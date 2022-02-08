@@ -95,6 +95,9 @@ public class TurkishStemmerTokenFilterFactory extends AbstractTokenFilterFactory
 
   private CharArraySet parseExceptions(Environment env, Settings settings, String settingPrefix) {
     List<String> exceptionsList  = Analysis.getWordList(env, settings, settingPrefix);
+    if (exceptionsList == null) {
+      return null;
+    }
     if (exceptionsList.isEmpty()) {
       return CharArraySet.EMPTY_SET;
     } else {
